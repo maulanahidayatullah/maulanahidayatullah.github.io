@@ -144,7 +144,7 @@ body {
 
 .header {
   background: #313131;
-  background: url('../images/Slider/slider-1.jpg');
+  background: url('../images/Slider/slider-51.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -913,6 +913,15 @@ input:checked+label span:last-child {
 
 .about-me-images img {
   width: 100%;
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+.about-me-images img:hover {
+  width: 100%;
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
@@ -923,15 +932,7 @@ input:checked+label span:last-child {
   -ms-transition: all linear .3s;
   -o-transition: all linear .3s;
   transition: all linear .3s;
-}
 
-.about-me-images img:hover {
-  width: 100%;
-  -webkit-filter: grayscale(0%);
-  -moz-filter: grayscale(0%);
-  -ms-filter: grayscale(0%);
-  -o-filter: grayscale(0%);
-  filter: grayscale(0%);
 }
 
 .about-me .hvr-icon-hang:before {
@@ -1308,8 +1309,8 @@ ul.experience-chart h4 {
 }
 
 .filtr-item:hover .item-holder img {
-  -webkit-transform: translateX(150px);
-  transform: translateX(150px);
+  -webkit-transform: translateX(180px);
+  transform: translateX(180px);
   cursor: pointer;
 }
 
@@ -1327,25 +1328,49 @@ ul.experience-chart h4 {
   top: 24px;
   bottom: 0;
   left: 0;
-  width: 150px;
+  width: 180px;
   background: #313131;
-  -webkit-transform: translateX(-150px);
-  transform: translateX(-150px);
+  -webkit-transform: translateX(-180px);
+  transform: translateX(-180px);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
 .item-caption h2 {
-  font-size: 32px;
+  padding-top: 15px;
+  font-size: 24px;
   font-family: 'Asap', sans-serif;
   font-weight: 700;
   padding-left: 13px;
+  padding-right: 13px;
+}
+
+.item-caption h4 {
+  font-size: 13px;
+  font-family: 'Asap', sans-serif;
+  font-weight: 500;
+  margin-left: 13px;
+  margin-right: 13px;
+  padding: 5px;
+  color: orange;
+  background: #6f6f6f;
+}
+
+.item-badge {
+  margin-left: 13px;
+  margin-right: 13px;
+  color: #212121;
 }
 
 .item-caption p {
-  padding-left: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  /* padding-left: 8px; */
   font-family: Asap;
-  font-weight: 500;
+  font-weight: 400;
+  /* padding-right: 8px; */
+  /* text-align: justify; */
 }
 
 .item-created {
@@ -1577,17 +1602,18 @@ ul.experience-chart h4 {
 }
 
 .contact-holder {
-  margin-top: 120px;
+  margin-top: 80px;
   position: relative;
   z-index: 2;
+  margin-bottom: 50px;
 }
 
 .contact-holder h1 {
   position: relative;
   text-align: center;
   color: #fff;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 600;
+  letter-spacing: 3px;
 }
 
 .contact-holder h1:before {
@@ -1652,13 +1678,18 @@ textarea.form-control::-webkit-input-placeholder,
   margin-bottom: 5px;
 }
 
+.contact-holder hr {
+  border: 1px solid #fff;
+  margin-bottom: 5px;
+}
+
 .footer-icons {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  width: 210px;
+  /* width: 210px; */
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -1666,6 +1697,7 @@ textarea.form-control::-webkit-input-placeholder,
   -ms-flex-align: center;
   align-items: center;
   margin-top: 15px;
+  /* margin-bottom: 40px; */
 }
 
 .footer-icons div {
@@ -1676,7 +1708,7 @@ textarea.form-control::-webkit-input-placeholder,
 .to-top a {
   text-decoration: none;
   color: #313131;
-  font-size: 17px;
+  /* font-size: 10px; */
 }
 
 .footer-icons .fa.fa-facebook-f {
@@ -1688,7 +1720,7 @@ textarea.form-control::-webkit-input-placeholder,
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   background: #fff;
-  padding: 7px;
+  padding: 10px;
 }
 
 .footer-icons .fa:hover {
@@ -1718,12 +1750,13 @@ textarea.form-control::-webkit-input-placeholder,
 }
 
 .credit {
-  position: absolute;
+  /* position: absolute; */
   bottom: 15px;
   left: 0;
   right: 0;
   text-align: center;
   color: #fff;
+  margin-top: 50px;
 }
 
 /*--------------------------------
