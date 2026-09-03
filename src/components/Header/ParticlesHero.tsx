@@ -46,10 +46,13 @@ const ParticlesHeroComponent: React.FC = () => {
             enable: true,
             mode: 'push',
           },
+          resize: {
+            enable: true,
+          },
         },
         modes: {
           grab: {
-            distance: 150,
+            distance: 140,
             links: {
               opacity: isDark ? 0.8 : 0.6,
               color: isDark ? '#60a5fa' : '#3b82f6',
@@ -68,7 +71,7 @@ const ParticlesHeroComponent: React.FC = () => {
         },
         links: {
           color: isDark ? '#60a5fa' : '#3b82f6',
-          distance: 140,
+          distance: 130,
           enable: true,
           opacity: isDark ? 0.45 : 0.35,
           width: 1.5,
@@ -86,10 +89,10 @@ const ParticlesHeroComponent: React.FC = () => {
         number: {
           density: {
             enable: true,
-            width: 900,
-            height: 900,
+            width: 480,
+            height: 800,
           },
-          value: 48,
+          value: 42,
         },
         opacity: {
           value: { min: isDark ? 0.45 : 0.35, max: isDark ? 0.95 : 0.85 },
@@ -112,7 +115,12 @@ const ParticlesHeroComponent: React.FC = () => {
     <div
       style={{
         position: 'absolute',
-        inset: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100%',
+        height: '100%',
         overflow: 'hidden',
         pointerEvents: 'auto',
         zIndex: 0,
@@ -121,7 +129,7 @@ const ParticlesHeroComponent: React.FC = () => {
       <Particles
         id="tsparticles-hero-canvas"
         options={options}
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
       />
     </div>
   );

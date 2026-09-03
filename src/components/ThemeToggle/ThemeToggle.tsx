@@ -34,7 +34,7 @@ export const ThemeToggle: React.FC = () => {
       style={{
         position: 'fixed',
         top: '12px',
-        right: '18px',
+        right: '24px',
         zIndex: 10001,
         display: 'inline-flex',
         alignItems: 'center',

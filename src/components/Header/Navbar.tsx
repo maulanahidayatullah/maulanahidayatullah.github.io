@@ -35,43 +35,43 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       }}
     >
       <div
-        className="container"
         style={{
+          width: '100%',
+          maxWidth: '100%',
+          padding: '0 clamp(1.25rem, 3.5vw, 3.5rem)',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
         }}
       >
-        {/* Brand Logo Sticker in Pastel Blue */}
-        {/* <a
-          href="#hero"
+        {/* Mobile Menu Toggle Button: Positioned on the LEFT with comfortable margin */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+          className="nb-mobile-toggle"
           style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
+            padding: '7px 11px',
             backgroundColor: 'var(--color-pastel-blue)',
-            border: '2.5px solid var(--color-border)',
-            boxShadow: '3px 3px 0 var(--color-shadow)',
-            padding: '5px 12px',
-            fontWeight: 800,
-            fontSize: '1.05rem',
-            letterSpacing: '-0.02em',
             color: '#121212',
+            border: '2px solid var(--color-border)',
+            boxShadow: '2.5px 2.5px 0 var(--color-shadow)',
+            borderRadius: '4px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginRight: 'auto', // Anchors button to the left on mobile
           }}
         >
-          <span style={{ backgroundColor: '#121212', color: '#fff', padding: '2px 6px', fontSize: '0.85rem' }}>
-            MH
-          </span>
-          <span>MAULANA.H</span>
-        </a> */}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation Links: Left aligned with clean side margin */}
         <div
           style={{
             display: 'none',
             alignItems: 'center',
-            gap: '8px',
+            gap: '10px',
           }}
           className="nb-desktop-nav"
         >
@@ -83,10 +83,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 href={item.href}
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.86rem',
                   fontWeight: 700,
                   letterSpacing: '0.04em',
-                  padding: '6px 14px',
+                  padding: '7px 15px',
                   backgroundColor: isActive ? 'var(--color-pastel-blue)' : 'transparent',
                   border: isActive ? '2px solid var(--color-border)' : '2px solid transparent',
                   boxShadow: isActive ? '2px 2px 0 var(--color-shadow)' : 'none',
@@ -113,13 +113,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           })}
         </div>
 
-        {/* Quick Socials + Hire Me CTA */}
+        {/* Desktop Social Icons: Aligned neatly beside sticky ThemeToggle */}
         <div
           style={{
             display: 'none',
             alignItems: 'center',
             gap: '8px',
-            marginRight: '90px', // Breathing room for sticky theme toggle button
+            marginRight: '90px', // Space for the fixed ThemeToggle button
           }}
           className="nb-desktop-nav"
         >
@@ -139,6 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: '4px',
+              transition: 'all 0.12s ease',
             }}
           >
             <Github size={18} />
@@ -160,40 +161,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: '4px',
+              transition: 'all 0.12s ease',
             }}
           >
             <Linkedin size={18} />
           </a>
-
-          {/* <a
-            href="#contact"
-            className="nb-btn"
-            style={{ padding: '0.45rem 1.1rem', fontSize: '0.85rem', boxShadow: '3px 3px 0 var(--color-shadow)' }}
-          >
-            HIRE ME
-          </a> */}
         </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          className="nb-mobile-toggle"
-          style={{
-            padding: '6px',
-            backgroundColor: 'var(--color-pastel-blue)',
-            color: '#121212',
-            border: '2px solid var(--color-border)',
-            boxShadow: '2px 2px 0 var(--color-shadow)',
-            borderRadius: '4px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginRight: '80px', // Space for theme toggle on mobile
-          }}
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
       </div>
 
       {/* Mobile Drawer */}
