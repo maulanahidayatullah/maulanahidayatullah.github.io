@@ -71,7 +71,7 @@ const ParticlesHeroComponent: React.FC = () => {
         },
         links: {
           color: isDark ? '#60a5fa' : '#3b82f6',
-          distance: 130,
+          distance: 140,
           enable: true,
           opacity: isDark ? 0.45 : 0.35,
           width: 1.5,
@@ -89,10 +89,10 @@ const ParticlesHeroComponent: React.FC = () => {
         number: {
           density: {
             enable: true,
-            width: 480,
-            height: 800,
+            width: 550,
+            height: 550,
           },
-          value: 42,
+          value: 50,
         },
         opacity: {
           value: { min: isDark ? 0.45 : 0.35, max: isDark ? 0.95 : 0.85 },
