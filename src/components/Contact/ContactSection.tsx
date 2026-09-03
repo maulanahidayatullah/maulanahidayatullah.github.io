@@ -18,7 +18,7 @@ export const ContactSection: React.FC = () => {
       particleCount: 50,
       spread: 60,
       origin: { y: 0.8 },
-      colors: ['#facc15', '#38bdf8', '#4ade80', '#fb923c', '#121212'],
+      colors: ['#93c5fd', '#60a5fa', '#7dd3fc', '#121212', '#ffffff'],
     });
     setTimeout(() => setCopiedEmail(false), 2500);
   };
@@ -41,7 +41,7 @@ export const ContactSection: React.FC = () => {
       detail: '+62 895 6365 98769',
       href: `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`,
       icon: <MessageSquare size={24} />,
-      bg: 'var(--color-green-light)',
+      bg: 'var(--color-pastel-mint)',
       subtext: 'Fastest response / Direct messaging',
     },
     {
@@ -49,7 +49,7 @@ export const ContactSection: React.FC = () => {
       detail: emailAddress,
       href: `mailto:${emailAddress}`,
       icon: <Mail size={24} />,
-      bg: 'var(--color-cyan-light)',
+      bg: 'var(--color-pastel-blue-light)',
       subtext: 'Formal inquiries & opportunities',
     },
     {
@@ -57,7 +57,7 @@ export const ContactSection: React.FC = () => {
       detail: 'maulana-hidayatullah',
       href: 'https://www.linkedin.com/in/maulana-hidayatullah-64a5a4158/',
       icon: <Linkedin size={24} />,
-      bg: 'var(--color-purple-light)',
+      bg: 'var(--color-pastel-cyan)',
       subtext: 'Professional network & experience',
     },
     {
@@ -65,7 +65,7 @@ export const ContactSection: React.FC = () => {
       detail: '@maulanahidayatullah',
       href: 'https://github.com/maulanahidayatullah',
       icon: <Github size={24} />,
-      bg: 'var(--color-yellow-light)',
+      bg: 'var(--color-pastel-blue)',
       subtext: 'Open source & code repositories',
     },
   ];
@@ -79,12 +79,12 @@ export const ContactSection: React.FC = () => {
       }}
     >
       <div className="container">
-        {/* Collaboration Banner Box */}
+        {/* Collaboration Banner Box in Pastel Blue */}
         <div
           className="nb-card"
           style={{
-            backgroundColor: 'var(--color-yellow)',
-            padding: '3rem 2rem',
+            backgroundColor: 'var(--color-pastel-blue)',
+            padding: '3.5rem 2rem',
             textAlign: 'center',
             marginBottom: '5rem',
           }}
@@ -124,7 +124,7 @@ export const ContactSection: React.FC = () => {
               href={`https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`}
               target="_blank"
               rel="noreferrer"
-              className="nb-btn nb-btn-green"
+              className="nb-btn nb-btn-mint"
               style={{ padding: '0.85rem 1.8rem' }}
             >
               <MessageSquare size={18} />
@@ -144,7 +144,7 @@ export const ContactSection: React.FC = () => {
 
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
             CONTACT ME
           </div>
           <h2 className="section-title">LET'S CONNECT</h2>

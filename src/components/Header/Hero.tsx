@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import confetti from 'canvas-confetti';
-import { ArrowDownRight, Download, Sparkles, Code2 } from 'lucide-react';
+import { ArrowDownRight, Download, Sparkles, Code2, Send } from 'lucide-react';
 import { ParticlesHero } from './ParticlesHero';
 
 const ROLES = [
@@ -11,17 +11,6 @@ const ROLES = [
   'BACKEND SPECIALIST',
   'EV & IOT TELEMATICS ENGINEER',
   'API & DATABASE ARCHITECT',
-];
-
-const TICKER_ITEMS = [
-  'NODE.JS / EXPRESS',
-  'JAVA SPRING BOOT',
-  'OCPP 1.6 EV PROTOCOL',
-  'POSTGRESQL & MONGODB',
-  'DOCKER & LINUX UBUNTU',
-  'VUE.JS & REACT',
-  'HARDWARE BIOMETRICS',
-  'XENDIT PAYMENT RAILS',
 ];
 
 export const Hero: React.FC = () => {
@@ -57,7 +46,7 @@ export const Hero: React.FC = () => {
       particleCount: 70,
       spread: 60,
       origin: { y: 0.7 },
-      colors: ['#facc15', '#38bdf8', '#4ade80', '#fb923c', '#121212'],
+      colors: ['#93c5fd', '#60a5fa', '#7dd3fc', '#121212', '#ffffff'],
     });
   };
 
@@ -68,8 +57,8 @@ export const Hero: React.FC = () => {
       style={{
         position: 'relative',
         backgroundColor: 'var(--bg-canvas)',
-        paddingTop: '5rem',
-        paddingBottom: '4rem',
+        paddingTop: '6rem',
+        paddingBottom: '5rem',
         overflow: 'hidden',
       }}
     >
@@ -90,7 +79,7 @@ export const Hero: React.FC = () => {
           >
             <div
               style={{
-                backgroundColor: 'var(--color-yellow)',
+                backgroundColor: 'var(--color-pastel-blue)',
                 border: '2.5px solid var(--color-black)',
                 boxShadow: '3px 3px 0 var(--color-black)',
                 padding: '4px 14px',
@@ -109,7 +98,7 @@ export const Hero: React.FC = () => {
 
             <div
               style={{
-                backgroundColor: 'var(--color-green-light)',
+                backgroundColor: '#ffffff',
                 border: '2.5px solid var(--color-black)',
                 boxShadow: '3px 3px 0 var(--color-black)',
                 padding: '4px 14px',
@@ -127,7 +116,7 @@ export const Hero: React.FC = () => {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  backgroundColor: '#16a34a',
+                  backgroundColor: '#3b82f6',
                   display: 'inline-block',
                 }}
               />
@@ -135,7 +124,7 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Main Giant Headline */}
+          {/* Main Giant Headline with Pastel Blue Highlight */}
           <h1
             ref={headlineRef}
             style={{
@@ -151,8 +140,8 @@ export const Hero: React.FC = () => {
             MAULANA <br />
             <span
               style={{
-                backgroundColor: 'var(--color-yellow)',
-                padding: '0 12px',
+                backgroundColor: 'var(--color-pastel-blue)',
+                padding: '0 14px',
                 border: '3px solid var(--color-black)',
                 boxShadow: '6px 6px 0 var(--color-black)',
                 display: 'inline-block',
@@ -186,7 +175,7 @@ export const Hero: React.FC = () => {
                   boxShadow: '4px 4px 0 var(--color-black)',
                   padding: '6px 20px',
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+                  fontSize: 'clamp(1rem, 2.5vw, 1.35rem)',
                   fontWeight: 700,
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -240,7 +229,12 @@ export const Hero: React.FC = () => {
               <span>DOWNLOAD CV</span>
             </a>
 
-            <a href="#contact" className="nb-btn nb-btn-cyan" style={{ padding: '0.9rem 2rem' }}>
+            <a
+              href="#contact"
+              className="nb-btn nb-btn-light"
+              style={{ padding: '0.9rem 2rem' }}
+            >
+              <Send size={18} />
               <span>GET IN TOUCH</span>
             </a>
           </div>
@@ -256,10 +250,10 @@ export const Hero: React.FC = () => {
               overflow: 'hidden',
             }}
           >
-            {/* Terminal Window Header */}
+            {/* Terminal Window Header with Pastel Blue */}
             <div
               style={{
-                backgroundColor: 'var(--color-yellow)',
+                backgroundColor: 'var(--color-pastel-blue)',
                 borderBottom: '3px solid var(--color-black)',
                 padding: '10px 16px',
                 display: 'flex',
@@ -288,29 +282,15 @@ export const Hero: React.FC = () => {
                 lineHeight: 1.7,
               }}
             >
-              <div><strong style={{ color: '#0284c7' }}>"developer"</strong>: <span style={{ color: '#b45309' }}>"Maulana Hidayatullah"</span>,</div>
-              <div><strong style={{ color: '#0284c7' }}>"core_specialties"</strong>: [</div>
+              <div><strong style={{ color: '#0369a1' }}>"developer"</strong>: <span style={{ color: '#0f766e' }}>"Maulana Hidayatullah"</span>,</div>
+              <div><strong style={{ color: '#0369a1' }}>"core_specialties"</strong>: [</div>
               <div style={{ paddingLeft: '1.5rem' }}>
-                <span style={{ color: '#b45309' }}>"Express.js"</span>, <span style={{ color: '#b45309' }}>"Spring Boot"</span>, <span style={{ color: '#b45309' }}>"OCPP 1.6 Telematics"</span>, <span style={{ color: '#b45309' }}>"PostgreSQL"</span>
+                <span style={{ color: '#0f766e' }}>"Express.js"</span>, <span style={{ color: '#0f766e' }}>"Spring Boot"</span>, <span style={{ color: '#0f766e' }}>"OCPP 1.6 Telematics"</span>, <span style={{ color: '#0f766e' }}>"PostgreSQL"</span>
               </div>
               <div>],</div>
-              <div><strong style={{ color: '#0284c7' }}>"education"</strong>: <span style={{ color: '#b45309' }}>"Indramayu State Polytechnic (GPA 3.45/4.00)"</span>,</div>
-              <div><strong style={{ color: '#0284c7' }}>"production_ready"</strong>: <span style={{ color: '#16a34a', fontWeight: 700 }}>true</span></div>
+              <div><strong style={{ color: '#0369a1' }}>"education"</strong>: <span style={{ color: '#0f766e' }}>"Indramayu State Polytechnic (GPA 3.45/4.00)"</span>,</div>
+              <div><strong style={{ color: '#0369a1' }}>"production_ready"</strong>: <span style={{ color: '#16a34a', fontWeight: 700 }}>true</span></div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Marquee Ticker Banner */}
-      <div style={{ marginTop: '4rem' }}>
-        <div className="ticker-wrap">
-          <div className="ticker-track">
-            {TICKER_ITEMS.concat(TICKER_ITEMS).map((item, idx) => (
-              <div key={idx} className="ticker-item">
-                <span>✦</span>
-                <span>{item}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

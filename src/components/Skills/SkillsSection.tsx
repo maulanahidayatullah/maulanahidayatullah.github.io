@@ -4,11 +4,11 @@ import { technicalSkills, softSkills } from '../../data/skillsData';
 
 export const SkillsSection: React.FC = () => {
   const categoryHeaders = [
-    { bg: 'var(--color-yellow)', icon: <Server size={20} /> },
-    { bg: 'var(--color-cyan)', icon: <Layout size={20} /> },
-    { bg: 'var(--color-green)', icon: <Database size={20} /> },
-    { bg: 'var(--color-coral)', icon: <Cpu size={20} /> },
-    { bg: 'var(--color-purple)', icon: <Terminal size={20} /> },
+    { bg: 'var(--color-pastel-blue)', icon: <Server size={20} /> },
+    { bg: 'var(--color-pastel-cyan)', icon: <Layout size={20} /> },
+    { bg: 'var(--color-pastel-mint)', icon: <Database size={20} /> },
+    { bg: 'var(--color-pastel-blue-light)', icon: <Cpu size={20} /> },
+    { bg: 'var(--color-pastel-lavender)', icon: <Terminal size={20} /> },
   ];
 
   return (
@@ -22,7 +22,7 @@ export const SkillsSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
             TECHNICAL ARSENAL
           </div>
           <h2 className="section-title">SKILLS & FRAMEWORKS</h2>
@@ -124,7 +124,7 @@ export const SkillsSection: React.FC = () => {
           className="nb-card"
           style={{
             padding: '2rem',
-            backgroundColor: 'var(--color-yellow-light)',
+            backgroundColor: 'var(--color-pastel-blue-light)',
             textAlign: 'center',
           }}
         >

@@ -37,8 +37,8 @@ export const ParticlesHero: React.FC = () => {
         grab: {
           distance: 150,
           links: {
-            opacity: 0.7,
-            color: '#121212',
+            opacity: 0.6,
+            color: '#60a5fa',
           },
         },
         push: {
@@ -48,13 +48,13 @@ export const ParticlesHero: React.FC = () => {
     },
     particles: {
       color: {
-        value: ['#121212', '#facc15', '#38bdf8', '#fb923c'],
+        value: ['#121212', '#93c5fd', '#60a5fa', '#7dd3fc', '#bfdbfe'],
       },
       links: {
-        color: '#121212',
+        color: '#60a5fa',
         distance: 140,
         enable: true,
-        opacity: 0.25,
+        opacity: 0.35,
         width: 1.5,
       },
       move: {
@@ -76,7 +76,7 @@ export const ParticlesHero: React.FC = () => {
         value: 50,
       },
       opacity: {
-        value: { min: 0.3, max: 0.8 },
+        value: { min: 0.35, max: 0.85 },
       },
       shape: {
         type: 'circle',

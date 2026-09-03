@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar } from './components/Header/Navbar';
 import { Hero } from './components/Header/Hero';
+import { Navbar } from './components/Header/Navbar';
 import { AboutSection } from './components/About/AboutSection';
 import { ExperienceSection } from './components/Experience/ExperienceSection';
 import { SkillsSection } from './components/Skills/SkillsSection';
@@ -14,12 +14,14 @@ export const App: React.FC = () => {
 
   return (
     <div className="portfolio-app" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Sticky Neo-Brutalist Navbar */}
+      {/* 1. Hero Section at the top */}
+      <Hero />
+
+      {/* 2. Sticky Neo-Brutalist Navbar (sits below Hero, sticks on scroll) */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Content */}
+      {/* 3. Main Content */}
       <main style={{ flex: 1 }}>
-        <Hero />
         <AboutSection />
         <ExperienceSection />
         <SkillsSection />

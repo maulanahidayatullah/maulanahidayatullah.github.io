@@ -33,7 +33,7 @@ export const PortfolioSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
             PORTFOLIO
           </div>
           <h2 className="section-title">SELECTED WORKS & SYSTEMS</h2>
@@ -63,7 +63,7 @@ export const PortfolioSection: React.FC = () => {
                     fontWeight: 700,
                     fontSize: '0.88rem',
                     letterSpacing: '0.02em',
-                    backgroundColor: isActive ? 'var(--color-yellow)' : '#ffffff',
+                    backgroundColor: isActive ? 'var(--color-pastel-blue)' : '#ffffff',
                     color: 'var(--color-black)',
                     border: '2.5px solid var(--color-black)',
                     boxShadow: isActive ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
@@ -143,13 +143,13 @@ export const PortfolioSection: React.FC = () => {
                     onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                   />
 
-                  {/* Category Sticker on image */}
+                  {/* Category Sticker in Pastel Blue */}
                   <div
                     style={{
                       position: 'absolute',
                       top: '12px',
                       left: '12px',
-                      backgroundColor: 'var(--color-yellow)',
+                      backgroundColor: 'var(--color-pastel-blue)',
                       border: '2px solid var(--color-black)',
                       boxShadow: '2px 2px 0 var(--color-black)',
                       padding: '3px 10px',

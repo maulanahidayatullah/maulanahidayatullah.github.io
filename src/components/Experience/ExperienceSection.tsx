@@ -21,7 +21,7 @@ export const ExperienceSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
             TRACK RECORD
           </div>
           <h2 className="section-title">EXPERIENCE & EDUCATION</h2>
@@ -41,7 +41,7 @@ export const ExperienceSection: React.FC = () => {
               onClick={() => setActiveTab('work')}
               className="nb-btn"
               style={{
-                backgroundColor: activeTab === 'work' ? 'var(--color-yellow)' : '#ffffff',
+                backgroundColor: activeTab === 'work' ? 'var(--color-pastel-blue)' : '#ffffff',
                 boxShadow: activeTab === 'work' ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
               }}
             >
@@ -53,7 +53,7 @@ export const ExperienceSection: React.FC = () => {
               onClick={() => setActiveTab('education')}
               className="nb-btn"
               style={{
-                backgroundColor: activeTab === 'education' ? 'var(--color-cyan)' : '#ffffff',
+                backgroundColor: activeTab === 'education' ? 'var(--color-pastel-blue)' : '#ffffff',
                 boxShadow: activeTab === 'education' ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
               }}
             >
@@ -84,13 +84,13 @@ export const ExperienceSection: React.FC = () => {
                     position: 'relative',
                   }}
                 >
-                  {/* Period Sticker Tag */}
+                  {/* Period Sticker Tag in Pastel Blue */}
                   <div
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '6px',
-                      backgroundColor: activeTab === 'work' ? 'var(--color-yellow)' : 'var(--color-cyan)',
+                      backgroundColor: 'var(--color-pastel-blue-light)',
                       border: '2px solid var(--color-black)',
                       boxShadow: '2px 2px 0 var(--color-black)',
                       padding: '4px 12px',

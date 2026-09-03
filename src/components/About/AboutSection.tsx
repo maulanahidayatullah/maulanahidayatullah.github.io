@@ -8,15 +8,15 @@ export const AboutSection: React.FC = () => {
       particleCount: 70,
       spread: 60,
       origin: { y: 0.7 },
-      colors: ['#facc15', '#38bdf8', '#4ade80', '#fb923c', '#121212'],
+      colors: ['#93c5fd', '#60a5fa', '#7dd3fc', '#121212', '#ffffff'],
     });
   };
 
   const statCards = [
-    { label: 'EXPERIENCE', val: '3+ YEARS', color: 'var(--color-yellow-light)', icon: <Award size={22} /> },
-    { label: 'DELIVERED APPS', val: '15+ SYSTEMS', color: 'var(--color-cyan-light)', icon: <Zap size={22} /> },
-    { label: 'PROTOCOLS & APIS', val: '8+ HARDWARE', color: 'var(--color-green-light)', icon: <Server size={22} /> },
-    { label: 'POLINDRA DEGREE', val: '3.45 / 4.00', color: 'var(--color-coral-light)', icon: <ShieldCheck size={22} /> },
+    { label: 'EXPERIENCE', val: '3+ YEARS', color: 'var(--color-pastel-blue-light)', icon: <Award size={22} /> },
+    { label: 'DELIVERED APPS', val: '15+ SYSTEMS', color: 'var(--color-pastel-cyan-light)', icon: <Zap size={22} /> },
+    { label: 'PROTOCOLS & APIS', val: '8+ HARDWARE', color: 'var(--color-pastel-mint)', icon: <Server size={22} /> },
+    { label: 'POLINDRA DEGREE', val: '3.45 / 4.00', color: 'var(--color-pastel-lavender)', icon: <ShieldCheck size={22} /> },
   ];
 
   const highlights = [
@@ -37,7 +37,7 @@ export const AboutSection: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
             ABOUT ME
           </div>
           <h2 className="section-title">ENGINEERING WITH PURPOSE</h2>
@@ -69,14 +69,14 @@ export const AboutSection: React.FC = () => {
                 position: 'relative',
               }}
             >
-              {/* Tape Sticker on Top */}
+              {/* Tape Sticker on Top in Pastel Blue */}
               <div
                 style={{
                   position: 'absolute',
                   top: '-14px',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  backgroundColor: 'var(--color-yellow)',
+                  backgroundColor: 'var(--color-pastel-blue)',
                   border: '2px solid var(--color-black)',
                   padding: '4px 18px',
                   fontFamily: 'var(--font-mono)',

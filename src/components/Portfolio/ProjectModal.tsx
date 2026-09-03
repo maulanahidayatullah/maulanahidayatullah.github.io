@@ -65,10 +65,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             borderRadius: '8px',
           }}
         >
-          {/* Neo-Brutalist Window Titlebar */}
+          {/* Neo-Brutalist Window Titlebar in Pastel Blue */}
           <div
             style={{
-              backgroundColor: 'var(--color-yellow)',
+              backgroundColor: 'var(--color-pastel-blue)',
               borderBottom: '3.5px solid var(--color-black)',
               padding: '12px 18px',
               display: 'flex',

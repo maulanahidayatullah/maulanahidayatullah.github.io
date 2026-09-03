@@ -1,28 +1,27 @@
 /* =========================================================
-   NEO-BRUTALISM DESIGN SYSTEM
+   NEO-BRUTALISM DESIGN SYSTEM - PASTEL BLUE EDITION
    Maulana Hidayatullah - Fullstack & Backend Engineer
    ========================================================= */
 
 :root {
-  --bg-canvas: #faf8f5;
+  --bg-canvas: #f6f9fc;
   --bg-card: #ffffff;
-  --bg-elevated: #f4f0ea;
+  --bg-elevated: #eef4f9;
 
   --color-black: #121212;
-  --color-yellow: #facc15;
-  --color-yellow-light: #fef08a;
-  --color-cyan: #38bdf8;
-  --color-cyan-light: #bae6fd;
-  --color-coral: #fb923c;
-  --color-coral-light: #fed7aa;
-  --color-green: #4ade80;
-  --color-green-light: #bbf7d0;
-  --color-purple: #c084fc;
-  --color-purple-light: #e9d5ff;
-  --color-pink: #f472b6;
+
+  /* Pastel Blue Dominant Palette */
+  --color-pastel-blue: #93c5fd;         /* Primary Pastel Blue */
+  --color-pastel-blue-light: #dbeafe;   /* Soft Ice Blue */
+  --color-pastel-blue-deep: #60a5fa;    /* Vibrant Pastel Blue */
+  --color-pastel-cyan: #7dd3fc;         /* Sky Pastel */
+  --color-pastel-cyan-light: #e0f2fe;   /* Ultra Light Sky */
+  --color-pastel-mint: #a7f3d0;         /* Complementary Soft Mint */
+  --color-pastel-lavender: #ddd6fe;     /* Complementary Soft Lavender */
+  --color-pastel-peach: #fed7aa;        /* Complementary Soft Peach */
 
   --text-main: #121212;
-  --text-muted: #525252;
+  --text-muted: #4b5563;
   --text-inverted: #ffffff;
 
   --border-thick: 3px solid var(--color-black);
@@ -61,7 +60,7 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--bg-canvas);
-  background-image: radial-gradient(var(--color-black) 0.65px, transparent 0.65px);
+  background-image: radial-gradient(rgba(18, 18, 18, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
   color: var(--text-main);
   line-height: 1.6;
@@ -115,13 +114,13 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-yellow);
+  background: var(--color-pastel-blue);
   border: var(--border-medium);
   box-shadow: 2px 2px 0 var(--color-black);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-black);
+  background: var(--color-pastel-blue-deep);
 }
 
 /* Neo-Brutalist Card Utility */
@@ -147,11 +146,11 @@ img {
   padding: 0.75rem 1.6rem;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: var(--color-black);
-  background: var(--color-yellow);
+  background: var(--color-pastel-blue);
   border: var(--border-thick);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
@@ -163,6 +162,7 @@ img {
 .nb-btn:hover {
   transform: translate(-2px, -2px);
   box-shadow: var(--shadow-lg);
+  background: var(--color-pastel-blue-deep);
 }
 
 .nb-btn:active {
@@ -170,20 +170,16 @@ img {
   box-shadow: var(--shadow-sm);
 }
 
-.nb-btn-cyan {
-  background: var(--color-cyan);
-}
-
-.nb-btn-green {
-  background: var(--color-green);
-}
-
-.nb-btn-coral {
-  background: var(--color-coral);
+.nb-btn-light {
+  background: var(--color-pastel-blue-light);
 }
 
 .nb-btn-white {
   background: #ffffff;
+}
+
+.nb-btn-mint {
+  background: var(--color-pastel-mint);
 }
 
 /* Neo-Brutalist Badges & Tags */
@@ -196,7 +192,7 @@ img {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-black);
-  background: var(--color-yellow-light);
+  background: var(--color-pastel-blue-light);
   border: var(--border-thin);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
@@ -230,42 +226,9 @@ img {
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
   font-weight: 500;
-}
-
-/* Marquee / Ticker Animation */
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.ticker-wrap {
-  overflow: hidden;
-  white-space: nowrap;
-  background: var(--color-yellow);
-  border-top: var(--border-thick);
-  border-bottom: var(--border-thick);
-  padding: 0.75rem 0;
-  box-shadow: 0 4px 0 var(--color-black);
-}
-
-.ticker-track {
-  display: inline-flex;
-  animation: ticker 25s linear infinite;
-}
-
-.ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-black);
-  text-transform: uppercase;
 }
