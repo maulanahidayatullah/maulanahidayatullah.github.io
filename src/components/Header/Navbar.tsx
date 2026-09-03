@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Github, Linkedin, MessageSquare, Mail } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 interface NavbarProps {
   activeSection: string;
@@ -8,7 +8,8 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const { t } = useTranslation();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
   const navItems = [
     { label: t('nav.home'), href: '#hero' },
@@ -18,6 +19,32 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { label: t('nav.portfolio'), href: '#portfolio' },
     { label: t('nav.contact'), href: '#contact' },
   ];
+
+  // Detect when Navbar is sticky at the top of the viewport
+  useEffect(() => {
+    const navEl = document.getElementById('main-nav');
+    if (!navEl) return;
+
+    const handleScroll = () => {
+      const rect = navEl.getBoundingClientRect();
+      setIsSticky(rect.top <= 2);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Auto-scroll the active nav item into view when scrolling down through sections
+  useEffect(() => {
+    if (activeSection && itemRefs.current[activeSection]) {
+      itemRefs.current[activeSection]?.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+    }
+  }, [activeSection]);
 
   return (
     <nav
@@ -37,51 +64,38 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       }}
     >
       <div
+        className="nb-navbar-container"
         style={{
           width: '100%',
           maxWidth: '100%',
-          padding: '0 clamp(1.25rem, 3.5vw, 3.5rem)',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          position: 'relative',
         }}
       >
-        {/* Mobile Menu Toggle Button: Anchored on the LEFT */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          className="nb-mobile-toggle"
+        {/* Navigation Links: Directly visible, scrollable horizontally on mobile */}
+        <div
+          className={`nb-nav-links-scrollable ${isSticky ? 'is-sticky' : ''}`}
           style={{
-            padding: '7px 11px',
-            backgroundColor: 'var(--color-pastel-blue)',
-            color: '#121212',
-            border: '2px solid var(--color-border)',
-            boxShadow: '2.5px 2.5px 0 var(--color-shadow)',
-            borderRadius: '4px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            marginRight: 'auto',
+            gap: '8px',
+            overflowX: 'auto',
+            whiteSpace: 'nowrap',
+            height: '100%',
           }}
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-
-        {/* Desktop Navigation Links: Left aligned with clean side margin */}
-        <div
-          style={{
-            display: 'none',
-            alignItems: 'center',
-            gap: '10px',
-          }}
-          className="nb-desktop-nav"
         >
           {navItems.map((item) => {
-            const isActive = activeSection === item.href.substring(1);
+            const sectionKey = item.href.substring(1);
+            const isActive = activeSection === sectionKey;
             return (
               <a
                 key={item.href}
+                ref={(el) => {
+                  itemRefs.current[sectionKey] = el;
+                }}
                 href={item.href}
                 style={{
                   fontFamily: 'var(--font-heading)',
@@ -95,6 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   borderRadius: '4px',
                   color: isActive ? '#121212' : 'var(--text-main)',
                   transition: 'all 0.15s ease',
+                  flexShrink: 0,
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
@@ -115,15 +130,34 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           })}
         </div>
 
-        {/* Desktop Social Icons: Margin increased so it never collides with Language & Theme toggles */}
+        {/* Mobile Sticky Dock with Full-Height Thick Neo-Brutalist Border Line */}
+        {isSticky && (
+          <div
+            className="nb-mobile-sticky-dock"
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              width: '132px',
+              backgroundColor: 'var(--bg-card)',
+              borderLeft: '3.5px solid var(--color-border)',
+              zIndex: 20,
+              pointerEvents: 'none',
+            }}
+          />
+        )}
+
+        {/* Desktop Social Icons: Displayed only on desktop, hidden on mobile */}
         <div
+          className="nb-desktop-socials"
           style={{
             display: 'none',
             alignItems: 'center',
             gap: '8px',
-            marginRight: '98px', // Space for LanguageToggle (right: 70px) and ThemeToggle (right: 24px)
+            marginRight: '114px', // Space for LanguageToggle and ThemeToggle
+            flexShrink: 0,
           }}
-          className="nb-desktop-nav"
         >
           <a
             href="https://github.com/maulanahidayatullah"
@@ -171,66 +205,53 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileOpen && (
-        <div
-          style={{
-            position: 'absolute',
-            top: '62px',
-            left: 0,
-            right: 0,
-            backgroundColor: 'var(--bg-card)',
-            borderBottom: '3px solid var(--color-border)',
-            boxShadow: '0 8px 0 rgba(0,0,0,0.25)',
-            padding: '20px 24px',
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  padding: '10px 14px',
-                  fontWeight: 800,
-                  fontSize: '1rem',
-                  border: '2px solid var(--color-border)',
-                  boxShadow: activeSection === item.href.substring(1) ? '3px 3px 0 var(--color-shadow)' : 'none',
-                  backgroundColor: activeSection === item.href.substring(1) ? 'var(--color-pastel-blue)' : 'transparent',
-                  color: activeSection === item.href.substring(1) ? '#121212' : 'var(--text-main)',
-                  borderRadius: '4px',
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-
-            <div style={{ display: 'flex', gap: '10px', marginTop: '10px', paddingTop: '15px', borderTop: '2px dashed var(--color-border)' }}>
-              <a href="https://github.com/maulanahidayatullah" target="_blank" rel="noreferrer" className="nb-btn nb-btn-white" style={{ flex: 1, padding: '8px' }}>
-                <Github size={18} />
-              </a>
-              <a href="https://www.linkedin.com/in/maulana-hidayatullah-64a5a4158/" target="_blank" rel="noreferrer" className="nb-btn nb-btn-white" style={{ flex: 1, padding: '8px' }}>
-                <Linkedin size={18} />
-              </a>
-              <a href="https://wa.me/+62895636598769" target="_blank" rel="noreferrer" className="nb-btn" style={{ flex: 1, padding: '8px' }}>
-                <MessageSquare size={18} />
-              </a>
-              <a href="mailto:maulanahidayatullah159@gmail.com" className="nb-btn nb-btn-light" style={{ flex: 1, padding: '8px' }}>
-                <Mail size={18} />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-
       <style>{`
+        /* Mobile Scrollable Menu (Default non-sticky: Full width, no mask, full visibility) */
+        .nb-nav-links-scrollable {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          padding-left: 16px;
+          padding-right: 16px;
+          width: 100%;
+          max-width: 100%;
+          transition: max-width 0.15s ease, margin-right 0.15s ease;
+        }
+        .nb-nav-links-scrollable::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* When Sticky on Mobile: Constrained width, smooth fade mask, separated by 132px divider */
+        .nb-nav-links-scrollable.is-sticky {
+          max-width: calc(100% - 132px);
+          width: calc(100% - 132px);
+          margin-right: 132px;
+          padding-right: 18px;
+          -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
+          mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
+        }
+
+        /* Desktop Layout (min-width: 900px) */
         @media (min-width: 900px) {
-          .nb-desktop-nav {
-            display: flex !important;
+          .nb-navbar-container {
+            padding: 0 clamp(1.5rem, 3.5vw, 3.5rem);
           }
-          .nb-mobile-toggle {
+          .nb-nav-links-scrollable,
+          .nb-nav-links-scrollable.is-sticky {
+            padding-left: 0;
+            padding-right: 0;
+            max-width: 100%;
+            width: auto;
+            margin-right: 0;
+            overflow-x: visible;
+            -webkit-mask-image: none !important;
+            mask-image: none !important;
+          }
+          .nb-mobile-sticky-divider,
+          .nb-mobile-sticky-dock {
             display: none !important;
+          }
+          .nb-desktop-socials {
+            display: flex !important;
           }
         }
       `}</style>
