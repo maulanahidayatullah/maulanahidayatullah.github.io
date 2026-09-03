@@ -1,348 +1,319 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import confetti from 'canvas-confetti';
-import { Download, ArrowRight, Terminal, Code2 } from 'lucide-react';
+import { ArrowDownRight, Download, Sparkles, Code2 } from 'lucide-react';
 import { ParticlesHero } from './ParticlesHero';
 
 const ROLES = [
-  'Fullstack Developer',
-  'Backend Specialist',
-  'EV & IoT Protocol Engineer',
-  'API & System Architect',
+  'FULLSTACK DEVELOPER',
+  'BACKEND SPECIALIST',
+  'EV & IOT TELEMATICS ENGINEER',
+  'API & DATABASE ARCHITECT',
+];
+
+const TICKER_ITEMS = [
+  'NODE.JS / EXPRESS',
+  'JAVA SPRING BOOT',
+  'OCPP 1.6 EV PROTOCOL',
+  'POSTGRESQL & MONGODB',
+  'DOCKER & LINUX UBUNTU',
+  'VUE.JS & REACT',
+  'HARDWARE BIOMETRICS',
+  'XENDIT PAYMENT RAILS',
 ];
 
 export const Hero: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
-  const actionsRef = useRef<HTMLDivElement>(null);
 
-  // Rotate roles every 3 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % ROLES.length);
-    }, 3200);
-    return () => clearInterval(interval);
+    }, 2800);
+    return () => clearInterval(timer);
   }, []);
 
-  // GSAP Entrance Animation
   useGSAP(
     () => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-      tl.fromTo(
-        '.hero-badge',
-        { opacity: 0, y: -20, scale: 0.9 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8, delay: 0.2 }
-      )
-        .fromTo(
-          headlineRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 1 },
-          '-=0.4'
-        )
-        .fromTo(
-          '.hero-role-wrapper',
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7 },
-          '-=0.5'
-        )
-        .fromTo(
-          descRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7 },
-          '-=0.5'
-        )
-        .fromTo(
-          actionsRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7 },
-          '-=0.4'
-        )
-        .fromTo(
-          '.hero-terminal-card',
-          { opacity: 0, y: 40, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.9 },
-          '-=0.5'
-        );
+      gsap.fromTo(
+        headlineRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }
+      );
+      gsap.fromTo(
+        '.nb-hero-card',
+        { opacity: 0, scale: 0.95 },
+        { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)', delay: 0.3 }
+      );
     },
     { scope: heroRef }
   );
 
   const handleDownloadCV = () => {
     confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#00f2fe', '#4facfe', '#8b5cf6', '#10b981'],
+      particleCount: 70,
+      spread: 60,
+      origin: { y: 0.7 },
+      colors: ['#facc15', '#38bdf8', '#4ade80', '#fb923c', '#121212'],
     });
   };
 
   return (
-    <section
+    <header
       id="hero"
       ref={heroRef}
       style={{
         position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: '6rem',
+        backgroundColor: 'var(--bg-canvas)',
+        paddingTop: '5rem',
         paddingBottom: '4rem',
         overflow: 'hidden',
       }}
     >
-      {/* Interactive Particle.js Canvas */}
+      {/* Neo-Brutalist Canvas Particles */}
       <ParticlesHero />
 
-      {/* Decorative Radial Glows */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '20%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '700px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, rgba(139, 92, 246, 0.08) 40%, transparent 70%)',
-          filter: 'blur(70px)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
-
-      <div className="container" style={{ zIndex: 1 }}>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center',
-            maxWidth: '900px',
-            margin: '0 auto',
-          }}
-        >
-          {/* Status Badge */}
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto', textAlign: 'center' }}>
+          {/* Top Stickers */}
           <div
-            className="hero-badge"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.6rem',
-              padding: '0.45rem 1.1rem',
-              backgroundColor: 'rgba(16, 185, 129, 0.08)',
-              border: '1px solid rgba(16, 185, 129, 0.25)',
-              borderRadius: '9999px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: '#34d399',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '10px',
               marginBottom: '1.5rem',
-              boxShadow: '0 0 15px rgba(16, 185, 129, 0.15)',
             }}
           >
-            <span
+            <div
               style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: '#10b981',
-                boxShadow: '0 0 8px #10b981',
-                display: 'inline-block',
-                animation: 'pulse 2s infinite',
+                backgroundColor: 'var(--color-yellow)',
+                border: '2.5px solid var(--color-black)',
+                boxShadow: '3px 3px 0 var(--color-black)',
+                padding: '4px 14px',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: 700,
+                fontSize: '0.82rem',
+                textTransform: 'uppercase',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
               }}
-            />
-            Available for High-Impact Roles & Projects
+            >
+              <Sparkles size={14} />
+              <span>INDONESIA BASED DEVELOPER</span>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: 'var(--color-green-light)',
+                border: '2.5px solid var(--color-black)',
+                boxShadow: '3px 3px 0 var(--color-black)',
+                padding: '4px 14px',
+                fontFamily: 'var(--font-mono)',
+                fontWeight: 700,
+                fontSize: '0.82rem',
+                textTransform: 'uppercase',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+              }}
+            >
+              <span
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: '#16a34a',
+                  display: 'inline-block',
+                }}
+              />
+              <span>OPEN FOR HIGH-IMPACT ROLES</span>
+            </div>
           </div>
 
-          {/* Main Headline */}
+          {/* Main Giant Headline */}
           <h1
             ref={headlineRef}
             style={{
-              fontSize: 'clamp(2.5rem, 6.5vw, 5rem)',
-              fontWeight: 800,
-              lineHeight: 1.1,
+              fontSize: 'clamp(2.8rem, 7.5vw, 5.8rem)',
+              fontWeight: 900,
+              color: 'var(--color-black)',
               letterSpacing: '-0.03em',
-              marginBottom: '1rem',
+              lineHeight: 1.05,
+              textTransform: 'uppercase',
+              marginBottom: '1.25rem',
             }}
           >
-            Hi, I'm{' '}
-            <span className="gradient-text">Maulana Hidayatullah</span>
+            MAULANA <br />
+            <span
+              style={{
+                backgroundColor: 'var(--color-yellow)',
+                padding: '0 12px',
+                border: '3px solid var(--color-black)',
+                boxShadow: '6px 6px 0 var(--color-black)',
+                display: 'inline-block',
+                transform: 'rotate(-1deg)',
+              }}
+            >
+              HIDAYATULLAH
+            </span>
           </h1>
 
-          {/* Rotating Role Pill */}
+          {/* Rotating Role Box */}
           <div
-            className="hero-role-wrapper"
             style={{
-              height: '3.2rem',
+              height: '52px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              marginBottom: '1.25rem',
+              margin: '1.75rem 0',
             }}
           >
             <AnimatePresence mode="wait">
               <motion.div
                 key={roleIndex}
-                initial={{ y: 25, opacity: 0, filter: 'blur(4px)' }}
-                animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-                exit={{ y: -25, opacity: 0, filter: 'blur(4px)' }}
-                transition={{ duration: 0.45, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -15, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
                 style={{
+                  backgroundColor: '#ffffff',
+                  border: '3px solid var(--color-black)',
+                  boxShadow: '4px 4px 0 var(--color-black)',
+                  padding: '6px 20px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+                  fontWeight: 700,
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.6rem',
-                  padding: '0.4rem 1.25rem',
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(0, 242, 254, 0.25)',
-                  borderRadius: '9999px',
-                  boxShadow: '0 0 20px rgba(0, 242, 254, 0.12)',
+                  gap: '10px',
                 }}
               >
-                <Code2 size={20} color="var(--accent-cyan)" />
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
-                    fontWeight: 600,
-                    color: '#e2e8f0',
-                  }}
-                >
-                  {ROLES[roleIndex]}
-                </span>
+                <Code2 size={20} color="var(--color-black)" />
+                <span>{ROLES[roleIndex]}</span>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Subtitle / Pitch */}
+          {/* Subtitle / Bio Pitch */}
           <p
-            ref={descRef}
             style={{
-              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
-              color: 'var(--text-secondary)',
-              maxWidth: '680px',
-              lineHeight: 1.7,
-              marginBottom: '2.5rem',
+              fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+              fontWeight: 500,
+              color: 'var(--text-main)',
+              maxWidth: '740px',
+              margin: '0 auto 2.5rem auto',
+              lineHeight: 1.6,
             }}
           >
-            Software Engineer specialized in architecting resilient backend systems,
-            EV charging telematics (OCPP 1.6), biometric attendance, and high-performance
-            full-stack web applications.
+            Architecting robust backend microservices, EV charger protocols (OCPP 1.6), 
+            biometric hardware integrations, and responsive web platforms with clean, reliable execution.
           </p>
 
-          {/* CTA Buttons */}
+          {/* Call-To-Action Buttons */}
           <div
-            ref={actionsRef}
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '1rem',
               justifyContent: 'center',
-              alignItems: 'center',
-              marginBottom: '3rem',
+              gap: '1rem',
+              marginBottom: '3.5rem',
             }}
           >
-            <a href="#portfolio" className="btn-primary">
-              <span>Explore My Work</span>
-              <ArrowRight size={18} />
+            <a href="#portfolio" className="nb-btn" style={{ padding: '0.9rem 2rem' }}>
+              <span>EXPLORE PROJECTS</span>
+              <ArrowDownRight size={20} />
             </a>
 
             <a
               href="CV-Maulana.pdf"
               download="CV-Maulana.pdf"
               onClick={handleDownloadCV}
-              className="btn-secondary"
+              className="nb-btn nb-btn-white"
+              style={{ padding: '0.9rem 2rem' }}
             >
-              <Download size={18} />
-              <span>Download CV</span>
+              <Download size={20} />
+              <span>DOWNLOAD CV</span>
             </a>
 
-            <a href="#about" className="btn-secondary" style={{ borderStyle: 'dashed' }}>
-              <span>Know More</span>
+            <a href="#contact" className="nb-btn nb-btn-cyan" style={{ padding: '0.9rem 2rem' }}>
+              <span>GET IN TOUCH</span>
             </a>
           </div>
 
-          {/* Floating Interactive Terminal Preview */}
+          {/* Neo-Brutalist Terminal Card */}
           <div
-            className="hero-terminal-card glass-panel"
+            className="nb-hero-card nb-card"
             style={{
-              width: '100%',
-              maxWidth: '620px',
-              padding: '1.25rem 1.5rem',
+              maxWidth: '680px',
+              margin: '0 auto',
+              padding: '0',
               textAlign: 'left',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              background: 'rgba(8, 12, 22, 0.75)',
+              overflow: 'hidden',
             }}
           >
+            {/* Terminal Window Header */}
             <div
               style={{
+                backgroundColor: 'var(--color-yellow)',
+                borderBottom: '3px solid var(--color-black)',
+                padding: '10px 16px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                paddingBottom: '0.8rem',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                marginBottom: '0.8rem',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <span style={{ width: '11px', height: '11px', borderRadius: '50%', backgroundColor: '#ef4444' }} />
-                <span style={{ width: '11px', height: '11px', borderRadius: '50%', backgroundColor: '#eab308' }} />
-                <span style={{ width: '11px', height: '11px', borderRadius: '50%', backgroundColor: '#22c55e' }} />
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                <span style={{ width: '13px', height: '13px', border: '2px solid var(--color-black)', backgroundColor: '#ef4444', borderRadius: '50%' }} />
+                <span style={{ width: '13px', height: '13px', border: '2px solid var(--color-black)', backgroundColor: '#facc15', borderRadius: '50%' }} />
+                <span style={{ width: '13px', height: '13px', border: '2px solid var(--color-black)', backgroundColor: '#22c55e', borderRadius: '50%' }} />
               </div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.75rem',
-                  color: 'var(--text-muted)',
-                }}
-              >
-                <Terminal size={14} />
-                <span>maulana@engineer:~$</span>
+              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.85rem' }}>
+                engineer_spec.json
               </div>
-              <span style={{ width: '20px' }} />
+              <span style={{ width: '30px' }} />
             </div>
 
+            {/* Terminal Content */}
             <div
               style={{
+                padding: '1.25rem 1.5rem',
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.85rem',
-                color: '#cbd5e1',
-                lineHeight: 1.6,
+                fontSize: '0.88rem',
+                backgroundColor: '#ffffff',
+                lineHeight: 1.7,
               }}
             >
-              <div>
-                <span style={{ color: 'var(--accent-cyan)' }}>const</span> engineer = {'{'}
+              <div><strong style={{ color: '#0284c7' }}>"developer"</strong>: <span style={{ color: '#b45309' }}>"Maulana Hidayatullah"</span>,</div>
+              <div><strong style={{ color: '#0284c7' }}>"core_specialties"</strong>: [</div>
+              <div style={{ paddingLeft: '1.5rem' }}>
+                <span style={{ color: '#b45309' }}>"Express.js"</span>, <span style={{ color: '#b45309' }}>"Spring Boot"</span>, <span style={{ color: '#b45309' }}>"OCPP 1.6 Telematics"</span>, <span style={{ color: '#b45309' }}>"PostgreSQL"</span>
               </div>
-              <div style={{ paddingLeft: '1.2rem' }}>
-                name: <span style={{ color: '#fcd34d' }}>'Maulana Hidayatullah'</span>,
-              </div>
-              <div style={{ paddingLeft: '1.2rem' }}>
-                coreFocus: [<span style={{ color: '#fcd34d' }}>'Node.js'</span>, <span style={{ color: '#fcd34d' }}>'Spring Boot'</span>, <span style={{ color: '#fcd34d' }}>'OCPP 1.6'</span>, <span style={{ color: '#fcd34d' }}>'PostgreSQL'</span>],
-              </div>
-              <div style={{ paddingLeft: '1.2rem' }}>
-                passion: <span style={{ color: '#fcd34d' }}>'Scalable Systems & Hardware-Software Bridges'</span>,
-              </div>
-              <div style={{ paddingLeft: '1.2rem' }}>
-                readyToContribute: <span style={{ color: '#4ade80' }}>true</span>
-              </div>
-              <div>{'};'}</div>
+              <div>],</div>
+              <div><strong style={{ color: '#0284c7' }}>"education"</strong>: <span style={{ color: '#b45309' }}>"Indramayu State Polytechnic (GPA 3.45/4.00)"</span>,</div>
+              <div><strong style={{ color: '#0284c7' }}>"production_ready"</strong>: <span style={{ color: '#16a34a', fontWeight: 700 }}>true</span></div>
             </div>
           </div>
         </div>
       </div>
 
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.15); }
-        }
-      `}</style>
-    </section>
+      {/* Marquee Ticker Banner */}
+      <div style={{ marginTop: '4rem' }}>
+        <div className="ticker-wrap">
+          <div className="ticker-track">
+            {TICKER_ITEMS.concat(TICKER_ITEMS).map((item, idx) => (
+              <div key={idx} className="ticker-item">
+                <span>✦</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };

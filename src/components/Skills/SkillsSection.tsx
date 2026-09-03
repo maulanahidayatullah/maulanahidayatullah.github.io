@@ -1,137 +1,148 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Server, Layout, Database, Cpu, Terminal, CheckCircle2 } from 'lucide-react';
 import { technicalSkills, softSkills } from '../../data/skillsData';
 
 export const SkillsSection: React.FC = () => {
-  const getCategoryIcon = (index: number) => {
-    switch (index) {
-      case 0:
-        return <Server size={22} color="#00f2fe" />;
-      case 1:
-        return <Layout size={22} color="#4facfe" />;
-      case 2:
-        return <Database size={22} color="#8b5cf6" />;
-      case 3:
-        return <Cpu size={22} color="#10b981" />;
-      case 4:
-        return <Terminal size={22} color="#f59e0b" />;
-      default:
-        return <Server size={22} color="#00f2fe" />;
-    }
-  };
+  const categoryHeaders = [
+    { bg: 'var(--color-yellow)', icon: <Server size={20} /> },
+    { bg: 'var(--color-cyan)', icon: <Layout size={20} /> },
+    { bg: 'var(--color-green)', icon: <Database size={20} /> },
+    { bg: 'var(--color-coral)', icon: <Cpu size={20} /> },
+    { bg: 'var(--color-purple)', icon: <Terminal size={20} /> },
+  ];
 
   return (
     <section
       id="skills"
       style={{
-        padding: '7rem 0',
-        position: 'relative',
+        padding: '6rem 0',
+        backgroundColor: 'var(--bg-canvas)',
       }}
     >
       <div className="container">
-        <div className="text-center">
-          <div className="section-badge">Technical Arsenal</div>
-          <h2 className="section-title">Skills & Technologies</h2>
+        {/* Section Header */}
+        <div className="section-header">
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+            TECHNICAL ARSENAL
+          </div>
+          <h2 className="section-title">SKILLS & FRAMEWORKS</h2>
           <p className="section-subtitle">
-            A comprehensive suite of tools, frameworks, and system integrations I leverage for production engineering.
+            Tools, languages, and hardware protocols I actively use to design and ship production applications.
           </p>
         </div>
 
-        {/* Technical Skills Grid */}
+        {/* 5 Category Cards Grid */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '1.5rem',
+            gap: '1.75rem',
             marginBottom: '4rem',
           }}
         >
-          {technicalSkills.map((group, index) => (
-            <motion.div
-              key={group.category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-panel"
-              style={{
-                padding: '1.75rem',
-                borderRadius: '20px',
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '0.6rem' }}>
+          {technicalSkills.map((group, index) => {
+            const headerConfig = categoryHeaders[index % categoryHeaders.length];
+            return (
+              <div
+                key={group.category}
+                className="nb-card"
+                style={{
+                  padding: '0',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                {/* Colorful Card Header */}
                 <div
                   style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    backgroundColor: headerConfig.bg,
+                    borderBottom: '3px solid var(--color-black)',
+                    padding: '12px 18px',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
+                    gap: '10px',
                   }}
                 >
-                  {getCategoryIcon(index)}
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff' }}>{group.category}</h3>
-                </div>
-              </div>
-
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-                {group.description}
-              </p>
-
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: 'auto' }}>
-                {group.skills.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="tech-badge"
+                  <div
                     style={{
-                      padding: '0.4rem 0.8rem',
-                      fontSize: '0.82rem',
+                      width: '32px',
+                      height: '32px',
+                      backgroundColor: '#ffffff',
+                      border: '2px solid var(--color-black)',
+                      borderRadius: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
                     }}
                   >
-                    {skill.name}
-                  </span>
-                ))}
+                    {headerConfig.icon}
+                  </div>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, textTransform: 'uppercase' }}>
+                    {group.category}
+                  </h3>
+                </div>
+
+                {/* Card Body */}
+                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.25rem', fontWeight: 500 }}>
+                    {group.description}
+                  </p>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
+                    {group.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        style={{
+                          backgroundColor: '#ffffff',
+                          border: '2px solid var(--color-black)',
+                          boxShadow: '2px 2px 0 var(--color-black)',
+                          padding: '5px 12px',
+                          fontSize: '0.84rem',
+                          fontFamily: 'var(--font-mono)',
+                          fontWeight: 700,
+                          borderRadius: '4px',
+                          display: 'inline-block',
+                          transition: 'transform 0.15s ease',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.transform = 'translate(-2px, -2px)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.transform = 'translate(0, 0)')}
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Soft Skills Section */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass-panel"
+        <div
+          className="nb-card"
           style={{
-            padding: '2.25rem',
-            borderRadius: '22px',
-            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(20, 15, 35, 0.8) 100%)',
-            border: '1px solid rgba(139, 92, 246, 0.25)',
+            padding: '2rem',
+            backgroundColor: 'var(--color-yellow-light)',
             textAlign: 'center',
           }}
         >
-          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.5rem', color: '#fff' }}>
-            Engineering Culture & Soft Competencies
+          <div className="nb-sticker" style={{ marginBottom: '0.5rem', backgroundColor: 'var(--color-black)', color: '#fff' }}>
+            ENGINEERING CULTURE
+          </div>
+          <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+            PROFESSIONAL & SOFT COMPETENCIES
           </h3>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem auto' }}>
-            Technical excellence is amplified by proactive communication, agility, and disciplined execution.
+          <p style={{ color: 'var(--text-main)', fontSize: '0.98rem', maxWidth: '640px', margin: '0 auto 1.5rem auto' }}>
+            Discipline, problem-solving, and clear cross-functional communication are fundamental to reliable execution.
           </p>
 
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '0.8rem',
+              gap: '10px',
               justifyContent: 'center',
             }}
           >
@@ -141,22 +152,21 @@ export const SkillsSection: React.FC = () => {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.5rem 1.25rem',
-                  borderRadius: '9999px',
-                  background: 'rgba(139, 92, 246, 0.1)',
-                  border: '1px solid rgba(139, 92, 246, 0.3)',
-                  color: '#e2e8f0',
-                  fontSize: '0.9rem',
-                  fontWeight: 600,
+                  gap: '8px',
+                  padding: '8px 16px',
+                  backgroundColor: '#ffffff',
+                  border: '2px solid var(--color-black)',
+                  boxShadow: '3px 3px 0 var(--color-black)',
+                  fontWeight: 700,
+                  fontSize: '0.92rem',
                 }}
               >
-                <CheckCircle2 size={16} color="var(--accent-purple)" />
+                <CheckCircle2 size={16} color="var(--color-black)" />
                 <span>{skill}</span>
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

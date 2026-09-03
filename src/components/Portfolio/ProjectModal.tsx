@@ -9,7 +9,6 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -26,7 +25,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         style={{
           position: 'fixed',
           inset: 0,
-          zIndex: 100,
+          zIndex: 9999,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -42,75 +41,82 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'rgba(4, 7, 12, 0.85)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
+            backgroundColor: 'rgba(18, 18, 18, 0.75)',
+            backdropFilter: 'blur(4px)',
           }}
         />
 
-        {/* Modal Window */}
+        {/* Modal Window Container */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 30 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          transition={{ duration: 0.2 }}
           style={{
             position: 'relative',
             zIndex: 1,
+            maxWidth: '800px',
             width: '100%',
-            maxWidth: '750px',
             maxHeight: '90vh',
             overflowY: 'auto',
-            backgroundColor: '#0c111d',
-            border: '1px solid rgba(0, 242, 254, 0.3)',
-            borderRadius: '24px',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 254, 0.2)',
-            padding: '0',
+            backgroundColor: '#ffffff',
+            border: '3.5px solid var(--color-black)',
+            boxShadow: '8px 8px 0px var(--color-black)',
+            borderRadius: '8px',
           }}
         >
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            aria-label="Close modal"
+          {/* Neo-Brutalist Window Titlebar */}
+          <div
             style={{
-              position: 'absolute',
-              top: '1rem',
-              right: '1rem',
+              backgroundColor: 'var(--color-yellow)',
+              borderBottom: '3.5px solid var(--color-black)',
+              padding: '12px 18px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              position: 'sticky',
+              top: 0,
               zIndex: 10,
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              backgroundColor: 'rgba(6, 9, 14, 0.8)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              color: '#fff',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ width: '12px', height: '12px', border: '2px solid var(--color-black)', backgroundColor: '#ef4444', borderRadius: '50%' }} />
+              <span style={{ width: '12px', height: '12px', border: '2px solid var(--color-black)', backgroundColor: '#facc15', borderRadius: '50%' }} />
+              <span style={{ width: '12px', height: '12px', border: '2px solid var(--color-black)', backgroundColor: '#22c55e', borderRadius: '50%' }} />
+              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.85rem', marginLeft: '6px' }}>
+                PROJECT_SPEC: {project.id.toUpperCase()}.EXE
+              </span>
+            </div>
+
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              style={{
+                width: '30px',
+                height: '30px',
+                backgroundColor: '#ffffff',
+                border: '2px solid var(--color-black)',
+                boxShadow: '2px 2px 0 var(--color-black)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              <X size={18} />
+            </button>
+          </div>
+
+          {/* Project Screenshot */}
+          <div
+            style={{
+              borderBottom: '3px solid var(--color-black)',
+              backgroundColor: '#f4f0ea',
+              maxHeight: '380px',
+              overflow: 'hidden',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              backdropFilter: 'blur(8px)',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.8)';
-              e.currentTarget.style.transform = 'scale(1.08)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(6, 9, 14, 0.8)';
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
-          >
-            <X size={20} />
-          </button>
-
-          {/* Project Image Banner */}
-          <div
-            style={{
-              position: 'relative',
-              width: '100%',
-              maxHeight: '380px',
-              overflow: 'hidden',
-              backgroundColor: '#06090e',
-              borderTopLeftRadius: '24px',
-              borderTopRightRadius: '24px',
             }}
           >
             <img
@@ -118,19 +124,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               alt={project.title}
               style={{
                 width: '100%',
-                height: 'auto',
                 maxHeight: '380px',
                 objectFit: 'contain',
-                display: 'block',
-                margin: '0 auto',
               }}
             />
           </div>
 
-          {/* Modal Content */}
+          {/* Details Body */}
           <div style={{ padding: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.8rem' }}>
-              <span className="section-badge" style={{ marginBottom: 0 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', marginBottom: '0.75rem' }}>
+              <span className="nb-tag" style={{ backgroundColor: 'var(--color-cyan-light)' }}>
                 {project.categoryLabel}
               </span>
               {project.year && (
@@ -138,10 +141,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.4rem',
+                    gap: '4px',
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    color: 'var(--text-muted)',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
                   }}
                 >
                   <Calendar size={14} />
@@ -150,44 +153,43 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               )}
             </div>
 
-            <h2 style={{ fontSize: '1.85rem', fontWeight: 800, color: '#fff', marginBottom: '1rem' }}>
+            <h2
+              style={{
+                fontSize: '2rem',
+                fontWeight: 900,
+                color: 'var(--color-black)',
+                textTransform: 'uppercase',
+                marginBottom: '1rem',
+              }}
+            >
               {project.title}
             </h2>
 
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '1.75rem' }}>
+            <p style={{ color: 'var(--text-main)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '1.75rem' }}>
               {project.description}
             </p>
 
             {/* Badges */}
-            <div style={{ marginBottom: '1.75rem' }}>
-              <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-muted)', marginBottom: '0.6rem', fontFamily: 'var(--font-mono)' }}>
-                Technologies & Integrations Used
-              </h4>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                {project.badges.map((badge, idx) => (
-                  <span
-                    key={idx}
-                    className="tech-badge"
-                    style={{
-                      padding: '0.4rem 0.8rem',
-                      fontSize: '0.85rem',
-                      color: 'var(--accent-cyan)',
-                      borderColor: 'rgba(0, 242, 254, 0.25)',
-                    }}
-                  >
-                    {badge}
+            <div style={{ marginBottom: '2rem' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '8px', textTransform: 'uppercase' }}>
+                INTEGRATIONS & TECH STACK:
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {project.badges.map((b, idx) => (
+                  <span key={idx} className="nb-tag" style={{ backgroundColor: 'var(--color-yellow)' }}>
+                    {b}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Footer actions inside modal */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '1.25rem' }}>
-              <button onClick={onClose} className="btn-secondary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}>
-                Close
+            {/* Actions */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '2.5px solid var(--color-black)', paddingTop: '1.25rem' }}>
+              <button onClick={onClose} className="nb-btn nb-btn-white" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}>
+                CLOSE
               </button>
-              <a href="#contact" onClick={onClose} className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}>
-                Inquire About This Project
+              <a href="#contact" onClick={onClose} className="nb-btn" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}>
+                INQUIRE ABOUT THIS
               </a>
             </div>
           </div>

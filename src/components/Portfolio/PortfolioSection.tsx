@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { portfolioProjects, ProjectItem } from '../../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 
@@ -9,10 +9,10 @@ export const PortfolioSection: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   const filterTabs = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'fullstack', label: 'Fullstack' },
-    { id: 'backend', label: 'Backend' },
-    { id: 'mobile', label: 'Mobile & IoT' },
+    { id: 'all', label: `ALL PROJECTS (${portfolioProjects.length})` },
+    { id: 'fullstack', label: 'FULLSTACK (5)' },
+    { id: 'backend', label: 'BACKEND (5)' },
+    { id: 'mobile', label: 'MOBILE & IOT (2)' },
   ] as const;
 
   const filteredProjects =
@@ -24,32 +24,31 @@ export const PortfolioSection: React.FC = () => {
     <section
       id="portfolio"
       style={{
-        padding: '7rem 0',
-        position: 'relative',
-        backgroundColor: 'rgba(6, 9, 14, 0.5)',
+        padding: '6rem 0',
+        backgroundColor: '#ffffff',
+        borderTop: '3px solid var(--color-black)',
+        borderBottom: '3px solid var(--color-black)',
       }}
     >
       <div className="container">
-        <div className="text-center">
-          <div className="section-badge">Selected Work</div>
-          <h2 className="section-title">Engineered Portfolios</h2>
+        {/* Section Header */}
+        <div className="section-header">
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+            PORTFOLIO
+          </div>
+          <h2 className="section-title">SELECTED WORKS & SYSTEMS</h2>
           <p className="section-subtitle">
-            A showcase of production systems spanning IoT EV chargers, biometric attendance, payment APIs, and enterprise portals.
+            Commercial IoT platforms, EV charging telematics (OCPP 1.6), biometric attendance, and enterprise portals.
           </p>
 
           {/* Filter Pills */}
           <div
             style={{
-              display: 'inline-flex',
+              display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
-              gap: '0.5rem',
-              padding: '0.4rem',
-              backgroundColor: 'rgba(15, 23, 42, 0.7)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '9999px',
-              backdropFilter: 'blur(12px)',
-              marginBottom: '3.5rem',
+              gap: '10px',
+              marginTop: '2rem',
             }}
           >
             {filterTabs.map((tab) => {
@@ -59,36 +58,40 @@ export const PortfolioSection: React.FC = () => {
                   key={tab.id}
                   onClick={() => setFilter(tab.id)}
                   style={{
-                    position: 'relative',
-                    padding: '0.6rem 1.4rem',
-                    fontSize: '0.9rem',
-                    fontWeight: 600,
-                    color: isActive ? '#06090e' : 'var(--text-secondary)',
-                    borderRadius: '9999px',
-                    transition: 'color 0.2s ease',
+                    padding: '8px 18px',
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 700,
+                    fontSize: '0.88rem',
+                    letterSpacing: '0.02em',
+                    backgroundColor: isActive ? 'var(--color-yellow)' : '#ffffff',
+                    color: 'var(--color-black)',
+                    border: '2.5px solid var(--color-black)',
+                    boxShadow: isActive ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
+                    cursor: 'pointer',
+                    borderRadius: '4px',
+                    transition: 'all 0.15s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.transform = 'translate(-2px, -2px)';
+                      e.currentTarget.style.boxShadow = '3px 3px 0 var(--color-black)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.transform = 'translate(0, 0)';
+                      e.currentTarget.style.boxShadow = '2px 2px 0 var(--color-black)';
+                    }
                   }}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeFilterTab"
-                      style={{
-                        position: 'absolute',
-                        inset: 0,
-                        backgroundColor: 'var(--accent-cyan)',
-                        borderRadius: '9999px',
-                        boxShadow: '0 0 20px rgba(0, 242, 254, 0.45)',
-                      }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span style={{ position: 'relative', zIndex: 1 }}>{tab.label}</span>
+                  {tab.label}
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Project Grid with Framer Motion layout */}
+        {/* Project Grid */}
         <motion.div
           layout
           style={{
@@ -102,30 +105,29 @@ export const PortfolioSection: React.FC = () => {
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.35 }}
-                className="glass-panel"
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.2 }}
                 onClick={() => setSelectedProject(project)}
+                className="nb-card"
                 style={{
-                  borderRadius: '22px',
+                  backgroundColor: '#ffffff',
+                  padding: '0',
                   overflow: 'hidden',
                   cursor: 'pointer',
                   display: 'flex',
                   flexDirection: 'column',
-                  backgroundColor: 'rgba(15, 23, 42, 0.65)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
                 }}
               >
-                {/* Thumbnail Container */}
+                {/* Image Header with Thick Border */}
                 <div
                   style={{
                     position: 'relative',
-                    width: '100%',
-                    height: '220px',
+                    height: '210px',
+                    backgroundColor: '#f4f0ea',
+                    borderBottom: '3px solid var(--color-black)',
                     overflow: 'hidden',
-                    backgroundColor: '#090d16',
                   }}
                 >
                   <img
@@ -135,81 +137,48 @@ export const PortfolioSection: React.FC = () => {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      transition: 'transform 0.5s ease',
+                      transition: 'transform 0.4s ease',
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.08)')}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
                     onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                   />
 
-                  {/* Overlay on hover */}
+                  {/* Category Sticker on image */}
                   <div
                     style={{
                       position: 'absolute',
-                      inset: 0,
-                      backgroundColor: 'rgba(6, 9, 14, 0.4)',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.6rem',
-                    }}
-                    className="card-overlay"
-                  >
-                    <div
-                      style={{
-                        padding: '0.6rem 1.1rem',
-                        borderRadius: '9999px',
-                        backgroundColor: 'rgba(6, 9, 14, 0.85)',
-                        border: '1px solid var(--accent-cyan)',
-                        color: '#fff',
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.4rem',
-                      }}
-                    >
-                      <Eye size={16} color="var(--accent-cyan)" />
-                      <span>View Details</span>
-                    </div>
-                  </div>
-
-                  {/* Category Chip */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      left: '1rem',
-                      padding: '0.3rem 0.75rem',
-                      borderRadius: '9999px',
-                      backgroundColor: 'rgba(6, 9, 14, 0.8)',
-                      backdropFilter: 'blur(8px)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      top: '12px',
+                      left: '12px',
+                      backgroundColor: 'var(--color-yellow)',
+                      border: '2px solid var(--color-black)',
+                      boxShadow: '2px 2px 0 var(--color-black)',
+                      padding: '3px 10px',
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.75rem',
-                      color: 'var(--accent-cyan)',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
                     }}
                   >
                     {project.categoryLabel}
                   </div>
                 </div>
 
-                {/* Card Body */}
+                {/* Card Details */}
                 <div
                   style={{
                     padding: '1.5rem',
+                    flex: 1,
                     display: 'flex',
                     flexDirection: 'column',
-                    flexGrow: 1,
                   }}
                 >
                   <h3
                     style={{
-                      fontSize: '1.3rem',
-                      fontWeight: 700,
-                      color: '#fff',
-                      marginBottom: '0.6rem',
+                      fontSize: '1.4rem',
+                      fontWeight: 800,
+                      color: 'var(--color-black)',
+                      marginBottom: '0.5rem',
+                      textTransform: 'uppercase',
                     }}
                   >
                     {project.title}
@@ -217,9 +186,9 @@ export const PortfolioSection: React.FC = () => {
 
                   <p
                     style={{
-                      fontSize: '0.9rem',
-                      color: 'var(--text-secondary)',
-                      lineHeight: 1.6,
+                      fontSize: '0.92rem',
+                      color: 'var(--text-muted)',
+                      lineHeight: 1.5,
                       marginBottom: '1.25rem',
                       display: '-webkit-box',
                       WebkitLineClamp: 2,
@@ -230,28 +199,43 @@ export const PortfolioSection: React.FC = () => {
                     {project.description}
                   </p>
 
-                  {/* Tech Badges */}
+                  {/* Badges */}
                   <div
                     style={{
                       display: 'flex',
                       flexWrap: 'wrap',
-                      gap: '0.4rem',
+                      gap: '6px',
+                      marginBottom: '1.5rem',
                       marginTop: 'auto',
                     }}
                   >
-                    {project.badges.slice(0, 4).map((badge, bIdx) => (
-                      <span key={bIdx} className="tech-badge">
+                    {project.badges.slice(0, 3).map((badge, bIdx) => (
+                      <span key={bIdx} className="nb-tag" style={{ fontSize: '0.75rem' }}>
                         {badge}
                       </span>
                     ))}
-                    {project.badges.length > 4 && (
-                      <span
-                        className="tech-badge"
-                        style={{ color: 'var(--accent-cyan)', borderColor: 'rgba(0, 242, 254, 0.3)' }}
-                      >
-                        +{project.badges.length - 4} more
+                    {project.badges.length > 3 && (
+                      <span className="nb-tag" style={{ fontSize: '0.75rem', backgroundColor: '#ffffff' }}>
+                        +{project.badges.length - 3} more
                       </span>
                     )}
+                  </div>
+
+                  {/* Inspect Button Bar */}
+                  <div
+                    style={{
+                      borderTop: '2px solid var(--color-black)',
+                      paddingTop: '0.85rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                    }}
+                  >
+                    <span>INSPECT SPECS</span>
+                    <ArrowUpRight size={18} />
                   </div>
                 </div>
               </motion.div>
@@ -260,17 +244,8 @@ export const PortfolioSection: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Project Detail Lightbox Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
-
-      <style>{`
-        .glass-panel:hover .card-overlay {
-          opacity: 1 !important;
-        }
-      `}</style>
+      {/* Lightbox Modal */}
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 };

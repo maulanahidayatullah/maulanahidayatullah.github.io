@@ -35,10 +35,10 @@ export const ParticlesHero: React.FC = () => {
       },
       modes: {
         grab: {
-          distance: 140,
+          distance: 150,
           links: {
-            opacity: 0.6,
-            color: '#00f2fe',
+            opacity: 0.7,
+            color: '#121212',
           },
         },
         push: {
@@ -48,14 +48,14 @@ export const ParticlesHero: React.FC = () => {
     },
     particles: {
       color: {
-        value: ['#00f2fe', '#4facfe', '#8b5cf6'],
+        value: ['#121212', '#facc15', '#38bdf8', '#fb923c'],
       },
       links: {
-        color: '#38bdf8',
-        distance: 130,
+        color: '#121212',
+        distance: 140,
         enable: true,
-        opacity: 0.22,
-        width: 1,
+        opacity: 0.25,
+        width: 1.5,
       },
       move: {
         direction: 'none',
@@ -64,7 +64,7 @@ export const ParticlesHero: React.FC = () => {
           default: 'bounce',
         },
         random: true,
-        speed: 1.2,
+        speed: 1.0,
         straight: false,
       },
       number: {
@@ -73,21 +73,16 @@ export const ParticlesHero: React.FC = () => {
           width: 900,
           height: 900,
         },
-        value: 65,
+        value: 50,
       },
       opacity: {
-        value: { min: 0.2, max: 0.7 },
-        animation: {
-          enable: true,
-          speed: 1,
-          sync: false,
-        },
+        value: { min: 0.3, max: 0.8 },
       },
       shape: {
         type: 'circle',
       },
       size: {
-        value: { min: 1.2, max: 3.2 },
+        value: { min: 2, max: 4.5 },
       },
     },
     detectRetina: true,
@@ -96,9 +91,17 @@ export const ParticlesHero: React.FC = () => {
   if (!init) return null;
 
   return (
-    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'auto', zIndex: 0 }}>
+    <div
+      style={{
+        position: 'absolute',
+        inset: 0,
+        overflow: 'hidden',
+        pointerEvents: 'auto',
+        zIndex: 0,
+      }}
+    >
       <Particles
-        id="tsparticles-hero"
+        id="particles-js"
         options={options}
         style={{ width: '100%', height: '100%' }}
       />

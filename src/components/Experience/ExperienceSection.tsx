@@ -12,224 +12,166 @@ export const ExperienceSection: React.FC = () => {
     <section
       id="experience"
       style={{
-        padding: '7rem 0',
-        position: 'relative',
-        backgroundColor: 'rgba(10, 15, 29, 0.4)',
+        padding: '6rem 0',
+        backgroundColor: '#ffffff',
+        borderTop: '3px solid var(--color-black)',
+        borderBottom: '3px solid var(--color-black)',
       }}
     >
       <div className="container">
-        <div className="text-center">
-          <div className="section-badge">Career & Education</div>
-          <h2 className="section-title">Milestones & Experience</h2>
+        {/* Section Header */}
+        <div className="section-header">
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem' }}>
+            TRACK RECORD
+          </div>
+          <h2 className="section-title">EXPERIENCE & EDUCATION</h2>
           <p className="section-subtitle">
-            A track record of engineering backend architectures and real-world software deployments.
+            A chronological breakdown of production engineering roles, client achievements, and academic milestones.
           </p>
 
-          {/* Switcher Tabs */}
+          {/* Switcher Buttons */}
           <div
             style={{
               display: 'inline-flex',
-              padding: '0.4rem',
-              backgroundColor: 'rgba(15, 23, 42, 0.8)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '9999px',
-              gap: '0.5rem',
-              marginBottom: '3.5rem',
+              gap: '12px',
+              marginTop: '1.5rem',
             }}
           >
             <button
               onClick={() => setActiveTab('work')}
+              className="nb-btn"
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.6rem 1.4rem',
-                borderRadius: '9999px',
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                color: activeTab === 'work' ? '#06090e' : 'var(--text-secondary)',
-                backgroundColor: activeTab === 'work' ? 'var(--accent-cyan)' : 'transparent',
-                boxShadow: activeTab === 'work' ? '0 0 15px rgba(0, 242, 254, 0.4)' : 'none',
-                transition: 'all 0.25s ease',
+                backgroundColor: activeTab === 'work' ? 'var(--color-yellow)' : '#ffffff',
+                boxShadow: activeTab === 'work' ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
               }}
             >
-              <Briefcase size={16} />
-              <span>Work Experience</span>
+              <Briefcase size={18} />
+              <span>WORK EXPERIENCE</span>
             </button>
 
             <button
               onClick={() => setActiveTab('education')}
+              className="nb-btn"
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.6rem 1.4rem',
-                borderRadius: '9999px',
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                color: activeTab === 'education' ? '#06090e' : 'var(--text-secondary)',
-                backgroundColor: activeTab === 'education' ? 'var(--accent-cyan)' : 'transparent',
-                boxShadow: activeTab === 'education' ? '0 0 15px rgba(0, 242, 254, 0.4)' : 'none',
-                transition: 'all 0.25s ease',
+                backgroundColor: activeTab === 'education' ? 'var(--color-cyan)' : '#ffffff',
+                boxShadow: activeTab === 'education' ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
               }}
             >
-              <GraduationCap size={16} />
-              <span>Education & Honors</span>
+              <GraduationCap size={18} />
+              <span>EDUCATION & HONORS</span>
             </button>
           </div>
         </div>
 
-        {/* Timeline Container */}
-        <div style={{ maxWidth: '850px', margin: '0 auto', position: 'relative' }}>
-          {/* Vertical Timeline Spine Line */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '15px',
-              bottom: '15px',
-              left: '20px',
-              width: '2px',
-              background: 'linear-gradient(180deg, #00f2fe 0%, #8b5cf6 50%, rgba(255, 255, 255, 0.05) 100%)',
-              zIndex: 0,
-            }}
-          />
-
+        {/* Timeline Cards Container */}
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.35 }}
-              style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.25 }}
+              style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
             >
-              {items.map((item, index) => (
+              {items.map((item) => (
                 <div
                   key={item.id}
+                  className="nb-card"
                   style={{
-                    display: 'flex',
-                    gap: '1.75rem',
+                    backgroundColor: '#ffffff',
+                    padding: '2rem',
                     position: 'relative',
-                    zIndex: 1,
                   }}
                 >
-                  {/* Timeline Glowing Node */}
+                  {/* Period Sticker Tag */}
                   <div
                     style={{
-                      width: '42px',
-                      height: '42px',
-                      borderRadius: '50%',
-                      background: index === 0 ? 'var(--gradient-brand)' : '#1e293b',
-                      border: '3px solid #06090e',
-                      boxShadow: index === 0 ? '0 0 18px rgba(0, 242, 254, 0.5)' : 'none',
-                      display: 'flex',
+                      display: 'inline-flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      color: index === 0 ? '#06090e' : '#94a3b8',
+                      gap: '6px',
+                      backgroundColor: activeTab === 'work' ? 'var(--color-yellow)' : 'var(--color-cyan)',
+                      border: '2px solid var(--color-black)',
+                      boxShadow: '2px 2px 0 var(--color-black)',
+                      padding: '4px 12px',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 700,
+                      fontSize: '0.8rem',
+                      marginBottom: '1rem',
                     }}
                   >
-                    {item.type === 'work' ? <Briefcase size={18} /> : <GraduationCap size={18} />}
+                    <Calendar size={14} />
+                    <span>{item.period}</span>
                   </div>
 
-                  {/* Card Content */}
-                  <div
-                    className="glass-panel"
+                  {/* Title & Company */}
+                  <h3
                     style={{
-                      flex: 1,
-                      padding: '1.75rem',
-                      borderRadius: '18px',
-                      border: '1px solid rgba(255, 255, 255, 0.09)',
-                      background: 'linear-gradient(180deg, rgba(17, 24, 39, 0.75) 0%, rgba(10, 15, 29, 0.9) 100%)',
+                      fontSize: '1.6rem',
+                      fontWeight: 800,
+                      color: 'var(--color-black)',
+                      marginBottom: '0.25rem',
                     }}
                   >
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'space-between',
-                        alignItems: 'flex-start',
-                        gap: '0.75rem',
-                        marginBottom: '0.75rem',
-                      }}
-                    >
-                      <div>
-                        <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#fff', marginBottom: '0.25rem' }}>
-                          {item.role}
-                        </h3>
-                        <div style={{ fontSize: '1rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
-                          {item.company}
-                        </div>
-                      </div>
+                    {item.role}
+                  </h3>
+                  <div
+                    style={{
+                      fontSize: '1.1rem',
+                      fontWeight: 700,
+                      color: 'var(--text-muted)',
+                      marginBottom: '1.25rem',
+                    }}
+                  >
+                    {item.company}
+                  </div>
 
-                      <div
+                  {/* Badges */}
+                  {item.badges && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
+                      {item.badges.map((b, idx) => (
+                        <span key={idx} className="nb-tag">
+                          {b}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Highlights List */}
+                  <ul
+                    style={{
+                      listStyle: 'none',
+                      padding: 0,
+                      margin: 0,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.75rem',
+                    }}
+                  >
+                    {item.highlights.map((point, hIdx) => (
+                      <li
+                        key={hIdx}
                         style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.4rem',
-                          padding: '0.3rem 0.8rem',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid rgba(255, 255, 255, 0.1)',
-                          borderRadius: '9999px',
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: '0.8rem',
-                          color: '#cbd5e1',
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '10px',
+                          fontSize: '0.95rem',
+                          lineHeight: 1.6,
                         }}
                       >
-                        <Calendar size={13} color="var(--accent-cyan)" />
-                        <span>{item.period}</span>
-                      </div>
-                    </div>
-
-                    {/* Tech Badges if any */}
-                    {item.badges && (
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', margin: '1rem 0' }}>
-                        {item.badges.map((badge, bIdx) => (
-                          <span key={bIdx} className="tech-badge">
-                            {badge}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Highlights List */}
-                    <ul
-                      style={{
-                        listStyle: 'none',
-                        padding: 0,
-                        margin: 0,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '0.6rem',
-                      }}
-                    >
-                      {item.highlights.map((highlight, hIdx) => (
-                        <li
-                          key={hIdx}
+                        <span
                           style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '0.65rem',
-                            fontSize: '0.925rem',
-                            color: 'var(--text-secondary)',
-                            lineHeight: 1.6,
+                            width: '8px',
+                            height: '8px',
+                            backgroundColor: 'var(--color-black)',
+                            marginTop: '0.55rem',
+                            flexShrink: 0,
                           }}
-                        >
-                          <span
-                            style={{
-                              width: '6px',
-                              height: '6px',
-                              borderRadius: '50%',
-                              backgroundColor: 'var(--accent-cyan)',
-                              marginTop: '0.55rem',
-                              flexShrink: 0,
-                            }}
-                          />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                        />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </motion.div>
