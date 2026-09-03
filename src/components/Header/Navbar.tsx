@@ -119,7 +119,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             display: 'none',
             alignItems: 'center',
             gap: '8px',
-            marginRight: '90px', // Space for the fixed ThemeToggle button
+            marginRight: '48px', // Space for the compact icon-only ThemeToggle button
           }}
           className="nb-desktop-nav"
         >
