@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         }}
       >
         {/* Brand Logo Sticker in Pastel Blue */}
-        <a
+        {/* <a
           href="#hero"
           style={{
             display: 'inline-flex',
@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             MH
           </span>
           <span>MAULANA.H</span>
-        </a>
+        </a> */}
 
         {/* Desktop Menu */}
         <div
@@ -165,13 +165,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             <Linkedin size={18} />
           </a>
 
-          <a
+          {/* <a
             href="#contact"
             className="nb-btn"
             style={{ padding: '0.45rem 1.1rem', fontSize: '0.85rem', boxShadow: '3px 3px 0 var(--color-shadow)' }}
           >
             HIRE ME
-          </a>
+          </a> */}
         </div>
 
         {/* Mobile Menu Toggle */}
