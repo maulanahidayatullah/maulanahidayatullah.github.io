@@ -1,4 +1,5 @@
 import React from 'react';
+import './i18n';
 import { Hero } from './components/Header/Hero';
 import { Navbar } from './components/Header/Navbar';
 import { AboutSection } from './components/About/AboutSection';
@@ -7,6 +8,7 @@ import { SkillsSection } from './components/Skills/SkillsSection';
 import { PortfolioSection } from './components/Portfolio/PortfolioSection';
 import { ContactSection } from './components/Contact/ContactSection';
 import { ThemeToggle } from './components/ThemeToggle/ThemeToggle';
+import { LanguageToggle } from './components/LanguageToggle/LanguageToggle';
 import { useScrollSpy } from './hooks/useScrollSpy';
 
 export const App: React.FC = () => {
@@ -15,7 +17,8 @@ export const App: React.FC = () => {
 
   return (
     <div className="portfolio-app" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Sticky Theme Toggle Button in the Top-Right Corner */}
+      {/* Sticky Language & Theme Toggles in the Top-Right Corner */}
+      <LanguageToggle />
       <ThemeToggle />
 
       {/* 1. Hero Section at the top */}

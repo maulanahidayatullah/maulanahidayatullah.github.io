@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { portfolioProjects, ProjectItem } from '../../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 
 export const PortfolioSection: React.FC = () => {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState<'all' | 'fullstack' | 'backend' | 'mobile'>('all');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   const filterTabs = [
-    { id: 'all', label: `ALL PROJECTS (${portfolioProjects.length})` },
-    { id: 'fullstack', label: 'FULLSTACK (5)' },
-    { id: 'backend', label: 'BACKEND (5)' },
-    { id: 'mobile', label: 'MOBILE & IOT (2)' },
+    { id: 'all', label: `${t('portfolio.filter_all')} (${portfolioProjects.length})` },
+    { id: 'fullstack', label: `${t('portfolio.filter_fullstack')} (5)` },
+    { id: 'backend', label: `${t('portfolio.filter_backend')} (5)` },
+    { id: 'mobile', label: `${t('portfolio.filter_mobile')} (2)` },
   ] as const;
 
   const filteredProjects =
@@ -35,11 +37,11 @@ export const PortfolioSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
-            PORTFOLIO
+            {t('portfolio.badge')}
           </div>
-          <h2 className="section-title">SELECTED WORKS & SYSTEMS</h2>
+          <h2 className="section-title">{t('portfolio.title')}</h2>
           <p className="section-subtitle">
-            Commercial IoT platforms, EV charging telematics (OCPP 1.6), biometric attendance, and enterprise portals.
+            {t('portfolio.subtitle')}
           </p>
 
           {/* Filter Pills */}
@@ -237,7 +239,7 @@ export const PortfolioSection: React.FC = () => {
                       color: 'var(--text-main)',
                     }}
                   >
-                    <span>INSPECT SPECS</span>
+                    <span>{t('portfolio.inspect_specs')}</span>
                     <ArrowUpRight size={18} />
                   </div>
                 </div>

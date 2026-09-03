@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Menu, X, Github, Linkedin, MessageSquare, Mail } from 'lucide-react';
 
 interface NavbarProps {
@@ -6,15 +7,16 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
-    { label: 'HOME', href: '#hero' },
-    { label: 'ABOUT ME', href: '#about' },
-    { label: 'EXPERIENCE', href: '#experience' },
-    { label: 'SKILLS', href: '#skills' },
-    { label: 'PORTFOLIO', href: '#portfolio' },
-    { label: 'CONTACT', href: '#contact' },
+    { label: t('nav.home'), href: '#hero' },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.portfolio'), href: '#portfolio' },
+    { label: t('nav.contact'), href: '#contact' },
   ];
 
   return (
@@ -45,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           justifyContent: 'space-between',
         }}
       >
-        {/* Mobile Menu Toggle Button: Positioned on the LEFT with comfortable margin */}
+        {/* Mobile Menu Toggle Button: Anchored on the LEFT */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
@@ -60,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginRight: 'auto', // Anchors button to the left on mobile
+            marginRight: 'auto',
           }}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -79,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             const isActive = activeSection === item.href.substring(1);
             return (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 style={{
                   fontFamily: 'var(--font-heading)',
@@ -113,13 +115,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           })}
         </div>
 
-        {/* Desktop Social Icons: Aligned neatly beside sticky ThemeToggle */}
+        {/* Desktop Social Icons: Margin increased so it never collides with Language & Theme toggles */}
         <div
           style={{
             display: 'none',
             alignItems: 'center',
             gap: '8px',
-            marginRight: '48px', // Space for the compact icon-only ThemeToggle button
+            marginRight: '98px', // Space for LanguageToggle (right: 70px) and ThemeToggle (right: 24px)
           }}
           className="nb-desktop-nav"
         >
@@ -186,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {navItems.map((item) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
                 style={{

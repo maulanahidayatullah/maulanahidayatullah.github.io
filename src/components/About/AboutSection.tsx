@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Download, Award, Zap, Server, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const AboutSection: React.FC = () => {
+  const { t } = useTranslation();
+
   const handleDownloadCV = () => {
     confetti({
       particleCount: 70,
@@ -13,13 +16,13 @@ export const AboutSection: React.FC = () => {
   };
 
   const statCards = [
-    { label: 'EXPERIENCE', val: '3+ YEARS', color: 'var(--color-pastel-blue-light)', icon: <Award size={22} /> },
-    { label: 'DELIVERED APPS', val: '15+ SYSTEMS', color: 'var(--color-pastel-cyan-light)', icon: <Zap size={22} /> },
-    { label: 'PROTOCOLS & APIS', val: '8+ HARDWARE', color: 'var(--color-pastel-mint)', icon: <Server size={22} /> },
-    { label: 'POLINDRA DEGREE', val: '3.45 / 4.00', color: 'var(--color-pastel-lavender)', icon: <ShieldCheck size={22} /> },
+    { label: t('about.stats.experience_label'), val: t('about.stats.experience_val'), color: 'var(--color-pastel-blue-light)', icon: <Award size={22} /> },
+    { label: t('about.stats.delivered_label'), val: t('about.stats.delivered_val'), color: 'var(--color-pastel-cyan-light)', icon: <Zap size={22} /> },
+    { label: t('about.stats.protocols_label'), val: t('about.stats.protocols_val'), color: 'var(--color-pastel-mint)', icon: <Server size={22} /> },
+    { label: t('about.stats.degree_label'), val: t('about.stats.degree_val'), color: 'var(--color-pastel-lavender)', icon: <ShieldCheck size={22} /> },
   ];
 
-  const highlights = [
+  const highlights = (t('about.highlights', { returnObjects: true }) as string[]) || [
     'Applied Bachelor in Software Engineering from Politeknik Negeri Indramayu (POLINDRA).',
     'Specialist in EV Charger Telematics (OCPP 1.6 protocol) & centralized charging systems.',
     'Hands-on biometric hardware integration (TIMY, Suprema) & Avigilon Access Control.',
@@ -39,11 +42,11 @@ export const AboutSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
-            ABOUT ME
+            {t('about.badge')}
           </div>
-          <h2 className="section-title">ENGINEERING WITH PURPOSE</h2>
+          <h2 className="section-title">{t('about.title')}</h2>
           <p className="section-subtitle">
-            Bridging hardware devices, high-throughput backends, and responsive frontend experiences.
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -128,8 +131,8 @@ export const AboutSection: React.FC = () => {
                   color: 'var(--text-main)',
                 }}
               >
-                <span>FULLSTACK ENGINEER</span>
-                <span>🇮🇩 ID</span>
+                <span>{t('about.photo_label')}</span>
+                <span>🇮🇩 {t('about.location')}</span>
               </div>
             </div>
           </div>
@@ -152,7 +155,7 @@ export const AboutSection: React.FC = () => {
                   color: 'var(--text-main)',
                 }}
               >
-                Scalable Backend Systems, Clean Integrations & Pragmatic Architecture.
+                {t('about.bio_heading')}
               </h3>
 
               <p
@@ -163,10 +166,7 @@ export const AboutSection: React.FC = () => {
                   marginBottom: '1.25rem',
                 }}
               >
-                Hello! I am Maulana, a Full-Stack Developer and Software Engineering graduate from Indramayu State
-                Polytechnic. I specialize in architecting scalable backend systems using{' '}
-                <strong>Express.js, Spring Boot, Laravel, and .NET</strong>, with expertise in mission-critical integrations
-                like <strong>Xendit payments, OCR recognition, and OCPP 1.6 EV Charger protocols</strong>.
+                {t('about.bio_p1')}
               </p>
 
               <p
@@ -177,10 +177,7 @@ export const AboutSection: React.FC = () => {
                   marginBottom: '1.5rem',
                 }}
               >
-                On the frontend, I transform designs into pixel-perfect, responsive interfaces using{' '}
-                <strong>Vue.js, Next.js, and React</strong>. My hands-on track record spans GPS-based employee attendance systems,
-                enterprise visitor access control, and nationwide EV charger telemetry. Proficient in PostgreSQL and Linux Ubuntu administration,
-                I manage the complete lifecycle of robust enterprise software.
+                {t('about.bio_p2')}
               </p>
 
               {/* Bullet Points */}
@@ -201,11 +198,11 @@ export const AboutSection: React.FC = () => {
                   className="nb-btn"
                 >
                   <Download size={18} />
-                  <span>DOWNLOAD CV (PDF)</span>
+                  <span>{t('about.download_btn')}</span>
                 </a>
 
                 <a href="#contact" className="nb-btn nb-btn-white">
-                  <span>CONTACT ME</span>
+                  <span>{t('about.contact_btn')}</span>
                 </a>
               </div>
             </div>

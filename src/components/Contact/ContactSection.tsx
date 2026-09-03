@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Mail, MessageSquare, Linkedin, Github, Copy, Check, Send, ArrowUp } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const ContactSection: React.FC = () => {
+  const { t } = useTranslation();
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -92,7 +94,7 @@ export const ContactSection: React.FC = () => {
           }}
         >
           <div className="nb-sticker" style={{ marginBottom: '1rem', backgroundColor: '#121212', color: '#fff' }}>
-            START A CONVERSATION
+            {t('contact.collab_badge')}
           </div>
 
           <h2
@@ -105,7 +107,7 @@ export const ContactSection: React.FC = () => {
               textTransform: 'uppercase',
             }}
           >
-            INTERESTED IN WORKING TOGETHER?
+            {t('contact.collab_title')}
           </h2>
 
           <p
@@ -117,8 +119,7 @@ export const ContactSection: React.FC = () => {
               margin: '0 auto 2rem auto',
             }}
           >
-            Whether you need resilient backend systems, EV charger protocols (OCPP), hardware biometrics,
-            or an enterprise web platform, let's ship something exceptional.
+            {t('contact.collab_desc')}
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -130,7 +131,7 @@ export const ContactSection: React.FC = () => {
               style={{ padding: '0.85rem 1.8rem' }}
             >
               <MessageSquare size={18} />
-              <span>CHAT ON WHATSAPP</span>
+              <span>{t('contact.chat_wa')}</span>
             </a>
 
             <button
@@ -139,7 +140,7 @@ export const ContactSection: React.FC = () => {
               style={{ padding: '0.85rem 1.8rem' }}
             >
               {copiedEmail ? <Check size={18} /> : <Copy size={18} />}
-              <span>{copiedEmail ? 'EMAIL COPIED!' : 'COPY EMAIL ADDRESS'}</span>
+              <span>{copiedEmail ? t('contact.copied_email') : t('contact.copy_email')}</span>
             </button>
           </div>
         </div>
@@ -147,11 +148,11 @@ export const ContactSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
-            CONTACT ME
+            {t('contact.badge')}
           </div>
-          <h2 className="section-title">LET'S CONNECT</h2>
+          <h2 className="section-title">{t('contact.title')}</h2>
           <p className="section-subtitle">
-            Reach out via any of the channels below or leave a quick message.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -225,21 +226,21 @@ export const ContactSection: React.FC = () => {
             }}
           >
             <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--text-main)' }}>
-              DIRECT INQUIRY
+              {t('contact.inquiry_title')}
             </h3>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '1.5rem', fontWeight: 500 }}>
-              Need a developer for your project or engineering team? Fill this out and it will launch your email composer.
+              {t('contact.inquiry_desc')}
             </p>
 
             <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px', color: 'var(--text-main)' }}>
-                  YOUR NAME:
+                  {t('contact.name_label')}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. John Doe / Tech Company"
+                  placeholder={t('contact.name_placeholder')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   style={{
@@ -259,12 +260,12 @@ export const ContactSection: React.FC = () => {
 
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px', color: 'var(--text-main)' }}>
-                  YOUR EMAIL:
+                  {t('contact.email_label')}
                 </label>
                 <input
                   type="email"
                   required
-                  placeholder="name@company.com"
+                  placeholder={t('contact.email_placeholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   style={{
@@ -284,12 +285,12 @@ export const ContactSection: React.FC = () => {
 
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px', color: 'var(--text-main)' }}>
-                  PROJECT SCOPE / MESSAGE:
+                  {t('contact.scope_label')}
                 </label>
                 <textarea
                   rows={4}
                   required
-                  placeholder="Briefly describe your project, timeline, or requirements..."
+                  placeholder={t('contact.scope_placeholder')}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   style={{
@@ -310,7 +311,7 @@ export const ContactSection: React.FC = () => {
 
               <button type="submit" className="nb-btn" style={{ width: '100%', marginTop: '0.5rem', padding: '0.85rem' }}>
                 <Send size={18} />
-                <span>SEND INQUIRY NOW</span>
+                <span>{t('contact.send_btn')}</span>
               </button>
             </form>
           </div>
@@ -329,7 +330,7 @@ export const ContactSection: React.FC = () => {
           }}
         >
           <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--text-main)' }}>
-            &copy; {new Date().getFullYear()} MAULANA HIDAYATULLAH. ALL RIGHTS RESERVED.
+            &copy; {new Date().getFullYear()} MAULANA HIDAYATULLAH. {t('contact.copyright')}
           </div>
 
           <button
@@ -338,7 +339,7 @@ export const ContactSection: React.FC = () => {
             className="nb-btn nb-btn-white"
             style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
           >
-            <span>BACK TO TOP</span>
+            <span>{t('contact.back_to_top')}</span>
             <ArrowUp size={16} />
           </button>
         </div>

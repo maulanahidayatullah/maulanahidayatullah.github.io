@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
 import { workExperience, educationHistory } from '../../data/experienceData';
 
 export const ExperienceSection: React.FC = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'work' | 'education'>('work');
 
   const items = activeTab === 'work' ? workExperience : educationHistory;
@@ -23,11 +25,11 @@ export const ExperienceSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
-            TRACK RECORD
+            {t('experience.badge')}
           </div>
-          <h2 className="section-title">EXPERIENCE & EDUCATION</h2>
+          <h2 className="section-title">{t('experience.title')}</h2>
           <p className="section-subtitle">
-            A chronological breakdown of production engineering roles, client achievements, and academic milestones.
+            {t('experience.subtitle')}
           </p>
 
           {/* Switcher Buttons */}
@@ -48,7 +50,7 @@ export const ExperienceSection: React.FC = () => {
               }}
             >
               <Briefcase size={18} />
-              <span>WORK EXPERIENCE</span>
+              <span>{t('experience.tab_work')}</span>
             </button>
 
             <button
@@ -61,7 +63,7 @@ export const ExperienceSection: React.FC = () => {
               }}
             >
               <GraduationCap size={18} />
-              <span>EDUCATION & HONORS</span>
+              <span>{t('experience.tab_edu')}</span>
             </button>
           </div>
         </div>

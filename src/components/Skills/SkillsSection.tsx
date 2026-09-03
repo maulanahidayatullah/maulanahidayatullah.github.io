@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Server, Layout, Database, Cpu, Terminal, CheckCircle2 } from 'lucide-react';
 import { technicalSkills, softSkills } from '../../data/skillsData';
 
 export const SkillsSection: React.FC = () => {
+  const { t } = useTranslation();
+
   const categoryHeaders = [
     { bg: 'var(--color-pastel-blue)', icon: <Server size={20} /> },
     { bg: 'var(--color-pastel-cyan)', icon: <Layout size={20} /> },
@@ -24,11 +27,11 @@ export const SkillsSection: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
-            TECHNICAL ARSENAL
+            {t('skills.badge')}
           </div>
-          <h2 className="section-title">SKILLS & FRAMEWORKS</h2>
+          <h2 className="section-title">{t('skills.title')}</h2>
           <p className="section-subtitle">
-            Tools, languages, and hardware protocols I actively use to design and ship production applications.
+            {t('skills.subtitle')}
           </p>
         </div>
 
@@ -133,13 +136,13 @@ export const SkillsSection: React.FC = () => {
           }}
         >
           <div className="nb-sticker" style={{ marginBottom: '0.5rem', backgroundColor: 'var(--color-border)', color: 'var(--text-inverted)' }}>
-            ENGINEERING CULTURE
+            {t('skills.culture_badge')}
           </div>
           <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--text-main)' }}>
-            PROFESSIONAL & SOFT COMPETENCIES
+            {t('skills.soft_title')}
           </h3>
           <p style={{ color: 'var(--text-main)', fontSize: '0.98rem', maxWidth: '640px', margin: '0 auto 1.5rem auto' }}>
-            Discipline, problem-solving, and clear cross-functional communication are fundamental to reliable execution.
+            {t('skills.soft_subtitle')}
           </p>
 
           <div

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar } from 'lucide-react';
 import { ProjectItem } from '../../data/portfolioData';
@@ -9,6 +10,8 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -86,7 +89,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <span style={{ width: '12px', height: '12px', border: '2px solid #121212', backgroundColor: '#facc15', borderRadius: '50%' }} />
               <span style={{ width: '12px', height: '12px', border: '2px solid #121212', backgroundColor: '#22c55e', borderRadius: '50%' }} />
               <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.85rem', marginLeft: '6px' }}>
-                PROJECT_SPEC: {project.id.toUpperCase()}.EXE
+                {t('portfolio.modal_title_prefix')}: {project.id.toUpperCase()}.EXE
               </span>
             </div>
 
@@ -176,7 +179,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {/* Badges */}
             <div style={{ marginBottom: '2rem' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '8px', textTransform: 'uppercase', color: 'var(--text-main)' }}>
-                INTEGRATIONS & TECH STACK:
+                {t('portfolio.tech_stack_label')}
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {project.badges.map((b, idx) => (
@@ -190,10 +193,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {/* Actions */}
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '2.5px solid var(--color-border)', paddingTop: '1.25rem' }}>
               <button onClick={onClose} className="nb-btn nb-btn-white" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}>
-                CLOSE
+                {t('portfolio.close_btn')}
               </button>
               <a href="#contact" onClick={onClose} className="nb-btn" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}>
-                INQUIRE ABOUT THIS
+                {t('portfolio.inquire_btn')}
               </a>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -6,24 +7,25 @@ import confetti from 'canvas-confetti';
 import { ArrowDownRight, Download, Code2, Send } from 'lucide-react';
 import { ParticlesHero } from './ParticlesHero';
 
-const ROLES = [
-  'FULLSTACK DEVELOPER',
-  'BACKEND SPECIALIST',
-  'EV & IOT TELEMATICS ENGINEER',
-  'API & DATABASE ARCHITECT',
-];
-
 export const Hero: React.FC = () => {
+  const { t } = useTranslation();
   const [roleIndex, setRoleIndex] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
 
+  const roles = (t('hero.roles', { returnObjects: true }) as string[]) || [
+    'FULLSTACK DEVELOPER',
+    'BACKEND SPECIALIST',
+    'EV & IOT TELEMATICS ENGINEER',
+    'API & DATABASE ARCHITECT',
+  ];
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % ROLES.length);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 2800);
     return () => clearInterval(timer);
-  }, []);
+  }, [roles.length]);
 
   useGSAP(
     () => {
@@ -116,13 +118,13 @@ export const Hero: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: '1rem',
+            marginTop: '0.75rem',
             marginBottom: '1.75rem',
           }}
         >
           <AnimatePresence mode="wait">
             <motion.div
-              key={roleIndex}
+              key={`${roles[roleIndex]}-${roleIndex}`}
               initial={{ opacity: 0, y: 15, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -15, scale: 0.95 }}
@@ -134,7 +136,7 @@ export const Hero: React.FC = () => {
                 boxShadow: '4px 4px 0 var(--color-shadow)',
                 padding: '8px 22px',
                 fontFamily: 'var(--font-mono)',
-                fontSize: 'clamp(1rem, 2.5vw, 1.35rem)',
+                fontSize: 'clamp(0.95rem, 2.5vw, 1.35rem)',
                 fontWeight: 700,
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -142,7 +144,7 @@ export const Hero: React.FC = () => {
               }}
             >
               <Code2 size={22} color="var(--color-pastel-blue)" />
-              <span>{ROLES[roleIndex]}</span>
+              <span>{roles[roleIndex]}</span>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -158,7 +160,7 @@ export const Hero: React.FC = () => {
           }}
         >
           <a href="#portfolio" className="nb-btn" style={{ padding: '0.85rem 2rem' }}>
-            <span>EXPLORE PROJECTS</span>
+            <span>{t('hero.explore_projects')}</span>
             <ArrowDownRight size={20} />
           </a>
 
@@ -170,7 +172,7 @@ export const Hero: React.FC = () => {
             style={{ padding: '0.85rem 2rem' }}
           >
             <Download size={20} />
-            <span>DOWNLOAD CV</span>
+            <span>{t('hero.download_cv')}</span>
           </a>
 
           <a
@@ -179,7 +181,7 @@ export const Hero: React.FC = () => {
             style={{ padding: '0.85rem 2rem' }}
           >
             <Send size={18} />
-            <span>GET IN TOUCH</span>
+            <span>{t('hero.get_in_touch')}</span>
           </a>
         </div>
       </div>
