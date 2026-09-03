@@ -65,7 +65,7 @@ export const ContactSection: React.FC = () => {
       detail: '@maulanahidayatullah',
       href: 'https://github.com/maulanahidayatullah',
       icon: <Github size={24} />,
-      bg: 'var(--color-pastel-blue)',
+      bg: 'var(--color-pastel-lavender)',
       subtext: 'Open source & code repositories',
     },
   ];
@@ -76,6 +76,7 @@ export const ContactSection: React.FC = () => {
       style={{
         padding: '6rem 0 3rem 0',
         backgroundColor: 'var(--bg-canvas)',
+        transition: 'background-color 0.2s ease',
       }}
     >
       <div className="container">
@@ -84,12 +85,13 @@ export const ContactSection: React.FC = () => {
           className="nb-card"
           style={{
             backgroundColor: 'var(--color-pastel-blue)',
+            color: '#121212',
             padding: '3.5rem 2rem',
             textAlign: 'center',
             marginBottom: '5rem',
           }}
         >
-          <div className="nb-sticker" style={{ marginBottom: '1rem', backgroundColor: 'var(--color-black)', color: '#fff' }}>
+          <div className="nb-sticker" style={{ marginBottom: '1rem', backgroundColor: '#121212', color: '#fff' }}>
             START A CONVERSATION
           </div>
 
@@ -97,7 +99,7 @@ export const ContactSection: React.FC = () => {
             style={{
               fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
               fontWeight: 900,
-              color: 'var(--color-black)',
+              color: '#121212',
               lineHeight: 1.1,
               marginBottom: '1rem',
               textTransform: 'uppercase',
@@ -109,7 +111,7 @@ export const ContactSection: React.FC = () => {
           <p
             style={{
               fontSize: '1.1rem',
-              color: 'var(--color-black)',
+              color: '#121212',
               fontWeight: 600,
               maxWidth: '680px',
               margin: '0 auto 2rem auto',
@@ -144,7 +146,7 @@ export const ContactSection: React.FC = () => {
 
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
             CONTACT ME
           </div>
           <h2 className="section-title">LET'S CONNECT</h2>
@@ -174,6 +176,7 @@ export const ContactSection: React.FC = () => {
                 className="nb-card"
                 style={{
                   backgroundColor: channel.bg,
+                  color: '#121212',
                   padding: '1.25rem 1.5rem',
                   display: 'flex',
                   alignItems: 'center',
@@ -184,9 +187,10 @@ export const ContactSection: React.FC = () => {
                   style={{
                     width: '48px',
                     height: '48px',
-                    backgroundColor: '#ffffff',
-                    border: '2.5px solid var(--color-black)',
-                    boxShadow: '2px 2px 0 var(--color-black)',
+                    backgroundColor: 'var(--bg-card)',
+                    color: 'var(--text-main)',
+                    border: '2.5px solid var(--color-border)',
+                    boxShadow: '2px 2px 0 var(--color-shadow)',
                     borderRadius: '4px',
                     display: 'flex',
                     alignItems: 'center',
@@ -198,13 +202,13 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--text-muted)' }}>
+                  <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#374151' }}>
                     {channel.subtext}
                   </div>
-                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-black)' }}>
+                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#121212' }}>
                     {channel.title}
                   </div>
-                  <div style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--color-black)' }}>
+                  <div style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#121212' }}>
                     {channel.detail}
                   </div>
                 </div>
@@ -217,10 +221,10 @@ export const ContactSection: React.FC = () => {
             className="nb-card"
             style={{
               padding: '2rem 2.25rem',
-              backgroundColor: '#ffffff',
+              backgroundColor: 'var(--bg-card)',
             }}
           >
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--text-main)' }}>
               DIRECT INQUIRY
             </h3>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '1.5rem', fontWeight: 500 }}>
@@ -229,7 +233,7 @@ export const ContactSection: React.FC = () => {
 
             <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px', color: 'var(--text-main)' }}>
                   YOUR NAME:
                 </label>
                 <input
@@ -241,9 +245,10 @@ export const ContactSection: React.FC = () => {
                   style={{
                     width: '100%',
                     padding: '0.75rem 1rem',
-                    backgroundColor: '#faf8f5',
-                    border: '2.5px solid var(--color-black)',
-                    boxShadow: '3px 3px 0 var(--color-black)',
+                    backgroundColor: 'var(--bg-input)',
+                    color: 'var(--text-main)',
+                    border: '2.5px solid var(--color-border)',
+                    boxShadow: '3px 3px 0 var(--color-shadow)',
                     borderRadius: '4px',
                     fontFamily: 'var(--font-body)',
                     fontSize: '0.95rem',
@@ -253,7 +258,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px', color: 'var(--text-main)' }}>
                   YOUR EMAIL:
                 </label>
                 <input
@@ -265,9 +270,10 @@ export const ContactSection: React.FC = () => {
                   style={{
                     width: '100%',
                     padding: '0.75rem 1rem',
-                    backgroundColor: '#faf8f5',
-                    border: '2.5px solid var(--color-black)',
-                    boxShadow: '3px 3px 0 var(--color-black)',
+                    backgroundColor: 'var(--bg-input)',
+                    color: 'var(--text-main)',
+                    border: '2.5px solid var(--color-border)',
+                    boxShadow: '3px 3px 0 var(--color-shadow)',
                     borderRadius: '4px',
                     fontFamily: 'var(--font-body)',
                     fontSize: '0.95rem',
@@ -277,7 +283,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px', color: 'var(--text-main)' }}>
                   PROJECT SCOPE / MESSAGE:
                 </label>
                 <textarea
@@ -289,9 +295,10 @@ export const ContactSection: React.FC = () => {
                   style={{
                     width: '100%',
                     padding: '0.75rem 1rem',
-                    backgroundColor: '#faf8f5',
-                    border: '2.5px solid var(--color-black)',
-                    boxShadow: '3px 3px 0 var(--color-black)',
+                    backgroundColor: 'var(--bg-input)',
+                    color: 'var(--text-main)',
+                    border: '2.5px solid var(--color-border)',
+                    boxShadow: '3px 3px 0 var(--color-shadow)',
                     borderRadius: '4px',
                     fontFamily: 'var(--font-body)',
                     fontSize: '0.95rem',
@@ -312,7 +319,7 @@ export const ContactSection: React.FC = () => {
         {/* Footer Bar */}
         <div
           style={{
-            borderTop: '3px solid var(--color-black)',
+            borderTop: '3px solid var(--color-border)',
             paddingTop: '2rem',
             display: 'flex',
             flexWrap: 'wrap',
@@ -321,7 +328,7 @@ export const ContactSection: React.FC = () => {
             gap: '1rem',
           }}
         >
-          <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.9rem' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--text-main)' }}>
             &copy; {new Date().getFullYear()} MAULANA HIDAYATULLAH. ALL RIGHTS RESERVED.
           </div>
 

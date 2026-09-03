@@ -17,12 +17,13 @@ export const SkillsSection: React.FC = () => {
       style={{
         padding: '6rem 0',
         backgroundColor: 'var(--bg-canvas)',
+        transition: 'background-color 0.2s ease',
       }}
     >
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
             TECHNICAL ARSENAL
           </div>
           <h2 className="section-title">SKILLS & FRAMEWORKS</h2>
@@ -57,7 +58,8 @@ export const SkillsSection: React.FC = () => {
                 <div
                   style={{
                     backgroundColor: headerConfig.bg,
-                    borderBottom: '3px solid var(--color-black)',
+                    color: '#121212',
+                    borderBottom: '3px solid var(--color-border)',
                     padding: '12px 18px',
                     display: 'flex',
                     alignItems: 'center',
@@ -68,8 +70,9 @@ export const SkillsSection: React.FC = () => {
                     style={{
                       width: '32px',
                       height: '32px',
-                      backgroundColor: '#ffffff',
-                      border: '2px solid var(--color-black)',
+                      backgroundColor: 'var(--bg-card)',
+                      color: 'var(--text-main)',
+                      border: '2px solid var(--color-border)',
                       borderRadius: '4px',
                       display: 'flex',
                       alignItems: 'center',
@@ -79,13 +82,13 @@ export const SkillsSection: React.FC = () => {
                   >
                     {headerConfig.icon}
                   </div>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, textTransform: 'uppercase' }}>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, textTransform: 'uppercase', color: '#121212' }}>
                     {group.category}
                   </h3>
                 </div>
 
                 {/* Card Body */}
-                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-card)' }}>
                   <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.25rem', fontWeight: 500 }}>
                     {group.description}
                   </p>
@@ -95,9 +98,10 @@ export const SkillsSection: React.FC = () => {
                       <span
                         key={sIdx}
                         style={{
-                          backgroundColor: '#ffffff',
-                          border: '2px solid var(--color-black)',
-                          boxShadow: '2px 2px 0 var(--color-black)',
+                          backgroundColor: 'var(--bg-elevated)',
+                          color: 'var(--text-main)',
+                          border: '2px solid var(--color-border)',
+                          boxShadow: '2px 2px 0 var(--color-shadow)',
                           padding: '5px 12px',
                           fontSize: '0.84rem',
                           fontFamily: 'var(--font-mono)',
@@ -128,10 +132,10 @@ export const SkillsSection: React.FC = () => {
             textAlign: 'center',
           }}
         >
-          <div className="nb-sticker" style={{ marginBottom: '0.5rem', backgroundColor: 'var(--color-black)', color: '#fff' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.5rem', backgroundColor: 'var(--color-border)', color: 'var(--text-inverted)' }}>
             ENGINEERING CULTURE
           </div>
-          <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+          <h3 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '0.5rem', textTransform: 'uppercase', color: 'var(--text-main)' }}>
             PROFESSIONAL & SOFT COMPETENCIES
           </h3>
           <p style={{ color: 'var(--text-main)', fontSize: '0.98rem', maxWidth: '640px', margin: '0 auto 1.5rem auto' }}>
@@ -154,14 +158,15 @@ export const SkillsSection: React.FC = () => {
                   alignItems: 'center',
                   gap: '8px',
                   padding: '8px 16px',
-                  backgroundColor: '#ffffff',
-                  border: '2px solid var(--color-black)',
-                  boxShadow: '3px 3px 0 var(--color-black)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-main)',
+                  border: '2px solid var(--color-border)',
+                  boxShadow: '3px 3px 0 var(--color-shadow)',
                   fontWeight: 700,
                   fontSize: '0.92rem',
                 }}
               >
-                <CheckCircle2 size={16} color="var(--color-black)" />
+                <CheckCircle2 size={16} color="var(--color-pastel-blue)" />
                 <span>{skill}</span>
               </div>
             ))}

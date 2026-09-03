@@ -25,15 +25,16 @@ export const PortfolioSection: React.FC = () => {
       id="portfolio"
       style={{
         padding: '6rem 0',
-        backgroundColor: '#ffffff',
-        borderTop: '3px solid var(--color-black)',
-        borderBottom: '3px solid var(--color-black)',
+        backgroundColor: 'var(--bg-canvas)',
+        borderTop: '3px solid var(--color-border)',
+        borderBottom: '3px solid var(--color-border)',
+        transition: 'background-color 0.2s ease, border-color 0.2s ease',
       }}
     >
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
             PORTFOLIO
           </div>
           <h2 className="section-title">SELECTED WORKS & SYSTEMS</h2>
@@ -63,10 +64,10 @@ export const PortfolioSection: React.FC = () => {
                     fontWeight: 700,
                     fontSize: '0.88rem',
                     letterSpacing: '0.02em',
-                    backgroundColor: isActive ? 'var(--color-pastel-blue)' : '#ffffff',
-                    color: 'var(--color-black)',
-                    border: '2.5px solid var(--color-black)',
-                    boxShadow: isActive ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
+                    backgroundColor: isActive ? 'var(--color-pastel-blue)' : 'var(--bg-card)',
+                    color: isActive ? '#121212' : 'var(--text-main)',
+                    border: '2.5px solid var(--color-border)',
+                    boxShadow: isActive ? '4px 4px 0 var(--color-shadow)' : '2px 2px 0 var(--color-shadow)',
                     cursor: 'pointer',
                     borderRadius: '4px',
                     transition: 'all 0.15s ease',
@@ -74,13 +75,13 @@ export const PortfolioSection: React.FC = () => {
                   onMouseEnter={(e) => {
                     if (!isActive) {
                       e.currentTarget.style.transform = 'translate(-2px, -2px)';
-                      e.currentTarget.style.boxShadow = '3px 3px 0 var(--color-black)';
+                      e.currentTarget.style.boxShadow = '3px 3px 0 var(--color-shadow)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) {
                       e.currentTarget.style.transform = 'translate(0, 0)';
-                      e.currentTarget.style.boxShadow = '2px 2px 0 var(--color-black)';
+                      e.currentTarget.style.boxShadow = '2px 2px 0 var(--color-shadow)';
                     }
                   }}
                 >
@@ -112,7 +113,7 @@ export const PortfolioSection: React.FC = () => {
                 onClick={() => setSelectedProject(project)}
                 className="nb-card"
                 style={{
-                  backgroundColor: '#ffffff',
+                  backgroundColor: 'var(--bg-card)',
                   padding: '0',
                   overflow: 'hidden',
                   cursor: 'pointer',
@@ -125,8 +126,8 @@ export const PortfolioSection: React.FC = () => {
                   style={{
                     position: 'relative',
                     height: '210px',
-                    backgroundColor: '#f4f0ea',
-                    borderBottom: '3px solid var(--color-black)',
+                    backgroundColor: 'var(--bg-elevated)',
+                    borderBottom: '3px solid var(--color-border)',
                     overflow: 'hidden',
                   }}
                 >
@@ -150,8 +151,9 @@ export const PortfolioSection: React.FC = () => {
                       top: '12px',
                       left: '12px',
                       backgroundColor: 'var(--color-pastel-blue)',
-                      border: '2px solid var(--color-black)',
-                      boxShadow: '2px 2px 0 var(--color-black)',
+                      color: '#121212',
+                      border: '2px solid var(--color-border)',
+                      boxShadow: '2px 2px 0 var(--color-shadow)',
                       padding: '3px 10px',
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.75rem',
@@ -176,7 +178,7 @@ export const PortfolioSection: React.FC = () => {
                     style={{
                       fontSize: '1.4rem',
                       fontWeight: 800,
-                      color: 'var(--color-black)',
+                      color: 'var(--text-main)',
                       marginBottom: '0.5rem',
                       textTransform: 'uppercase',
                     }}
@@ -215,7 +217,7 @@ export const PortfolioSection: React.FC = () => {
                       </span>
                     ))}
                     {project.badges.length > 3 && (
-                      <span className="nb-tag" style={{ fontSize: '0.75rem', backgroundColor: '#ffffff' }}>
+                      <span className="nb-tag" style={{ fontSize: '0.75rem', backgroundColor: 'var(--bg-elevated)' }}>
                         +{project.badges.length - 3} more
                       </span>
                     )}
@@ -224,7 +226,7 @@ export const PortfolioSection: React.FC = () => {
                   {/* Inspect Button Bar */}
                   <div
                     style={{
-                      borderTop: '2px solid var(--color-black)',
+                      borderTop: '2px solid var(--color-border)',
                       paddingTop: '0.85rem',
                       display: 'flex',
                       alignItems: 'center',
@@ -232,6 +234,7 @@ export const PortfolioSection: React.FC = () => {
                       fontFamily: 'var(--font-mono)',
                       fontWeight: 700,
                       fontSize: '0.85rem',
+                      color: 'var(--text-main)',
                     }}
                   >
                     <span>INSPECT SPECS</span>

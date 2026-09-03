@@ -60,6 +60,7 @@ export const Hero: React.FC = () => {
         paddingTop: '6rem',
         paddingBottom: '5rem',
         overflow: 'hidden',
+        transition: 'background-color 0.2s ease',
       }}
     >
       {/* Neo-Brutalist Canvas Particles */}
@@ -80,13 +81,14 @@ export const Hero: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'var(--color-pastel-blue)',
-                border: '2.5px solid var(--color-black)',
-                boxShadow: '3px 3px 0 var(--color-black)',
+                border: '2.5px solid var(--color-border)',
+                boxShadow: '3px 3px 0 var(--color-shadow)',
                 padding: '4px 14px',
                 fontFamily: 'var(--font-mono)',
                 fontWeight: 700,
                 fontSize: '0.82rem',
                 textTransform: 'uppercase',
+                color: '#121212',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
@@ -98,14 +100,15 @@ export const Hero: React.FC = () => {
 
             <div
               style={{
-                backgroundColor: '#ffffff',
-                border: '2.5px solid var(--color-black)',
-                boxShadow: '3px 3px 0 var(--color-black)',
+                backgroundColor: 'var(--bg-card)',
+                border: '2.5px solid var(--color-border)',
+                boxShadow: '3px 3px 0 var(--color-shadow)',
                 padding: '4px 14px',
                 fontFamily: 'var(--font-mono)',
                 fontWeight: 700,
                 fontSize: '0.82rem',
                 textTransform: 'uppercase',
+                color: 'var(--text-main)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
@@ -124,13 +127,13 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Main Giant Headline with Pastel Blue Highlight */}
+          {/* Main Giant Headline */}
           <h1
             ref={headlineRef}
             style={{
               fontSize: 'clamp(2.8rem, 7.5vw, 5.8rem)',
               fontWeight: 900,
-              color: 'var(--color-black)',
+              color: 'var(--text-main)',
               letterSpacing: '-0.03em',
               lineHeight: 1.05,
               textTransform: 'uppercase',
@@ -141,9 +144,10 @@ export const Hero: React.FC = () => {
             <span
               style={{
                 backgroundColor: 'var(--color-pastel-blue)',
+                color: '#121212',
                 padding: '0 14px',
-                border: '3px solid var(--color-black)',
-                boxShadow: '6px 6px 0 var(--color-black)',
+                border: '3px solid var(--color-border)',
+                boxShadow: '6px 6px 0 var(--color-shadow)',
                 display: 'inline-block',
                 transform: 'rotate(-1deg)',
               }}
@@ -170,9 +174,10 @@ export const Hero: React.FC = () => {
                 exit={{ opacity: 0, y: -15, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
                 style={{
-                  backgroundColor: '#ffffff',
-                  border: '3px solid var(--color-black)',
-                  boxShadow: '4px 4px 0 var(--color-black)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-main)',
+                  border: '3px solid var(--color-border)',
+                  boxShadow: '4px 4px 0 var(--color-shadow)',
                   padding: '6px 20px',
                   fontFamily: 'var(--font-mono)',
                   fontSize: 'clamp(1rem, 2.5vw, 1.35rem)',
@@ -182,7 +187,7 @@ export const Hero: React.FC = () => {
                   gap: '10px',
                 }}
               >
-                <Code2 size={20} color="var(--color-black)" />
+                <Code2 size={20} color="var(--color-pastel-blue)" />
                 <span>{ROLES[roleIndex]}</span>
               </motion.div>
             </AnimatePresence>
@@ -254,7 +259,8 @@ export const Hero: React.FC = () => {
             <div
               style={{
                 backgroundColor: 'var(--color-pastel-blue)',
-                borderBottom: '3px solid var(--color-black)',
+                color: '#121212',
+                borderBottom: '3px solid var(--color-border)',
                 padding: '10px 16px',
                 display: 'flex',
                 alignItems: 'center',
@@ -262,9 +268,9 @@ export const Hero: React.FC = () => {
               }}
             >
               <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                <span style={{ width: '13px', height: '13px', border: '2px solid var(--color-black)', backgroundColor: '#ef4444', borderRadius: '50%' }} />
-                <span style={{ width: '13px', height: '13px', border: '2px solid var(--color-black)', backgroundColor: '#facc15', borderRadius: '50%' }} />
-                <span style={{ width: '13px', height: '13px', border: '2px solid var(--color-black)', backgroundColor: '#22c55e', borderRadius: '50%' }} />
+                <span style={{ width: '13px', height: '13px', border: '2px solid #121212', backgroundColor: '#ef4444', borderRadius: '50%' }} />
+                <span style={{ width: '13px', height: '13px', border: '2px solid #121212', backgroundColor: '#facc15', borderRadius: '50%' }} />
+                <span style={{ width: '13px', height: '13px', border: '2px solid #121212', backgroundColor: '#22c55e', borderRadius: '50%' }} />
               </div>
               <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.85rem' }}>
                 engineer_spec.json
@@ -278,18 +284,18 @@ export const Hero: React.FC = () => {
                 padding: '1.25rem 1.5rem',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.88rem',
-                backgroundColor: '#ffffff',
+                backgroundColor: 'var(--bg-card)',
                 lineHeight: 1.7,
               }}
             >
-              <div><strong style={{ color: '#0369a1' }}>"developer"</strong>: <span style={{ color: '#0f766e' }}>"Maulana Hidayatullah"</span>,</div>
-              <div><strong style={{ color: '#0369a1' }}>"core_specialties"</strong>: [</div>
+              <div><strong style={{ color: 'var(--color-pastel-blue)' }}>"developer"</strong>: <span style={{ color: '#10b981' }}>"Maulana Hidayatullah"</span>,</div>
+              <div><strong style={{ color: 'var(--color-pastel-blue)' }}>"core_specialties"</strong>: [</div>
               <div style={{ paddingLeft: '1.5rem' }}>
-                <span style={{ color: '#0f766e' }}>"Express.js"</span>, <span style={{ color: '#0f766e' }}>"Spring Boot"</span>, <span style={{ color: '#0f766e' }}>"OCPP 1.6 Telematics"</span>, <span style={{ color: '#0f766e' }}>"PostgreSQL"</span>
+                <span style={{ color: '#10b981' }}>"Express.js"</span>, <span style={{ color: '#10b981' }}>"Spring Boot"</span>, <span style={{ color: '#10b981' }}>"OCPP 1.6 Telematics"</span>, <span style={{ color: '#10b981' }}>"PostgreSQL"</span>
               </div>
               <div>],</div>
-              <div><strong style={{ color: '#0369a1' }}>"education"</strong>: <span style={{ color: '#0f766e' }}>"Indramayu State Polytechnic (GPA 3.45/4.00)"</span>,</div>
-              <div><strong style={{ color: '#0369a1' }}>"production_ready"</strong>: <span style={{ color: '#16a34a', fontWeight: 700 }}>true</span></div>
+              <div><strong style={{ color: 'var(--color-pastel-blue)' }}>"education"</strong>: <span style={{ color: '#10b981' }}>"Indramayu State Polytechnic (GPA 3.45/4.00)"</span>,</div>
+              <div><strong style={{ color: 'var(--color-pastel-blue)' }}>"production_ready"</strong>: <span style={{ color: '#22c55e', fontWeight: 700 }}>true</span></div>
             </div>
           </div>
         </div>

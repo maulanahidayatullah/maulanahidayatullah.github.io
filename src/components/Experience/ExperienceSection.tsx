@@ -13,15 +13,16 @@ export const ExperienceSection: React.FC = () => {
       id="experience"
       style={{
         padding: '6rem 0',
-        backgroundColor: '#ffffff',
-        borderTop: '3px solid var(--color-black)',
-        borderBottom: '3px solid var(--color-black)',
+        backgroundColor: 'var(--bg-canvas)',
+        borderTop: '3px solid var(--color-border)',
+        borderBottom: '3px solid var(--color-border)',
+        transition: 'background-color 0.2s ease, border-color 0.2s ease',
       }}
     >
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
             TRACK RECORD
           </div>
           <h2 className="section-title">EXPERIENCE & EDUCATION</h2>
@@ -41,8 +42,9 @@ export const ExperienceSection: React.FC = () => {
               onClick={() => setActiveTab('work')}
               className="nb-btn"
               style={{
-                backgroundColor: activeTab === 'work' ? 'var(--color-pastel-blue)' : '#ffffff',
-                boxShadow: activeTab === 'work' ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
+                backgroundColor: activeTab === 'work' ? 'var(--color-pastel-blue)' : 'var(--bg-card)',
+                color: activeTab === 'work' ? '#121212' : 'var(--text-main)',
+                boxShadow: activeTab === 'work' ? '4px 4px 0 var(--color-shadow)' : '2px 2px 0 var(--color-shadow)',
               }}
             >
               <Briefcase size={18} />
@@ -53,8 +55,9 @@ export const ExperienceSection: React.FC = () => {
               onClick={() => setActiveTab('education')}
               className="nb-btn"
               style={{
-                backgroundColor: activeTab === 'education' ? 'var(--color-pastel-blue)' : '#ffffff',
-                boxShadow: activeTab === 'education' ? '4px 4px 0 var(--color-black)' : '2px 2px 0 var(--color-black)',
+                backgroundColor: activeTab === 'education' ? 'var(--color-pastel-blue)' : 'var(--bg-card)',
+                color: activeTab === 'education' ? '#121212' : 'var(--text-main)',
+                boxShadow: activeTab === 'education' ? '4px 4px 0 var(--color-shadow)' : '2px 2px 0 var(--color-shadow)',
               }}
             >
               <GraduationCap size={18} />
@@ -79,7 +82,7 @@ export const ExperienceSection: React.FC = () => {
                   key={item.id}
                   className="nb-card"
                   style={{
-                    backgroundColor: '#ffffff',
+                    backgroundColor: 'var(--bg-card)',
                     padding: '2rem',
                     position: 'relative',
                   }}
@@ -91,8 +94,9 @@ export const ExperienceSection: React.FC = () => {
                       alignItems: 'center',
                       gap: '6px',
                       backgroundColor: 'var(--color-pastel-blue-light)',
-                      border: '2px solid var(--color-black)',
-                      boxShadow: '2px 2px 0 var(--color-black)',
+                      color: 'var(--text-main)',
+                      border: '2px solid var(--color-border)',
+                      boxShadow: '2px 2px 0 var(--color-shadow)',
                       padding: '4px 12px',
                       fontFamily: 'var(--font-mono)',
                       fontWeight: 700,
@@ -109,7 +113,7 @@ export const ExperienceSection: React.FC = () => {
                     style={{
                       fontSize: '1.6rem',
                       fontWeight: 800,
-                      color: 'var(--color-black)',
+                      color: 'var(--text-main)',
                       marginBottom: '0.25rem',
                     }}
                   >
@@ -157,13 +161,14 @@ export const ExperienceSection: React.FC = () => {
                           gap: '10px',
                           fontSize: '0.95rem',
                           lineHeight: 1.6,
+                          color: 'var(--text-main)',
                         }}
                       >
                         <span
                           style={{
                             width: '8px',
                             height: '8px',
-                            backgroundColor: 'var(--color-black)',
+                            backgroundColor: 'var(--color-pastel-blue)',
                             marginTop: '0.55rem',
                             flexShrink: 0,
                           }}

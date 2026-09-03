@@ -1,5 +1,5 @@
 /* =========================================================
-   NEO-BRUTALISM DESIGN SYSTEM - PASTEL BLUE EDITION
+   NEO-BRUTALISM DESIGN SYSTEM - LIGHT & DARK THEME
    Maulana Hidayatullah - Fullstack & Backend Engineer
    ========================================================= */
 
@@ -7,10 +7,14 @@
   --bg-canvas: #f6f9fc;
   --bg-card: #ffffff;
   --bg-elevated: #eef4f9;
+  --bg-input: #faf8f5;
+  --bg-dots: rgba(18, 18, 18, 0.12);
 
   --color-black: #121212;
+  --color-border: #121212;
+  --color-shadow: #121212;
 
-  /* Pastel Blue Dominant Palette */
+  /* Pastel Blue #93c5fd Palette */
   --color-pastel-blue: #93c5fd;         /* Primary Pastel Blue */
   --color-pastel-blue-light: #dbeafe;   /* Soft Ice Blue */
   --color-pastel-blue-deep: #60a5fa;    /* Vibrant Pastel Blue */
@@ -24,14 +28,14 @@
   --text-muted: #4b5563;
   --text-inverted: #ffffff;
 
-  --border-thick: 3px solid var(--color-black);
-  --border-medium: 2.5px solid var(--color-black);
-  --border-thin: 2px solid var(--color-black);
+  --border-thick: 3px solid var(--color-border);
+  --border-medium: 2.5px solid var(--color-border);
+  --border-thin: 2px solid var(--color-border);
 
-  --shadow-sm: 2px 2px 0px var(--color-black);
-  --shadow-md: 4px 4px 0px var(--color-black);
-  --shadow-lg: 6px 6px 0px var(--color-black);
-  --shadow-xl: 8px 8px 0px var(--color-black);
+  --shadow-sm: 2px 2px 0px var(--color-shadow);
+  --shadow-md: 4px 4px 0px var(--color-shadow);
+  --shadow-lg: 6px 6px 0px var(--color-shadow);
+  --shadow-xl: 8px 8px 0px var(--color-shadow);
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -41,6 +45,33 @@
   --font-heading: 'Space Grotesk', -apple-system, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-mono: 'Space Mono', monospace;
+}
+
+/* Dark Mode Theme */
+html.dark {
+  --bg-canvas: #0b0f17;
+  --bg-card: #151c28;
+  --bg-elevated: #1e2838;
+  --bg-input: #0f1622;
+  --bg-dots: rgba(255, 255, 255, 0.12);
+
+  --color-black: #f8fafc;
+  --color-border: #f8fafc;
+  --color-shadow: #000000;
+
+  /* Pastel Blue in Dark Mode */
+  --color-pastel-blue: #60a5fa;
+  --color-pastel-blue-light: #1e2d42;
+  --color-pastel-blue-deep: #93c5fd;
+  --color-pastel-cyan: #38bdf8;
+  --color-pastel-cyan-light: #162a3f;
+  --color-pastel-mint: #2dd4bf;
+  --color-pastel-lavender: #a78bfa;
+  --color-pastel-peach: #fb923c;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-inverted: #0b0f17;
 }
 
 /* Reset & Base Setup */
@@ -55,17 +86,19 @@ html {
   scroll-behavior: smooth;
   background-color: var(--bg-canvas);
   color: var(--text-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--bg-canvas);
-  background-image: radial-gradient(rgba(18, 18, 18, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(var(--bg-dots) 1px, transparent 1px);
   background-size: 24px 24px;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -116,7 +149,7 @@ img {
 ::-webkit-scrollbar-thumb {
   background: var(--color-pastel-blue);
   border: var(--border-medium);
-  box-shadow: 2px 2px 0 var(--color-black);
+  box-shadow: 2px 2px 0 var(--color-shadow);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -125,11 +158,11 @@ img {
 
 /* Neo-Brutalist Card Utility */
 .nb-card {
-  background: var(--bg-card);
+  background-color: var(--bg-card);
   border: var(--border-thick);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
 }
 
 .nb-card:hover {
@@ -149,7 +182,7 @@ img {
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  color: var(--color-black);
+  color: #121212;
   background: var(--color-pastel-blue);
   border: var(--border-thick);
   border-radius: var(--radius-sm);
@@ -172,14 +205,17 @@ img {
 
 .nb-btn-light {
   background: var(--color-pastel-blue-light);
+  color: var(--text-main);
 }
 
 .nb-btn-white {
-  background: #ffffff;
+  background: var(--bg-card);
+  color: var(--text-main);
 }
 
 .nb-btn-mint {
   background: var(--color-pastel-mint);
+  color: #121212;
 }
 
 /* Neo-Brutalist Badges & Tags */
@@ -191,7 +227,7 @@ img {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--color-black);
+  color: var(--text-main);
   background: var(--color-pastel-blue-light);
   border: var(--border-thin);
   border-radius: var(--radius-sm);
@@ -206,8 +242,8 @@ img {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: var(--color-black);
-  color: #ffffff;
+  background: var(--color-border);
+  color: var(--text-inverted);
   border-radius: 2px;
 }
 
@@ -220,7 +256,7 @@ img {
 .section-title {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
-  color: var(--color-black);
+  color: var(--text-main);
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }

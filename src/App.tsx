@@ -6,6 +6,7 @@ import { ExperienceSection } from './components/Experience/ExperienceSection';
 import { SkillsSection } from './components/Skills/SkillsSection';
 import { PortfolioSection } from './components/Portfolio/PortfolioSection';
 import { ContactSection } from './components/Contact/ContactSection';
+import { ThemeToggle } from './components/ThemeToggle/ThemeToggle';
 import { useScrollSpy } from './hooks/useScrollSpy';
 
 export const App: React.FC = () => {
@@ -14,13 +15,16 @@ export const App: React.FC = () => {
 
   return (
     <div className="portfolio-app" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Sticky Theme Toggle Button in the Top-Right Corner */}
+      <ThemeToggle />
+
       {/* 1. Hero Section at the top */}
       <Hero />
 
       {/* 2. Sticky Neo-Brutalist Navbar (sits below Hero, sticks on scroll) */}
       <Navbar activeSection={activeSection} />
 
-      {/* 3. Main Content */}
+      {/* 3. Main Content Sections */}
       <main style={{ flex: 1 }}>
         <AboutSection />
         <ExperienceSection />

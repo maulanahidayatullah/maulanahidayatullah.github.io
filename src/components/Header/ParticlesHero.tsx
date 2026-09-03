@@ -5,6 +5,7 @@ import type { ISourceOptions } from '@tsparticles/engine';
 
 export const ParticlesHero: React.FC = () => {
   const [init, setInit] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -12,6 +13,17 @@ export const ParticlesHero: React.FC = () => {
     }).then(() => {
       setInit(true);
     });
+
+    // Check initial dark mode
+    setIsDark(document.documentElement.classList.contains('dark'));
+
+    // Observer for dark mode class changes
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
   }, []);
 
   const options: ISourceOptions = {
@@ -37,8 +49,8 @@ export const ParticlesHero: React.FC = () => {
         grab: {
           distance: 150,
           links: {
-            opacity: 0.6,
-            color: '#60a5fa',
+            opacity: isDark ? 0.8 : 0.6,
+            color: isDark ? '#60a5fa' : '#3b82f6',
           },
         },
         push: {
@@ -48,13 +60,15 @@ export const ParticlesHero: React.FC = () => {
     },
     particles: {
       color: {
-        value: ['#121212', '#93c5fd', '#60a5fa', '#7dd3fc', '#bfdbfe'],
+        value: isDark
+          ? ['#f8fafc', '#60a5fa', '#38bdf8', '#a78bfa', '#2dd4bf']
+          : ['#121212', '#93c5fd', '#60a5fa', '#7dd3fc', '#bfdbfe'],
       },
       links: {
-        color: '#60a5fa',
+        color: isDark ? '#60a5fa' : '#3b82f6',
         distance: 140,
         enable: true,
-        opacity: 0.35,
+        opacity: isDark ? 0.45 : 0.35,
         width: 1.5,
       },
       move: {
@@ -76,7 +90,7 @@ export const ParticlesHero: React.FC = () => {
         value: 50,
       },
       opacity: {
-        value: { min: 0.35, max: 0.85 },
+        value: { min: isDark ? 0.45 : 0.35, max: isDark ? 0.95 : 0.85 },
       },
       shape: {
         type: 'circle',
@@ -101,7 +115,7 @@ export const ParticlesHero: React.FC = () => {
       }}
     >
       <Particles
-        id="particles-js"
+        id={`particles-hero-${isDark ? 'dark' : 'light'}`}
         options={options}
         style={{ width: '100%', height: '100%' }}
       />

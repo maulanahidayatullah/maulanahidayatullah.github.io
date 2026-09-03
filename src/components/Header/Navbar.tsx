@@ -27,10 +27,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         right: 0,
         zIndex: 999,
         height: '62px',
-        backgroundColor: '#ffffff',
-        borderTop: '3px solid var(--color-black)',
-        borderBottom: '3px solid var(--color-black)',
-        boxShadow: '0 4px 0 var(--color-black)',
+        backgroundColor: 'var(--bg-card)',
+        borderTop: '3px solid var(--color-border)',
+        borderBottom: '3px solid var(--color-border)',
+        boxShadow: '0 4px 0 var(--color-shadow)',
+        transition: 'background-color 0.2s ease, border-color 0.2s ease',
       }}
     >
       <div
@@ -50,15 +51,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             alignItems: 'center',
             gap: '8px',
             backgroundColor: 'var(--color-pastel-blue)',
-            border: '2.5px solid var(--color-black)',
-            boxShadow: '3px 3px 0 var(--color-black)',
+            border: '2.5px solid var(--color-border)',
+            boxShadow: '3px 3px 0 var(--color-shadow)',
             padding: '5px 12px',
             fontWeight: 800,
             fontSize: '1.05rem',
             letterSpacing: '-0.02em',
+            color: '#121212',
           }}
         >
-          <span style={{ backgroundColor: 'var(--color-black)', color: '#fff', padding: '2px 6px', fontSize: '0.85rem' }}>
+          <span style={{ backgroundColor: '#121212', color: '#fff', padding: '2px 6px', fontSize: '0.85rem' }}>
             MH
           </span>
           <span>MAULANA.H</span>
@@ -86,16 +88,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   letterSpacing: '0.04em',
                   padding: '6px 14px',
                   backgroundColor: isActive ? 'var(--color-pastel-blue)' : 'transparent',
-                  border: isActive ? '2px solid var(--color-black)' : '2px solid transparent',
-                  boxShadow: isActive ? '2px 2px 0 var(--color-black)' : 'none',
+                  border: isActive ? '2px solid var(--color-border)' : '2px solid transparent',
+                  boxShadow: isActive ? '2px 2px 0 var(--color-shadow)' : 'none',
                   borderRadius: '4px',
-                  color: 'var(--color-black)',
+                  color: isActive ? '#121212' : 'var(--text-main)',
                   transition: 'all 0.15s ease',
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     e.currentTarget.style.backgroundColor = 'var(--color-pastel-blue-light)';
-                    e.currentTarget.style.borderColor = 'var(--color-black)';
+                    e.currentTarget.style.borderColor = 'var(--color-border)';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -112,7 +114,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </div>
 
         {/* Quick Socials + Hire Me CTA */}
-        <div style={{ display: 'none', alignItems: 'center', gap: '8px' }} className="nb-desktop-nav">
+        <div
+          style={{
+            display: 'none',
+            alignItems: 'center',
+            gap: '8px',
+            marginRight: '90px', // Breathing room for sticky theme toggle button
+          }}
+          className="nb-desktop-nav"
+        >
           <a
             href="https://github.com/maulanahidayatullah"
             target="_blank"
@@ -121,9 +131,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             style={{
               width: '36px',
               height: '36px',
-              backgroundColor: '#fff',
-              border: '2px solid var(--color-black)',
-              boxShadow: '2px 2px 0 var(--color-black)',
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--text-main)',
+              border: '2px solid var(--color-border)',
+              boxShadow: '2px 2px 0 var(--color-shadow)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -141,9 +152,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             style={{
               width: '36px',
               height: '36px',
-              backgroundColor: '#fff',
-              border: '2px solid var(--color-black)',
-              boxShadow: '2px 2px 0 var(--color-black)',
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--text-main)',
+              border: '2px solid var(--color-border)',
+              boxShadow: '2px 2px 0 var(--color-shadow)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -156,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           <a
             href="#contact"
             className="nb-btn"
-            style={{ padding: '0.45rem 1.1rem', fontSize: '0.85rem', boxShadow: '3px 3px 0 var(--color-black)' }}
+            style={{ padding: '0.45rem 1.1rem', fontSize: '0.85rem', boxShadow: '3px 3px 0 var(--color-shadow)' }}
           >
             HIRE ME
           </a>
@@ -170,12 +182,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           style={{
             padding: '6px',
             backgroundColor: 'var(--color-pastel-blue)',
-            border: '2px solid var(--color-black)',
-            boxShadow: '2px 2px 0 var(--color-black)',
+            color: '#121212',
+            border: '2px solid var(--color-border)',
+            boxShadow: '2px 2px 0 var(--color-shadow)',
             borderRadius: '4px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            marginRight: '80px', // Space for theme toggle on mobile
           }}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -190,9 +204,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             top: '62px',
             left: 0,
             right: 0,
-            backgroundColor: '#ffffff',
-            borderBottom: '3px solid var(--color-black)',
-            boxShadow: '0 8px 0 rgba(0,0,0,0.15)',
+            backgroundColor: 'var(--bg-card)',
+            borderBottom: '3px solid var(--color-border)',
+            boxShadow: '0 8px 0 rgba(0,0,0,0.25)',
             padding: '20px 24px',
           }}
         >
@@ -206,9 +220,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   padding: '10px 14px',
                   fontWeight: 800,
                   fontSize: '1rem',
-                  border: '2px solid var(--color-black)',
-                  boxShadow: activeSection === item.href.substring(1) ? '3px 3px 0 var(--color-black)' : 'none',
+                  border: '2px solid var(--color-border)',
+                  boxShadow: activeSection === item.href.substring(1) ? '3px 3px 0 var(--color-shadow)' : 'none',
                   backgroundColor: activeSection === item.href.substring(1) ? 'var(--color-pastel-blue)' : 'transparent',
+                  color: activeSection === item.href.substring(1) ? '#121212' : 'var(--text-main)',
                   borderRadius: '4px',
                 }}
               >
@@ -216,7 +231,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               </a>
             ))}
 
-            <div style={{ display: 'flex', gap: '10px', marginTop: '10px', paddingTop: '15px', borderTop: '2px dashed var(--color-black)' }}>
+            <div style={{ display: 'flex', gap: '10px', marginTop: '10px', paddingTop: '15px', borderTop: '2px dashed var(--color-border)' }}>
               <a href="https://github.com/maulanahidayatullah" target="_blank" rel="noreferrer" className="nb-btn nb-btn-white" style={{ flex: 1, padding: '8px' }}>
                 <Github size={18} />
               </a>

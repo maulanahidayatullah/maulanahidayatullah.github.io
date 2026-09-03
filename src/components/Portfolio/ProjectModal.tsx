@@ -41,7 +41,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'rgba(18, 18, 18, 0.75)',
+            backgroundColor: 'rgba(12, 16, 23, 0.8)',
             backdropFilter: 'blur(4px)',
           }}
         />
@@ -59,9 +59,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             width: '100%',
             maxHeight: '90vh',
             overflowY: 'auto',
-            backgroundColor: '#ffffff',
-            border: '3.5px solid var(--color-black)',
-            boxShadow: '8px 8px 0px var(--color-black)',
+            backgroundColor: 'var(--bg-card)',
+            color: 'var(--text-main)',
+            border: '3.5px solid var(--color-border)',
+            boxShadow: '8px 8px 0px var(--color-shadow)',
             borderRadius: '8px',
           }}
         >
@@ -69,7 +70,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div
             style={{
               backgroundColor: 'var(--color-pastel-blue)',
-              borderBottom: '3.5px solid var(--color-black)',
+              color: '#121212',
+              borderBottom: '3.5px solid var(--color-border)',
               padding: '12px 18px',
               display: 'flex',
               alignItems: 'center',
@@ -80,9 +82,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ width: '12px', height: '12px', border: '2px solid var(--color-black)', backgroundColor: '#ef4444', borderRadius: '50%' }} />
-              <span style={{ width: '12px', height: '12px', border: '2px solid var(--color-black)', backgroundColor: '#facc15', borderRadius: '50%' }} />
-              <span style={{ width: '12px', height: '12px', border: '2px solid var(--color-black)', backgroundColor: '#22c55e', borderRadius: '50%' }} />
+              <span style={{ width: '12px', height: '12px', border: '2px solid #121212', backgroundColor: '#ef4444', borderRadius: '50%' }} />
+              <span style={{ width: '12px', height: '12px', border: '2px solid #121212', backgroundColor: '#facc15', borderRadius: '50%' }} />
+              <span style={{ width: '12px', height: '12px', border: '2px solid #121212', backgroundColor: '#22c55e', borderRadius: '50%' }} />
               <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.85rem', marginLeft: '6px' }}>
                 PROJECT_SPEC: {project.id.toUpperCase()}.EXE
               </span>
@@ -94,9 +96,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               style={{
                 width: '30px',
                 height: '30px',
-                backgroundColor: '#ffffff',
-                border: '2px solid var(--color-black)',
-                boxShadow: '2px 2px 0 var(--color-black)',
+                backgroundColor: 'var(--bg-card)',
+                color: 'var(--text-main)',
+                border: '2px solid var(--color-border)',
+                boxShadow: '2px 2px 0 var(--color-shadow)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -110,8 +113,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Project Screenshot */}
           <div
             style={{
-              borderBottom: '3px solid var(--color-black)',
-              backgroundColor: '#f4f0ea',
+              borderBottom: '3px solid var(--color-border)',
+              backgroundColor: 'var(--bg-elevated)',
               maxHeight: '380px',
               overflow: 'hidden',
               display: 'flex',
@@ -133,7 +136,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Details Body */}
           <div style={{ padding: '2rem' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', marginBottom: '0.75rem' }}>
-              <span className="nb-tag" style={{ backgroundColor: 'var(--color-cyan-light)' }}>
+              <span className="nb-tag" style={{ backgroundColor: 'var(--color-pastel-blue-light)' }}>
                 {project.categoryLabel}
               </span>
               {project.year && (
@@ -145,6 +148,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.82rem',
                     fontWeight: 700,
+                    color: 'var(--text-muted)',
                   }}
                 >
                   <Calendar size={14} />
@@ -157,7 +161,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               style={{
                 fontSize: '2rem',
                 fontWeight: 900,
-                color: 'var(--color-black)',
+                color: 'var(--text-main)',
                 textTransform: 'uppercase',
                 marginBottom: '1rem',
               }}
@@ -171,12 +175,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
             {/* Badges */}
             <div style={{ marginBottom: '2rem' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '8px', textTransform: 'uppercase' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.82rem', marginBottom: '8px', textTransform: 'uppercase', color: 'var(--text-main)' }}>
                 INTEGRATIONS & TECH STACK:
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {project.badges.map((b, idx) => (
-                  <span key={idx} className="nb-tag" style={{ backgroundColor: 'var(--color-yellow)' }}>
+                  <span key={idx} className="nb-tag">
                     {b}
                   </span>
                 ))}
@@ -184,7 +188,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '2.5px solid var(--color-black)', paddingTop: '1.25rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '2.5px solid var(--color-border)', paddingTop: '1.25rem' }}>
               <button onClick={onClose} className="nb-btn nb-btn-white" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}>
                 CLOSE
               </button>

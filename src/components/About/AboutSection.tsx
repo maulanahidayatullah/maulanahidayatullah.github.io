@@ -32,12 +32,13 @@ export const AboutSection: React.FC = () => {
       style={{
         padding: '6rem 0',
         backgroundColor: 'var(--bg-canvas)',
+        transition: 'background-color 0.2s ease',
       }}
     >
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: 'var(--color-black)' }}>
+          <div className="nb-sticker" style={{ marginBottom: '0.75rem', backgroundColor: 'var(--color-pastel-blue)', color: '#121212' }}>
             ABOUT ME
           </div>
           <h2 className="section-title">ENGINEERING WITH PURPOSE</h2>
@@ -64,7 +65,7 @@ export const AboutSection: React.FC = () => {
                 maxWidth: '420px',
                 width: '100%',
                 padding: '16px',
-                backgroundColor: '#ffffff',
+                backgroundColor: 'var(--bg-card)',
                 transform: 'rotate(-1.5deg)',
                 position: 'relative',
               }}
@@ -77,12 +78,13 @@ export const AboutSection: React.FC = () => {
                   left: '50%',
                   transform: 'translateX(-50%)',
                   backgroundColor: 'var(--color-pastel-blue)',
-                  border: '2px solid var(--color-black)',
+                  color: '#121212',
+                  border: '2px solid var(--color-border)',
                   padding: '4px 18px',
                   fontFamily: 'var(--font-mono)',
                   fontWeight: 700,
                   fontSize: '0.75rem',
-                  boxShadow: '2px 2px 0 var(--color-black)',
+                  boxShadow: '2px 2px 0 var(--color-shadow)',
                   zIndex: 2,
                 }}
               >
@@ -92,9 +94,9 @@ export const AboutSection: React.FC = () => {
               {/* Photo */}
               <div
                 style={{
-                  border: '2.5px solid var(--color-black)',
+                  border: '2.5px solid var(--color-border)',
                   overflow: 'hidden',
-                  backgroundColor: '#f4f0ea',
+                  backgroundColor: 'var(--bg-elevated)',
                   aspectRatio: '4/5',
                 }}
               >
@@ -123,6 +125,7 @@ export const AboutSection: React.FC = () => {
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.82rem',
                   fontWeight: 700,
+                  color: 'var(--text-main)',
                 }}
               >
                 <span>FULLSTACK ENGINEER</span>
@@ -137,7 +140,7 @@ export const AboutSection: React.FC = () => {
               className="nb-card"
               style={{
                 padding: '2rem 2.25rem',
-                backgroundColor: '#ffffff',
+                backgroundColor: 'var(--bg-card)',
               }}
             >
               <h3
@@ -146,6 +149,7 @@ export const AboutSection: React.FC = () => {
                   fontWeight: 800,
                   marginBottom: '1rem',
                   lineHeight: 1.25,
+                  color: 'var(--text-main)',
                 }}
               >
                 Scalable Backend Systems, Clean Integrations & Pragmatic Architecture.
@@ -183,8 +187,8 @@ export const AboutSection: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '2rem' }}>
                 {highlights.map((item, idx) => (
                   <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                    <CheckCircle2 size={20} color="var(--color-black)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontSize: '0.92rem', fontWeight: 600 }}>{item}</span>
+                    <CheckCircle2 size={20} color="var(--color-pastel-blue)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-main)' }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -232,9 +236,10 @@ export const AboutSection: React.FC = () => {
                 style={{
                   width: '46px',
                   height: '46px',
-                  backgroundColor: '#ffffff',
-                  border: '2.5px solid var(--color-black)',
-                  boxShadow: '2px 2px 0 var(--color-black)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-main)',
+                  border: '2.5px solid var(--color-border)',
+                  boxShadow: '2px 2px 0 var(--color-shadow)',
                   borderRadius: '4px',
                   display: 'flex',
                   alignItems: 'center',
@@ -248,7 +253,7 @@ export const AboutSection: React.FC = () => {
                 <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--text-muted)' }}>
                   {stat.label}
                 </div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--color-black)', lineHeight: 1.1 }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--text-main)', lineHeight: 1.1 }}>
                   {stat.val}
                 </div>
               </div>
