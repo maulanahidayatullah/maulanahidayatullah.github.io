@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Download, Award, Zap, Server, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Download, Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export const AboutSection: React.FC = () => {
@@ -17,9 +17,9 @@ export const AboutSection: React.FC = () => {
 
   const statCards = [
     { label: t('about.stats.experience_label'), val: t('about.stats.experience_val'), color: 'var(--color-pastel-blue-light)', icon: <Award size={22} /> },
-    { label: t('about.stats.delivered_label'), val: t('about.stats.delivered_val'), color: 'var(--color-pastel-cyan-light)', icon: <Zap size={22} /> },
-    { label: t('about.stats.protocols_label'), val: t('about.stats.protocols_val'), color: 'var(--color-pastel-mint)', icon: <Server size={22} /> },
-    { label: t('about.stats.degree_label'), val: t('about.stats.degree_val'), color: 'var(--color-pastel-lavender)', icon: <ShieldCheck size={22} /> },
+    { label: t('about.stats.degree_label'), val: t('about.stats.degree_val'), color: 'var(--color-pastel-cyan-light)', icon: <ShieldCheck size={22} /> },
+    // { label: t('about.stats.protocols_label'), val: t('about.stats.protocols_val'), color: 'var(--color-pastel-mint)', icon: <Server size={22} /> },
+    // { label: t('about.stats.degree_label'), val: t('about.stats.degree_val'), color: 'var(--color-pastel-lavender)', icon: <ShieldCheck size={22} /> },
   ];
 
   const highlights = (t('about.highlights', { returnObjects: true }) as string[]) || [
@@ -46,7 +46,7 @@ export const AboutSection: React.FC = () => {
           </div>
           <h2 className="section-title">{t('about.title')}</h2>
           <p className="section-subtitle">
-            {t('about.subtitle')}
+            {/* {t('about.subtitle')} */}
           </p>
         </div>
 
@@ -146,7 +146,7 @@ export const AboutSection: React.FC = () => {
                 backgroundColor: 'var(--bg-card)',
               }}
             >
-              <h3
+              {/* <h3
                 style={{
                   fontSize: '1.75rem',
                   fontWeight: 800,
@@ -156,7 +156,7 @@ export const AboutSection: React.FC = () => {
                 }}
               >
                 {t('about.bio_heading')}
-              </h3>
+              </h3> */}
 
               <p
                 style={{
@@ -169,7 +169,7 @@ export const AboutSection: React.FC = () => {
                 {t('about.bio_p1')}
               </p>
 
-              <p
+              {/* <p
                 style={{
                   color: 'var(--text-main)',
                   fontSize: '1.02rem',
@@ -178,7 +178,7 @@ export const AboutSection: React.FC = () => {
                 }}
               >
                 {t('about.bio_p2')}
-              </p>
+              </p> */}
 
               {/* Bullet Points */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '2rem' }}>

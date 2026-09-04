@@ -28,9 +28,9 @@ export const ExperienceSection: React.FC = () => {
             {t('experience.badge')}
           </div>
           <h2 className="section-title">{t('experience.title')}</h2>
-          <p className="section-subtitle">
+          {/* <p className="section-subtitle">
             {t('experience.subtitle')}
-          </p>
+          </p> */}
 
           {/* Switcher Buttons */}
           <div

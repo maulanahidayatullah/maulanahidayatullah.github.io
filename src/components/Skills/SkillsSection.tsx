@@ -30,9 +30,9 @@ export const SkillsSection: React.FC = () => {
             {t('skills.badge')}
           </div>
           <h2 className="section-title">{t('skills.title')}</h2>
-          <p className="section-subtitle">
+          {/* <p className="section-subtitle">
             {t('skills.subtitle')}
-          </p>
+          </p> */}
         </div>
 
         {/* 5 Category Cards Grid */}
@@ -92,9 +92,9 @@ export const SkillsSection: React.FC = () => {
 
                 {/* Card Body */}
                 <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-card)' }}>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.25rem', fontWeight: 500 }}>
+                  {/* <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.25rem', fontWeight: 500 }}>
                     {group.description}
-                  </p>
+                  </p> */}
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
                     {group.skills.map((skill, sIdx) => (
