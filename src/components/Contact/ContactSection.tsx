@@ -119,7 +119,7 @@ export const ContactSection: React.FC = () => {
               margin: '0 auto 2rem auto',
             }}
           >
-            {t('contact.collab_desc')}
+            {/* {t('contact.collab_desc')} */}
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

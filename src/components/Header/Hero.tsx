@@ -165,8 +165,8 @@ export const Hero: React.FC = () => {
           </a>
 
           <a
-            href="CV-Maulana.pdf"
-            download="CV-Maulana.pdf"
+            href="Maulana_Hidayatullah-Fullstack_Developer.pdf"
+            download="Maulana_Hidayatullah-Fullstack_Developer.pdf"
             onClick={handleDownloadCV}
             className="nb-btn nb-btn-white"
             style={{ padding: '0.85rem 2rem' }}

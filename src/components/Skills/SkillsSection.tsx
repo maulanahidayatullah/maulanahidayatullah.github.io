@@ -142,7 +142,7 @@ export const SkillsSection: React.FC = () => {
             {t('skills.soft_title')}
           </h3>
           <p style={{ color: 'var(--text-main)', fontSize: '0.98rem', maxWidth: '640px', margin: '0 auto 1.5rem auto' }}>
-            {t('skills.soft_subtitle')}
+            {/* {t('skills.soft_subtitle')} */}
           </p>
 
           <div

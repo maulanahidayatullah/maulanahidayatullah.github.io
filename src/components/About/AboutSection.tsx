@@ -104,7 +104,7 @@ export const AboutSection: React.FC = () => {
                 }}
               >
                 <img
-                  src="images/backgrounds/about-me.png"
+                  src="images/backgrounds/about-me.jpg"
                   alt="Maulana Hidayatullah"
                   style={{
                     width: '100%',
@@ -192,8 +192,8 @@ export const AboutSection: React.FC = () => {
 
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <a
-                  href="CV-Maulana.pdf"
-                  download="CV-Maulana.pdf"
+                  href="Maulana_Hidayatullah-Fullstack_Developer.pdf"
+                  download="Maulana_Hidayatullah-Fullstack_Developer.pdf"
                   onClick={handleDownloadCV}
                   className="nb-btn"
                 >

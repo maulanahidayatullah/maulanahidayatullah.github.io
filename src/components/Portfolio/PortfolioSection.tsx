@@ -41,7 +41,7 @@ export const PortfolioSection: React.FC = () => {
           </div>
           <h2 className="section-title">{t('portfolio.title')}</h2>
           <p className="section-subtitle">
-            {t('portfolio.subtitle')}
+            {/* {t('portfolio.subtitle')} */}
           </p>
 
           {/* Filter Pills */}
