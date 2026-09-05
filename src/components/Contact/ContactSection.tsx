@@ -51,7 +51,7 @@ export const ContactSection: React.FC = () => {
       detail: emailAddress,
       href: `mailto:${emailAddress}`,
       icon: <Mail size={24} />,
-      bg: 'var(--color-pastel-blue-light)',
+      bg: 'var(--color-pastel-blue)',
       subtext: 'Formal inquiries & opportunities',
     },
     {

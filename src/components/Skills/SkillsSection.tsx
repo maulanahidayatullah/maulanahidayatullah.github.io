@@ -10,7 +10,7 @@ export const SkillsSection: React.FC = () => {
     { bg: 'var(--color-pastel-blue)', icon: <Server size={20} /> },
     { bg: 'var(--color-pastel-cyan)', icon: <Layout size={20} /> },
     { bg: 'var(--color-pastel-mint)', icon: <Database size={20} /> },
-    { bg: 'var(--color-pastel-blue-light)', icon: <Cpu size={20} /> },
+    { bg: 'var(--color-pastel-peach)', icon: <Cpu size={20} /> },
     { bg: 'var(--color-pastel-lavender)', icon: <Terminal size={20} /> },
   ];
 

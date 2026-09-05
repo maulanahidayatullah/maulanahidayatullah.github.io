@@ -37,7 +37,7 @@ export const resources = {
         download_btn: 'UNDUH CV (PDF)',
         contact_btn: 'HUBUNGI SAYA',
         highlights: [
-          'Sarjana Terapan Teknik Perangkat Lunak, Politeknik Negeri Indramayu (POLINDRA) — IPK 3,45/4,00.',
+          'Sarjana Terapan Teknik Perangkat Lunak, Politeknik Negeri Indramayu (POLINDRA).',
           'Kemampuan full-stack yang serba bisa — backend menggunakan Node.js (Express), Golang (Fiber), Java (Spring Boot), .NET, dan PHP (Laravel); frontend menggunakan Vue.js, Next.js, dan React.js, Bootstrap, Tailwind.',
           'Sistem IoT dan Telematika dengan integrasi MQTT, protokol pengisi daya EV OCPP 1.6, pelacakan GPS, dan pengembangan SDK perangkat keras (HID Aero/Vento).',
           'DevOps & penerapan — Docker, Nginx, PM2, GitLab CI/CD, dan pengaturan SSL/HTTPS untuk lingkungan produksi.'
@@ -141,7 +141,7 @@ export const resources = {
         download_btn: 'DOWNLOAD CV (PDF)',
         contact_btn: 'CONTACT ME',
         highlights: [
-          'Applied Bachelor in Software Engineering, Politeknik Negeri Indramayu (POLINDRA) — GPA 3.45/4.00.',
+          'Applied Bachelor in Software Engineering, Politeknik Negeri Indramayu (POLINDRA).',
           'Full-stack versatility — backend across Node.js (Express), Golang (Fiber), Java (Spring Boot), .NET, and PHP (Laravel); frontend with Vue.js, Next.js, and React.js, Bootstrap, Tailwind.',
           'IoT and Telematics systems with MQTT integration, OCPP 1.6 EV charger protocols, GPS tracking, and hardware SDK development (HID Aero/Vento).',
           'DevOps & deployment — Docker, Nginx, PM2, GitLab CI/CD, and SSL/HTTPS setup for production environments.'
@@ -245,7 +245,7 @@ export const resources = {
         download_btn: '履歴書(PDF)をダウンロード',
         contact_btn: 'お問い合わせ',
         highlights: [
-          'インドラマユ国立工科大学（POLINDRA） ソフトウェア工学応用学士課程 — GPA 3.45/4.00。',
+          'インドラマユ国立工科大学（POLINDRA） ソフトウェア工学応用学士課程 。',
           'フルスタック開発の汎用性 — バックエンドはNode.js（Express）、Golang（Fiber）、Java（Spring Boot）、.NET、PHP（Laravel）を網羅。フロントエンドはVue.js、Next.js、React.js、Bootstrap、Tailwindに対応。',
           'MQTT統合、OCPP 1.6 EV充電器プロトコル、GPS追跡、およびハードウェアSDK開発（HID Aero/Vento）を備えたIoTおよびテレマティクスシステム。',
           'DevOpsおよびデプロイ — Docker、Nginx、PM2、GitLab CI/CD、および本番環境向けのSSL/HTTPS設定。'
