@@ -96,7 +96,7 @@ export const SkillsSection: React.FC = () => {
                     {group.description}
                   </p> */}
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {group.skills.map((skill, sIdx) => (
                       <span
                         key={sIdx}
