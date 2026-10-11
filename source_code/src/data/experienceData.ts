@@ -15,7 +15,7 @@ export const workExperience: ExperienceItem[] = [
     company: 'PT. Starlink Teknologi Integrasi',
     period: 'Dec 2023 - Present',
     type: 'work',
-    badges: ['Node.js', 'Express', '.NET', 'Spring Boot', 'Next.js', 'Vue.js', 'PostgreSQL', 'MongoDB', 'OCPP 1.6', 'MQTT', 'Redis', 'Docker'],
+    badges: ['Node.js', 'Express', '.NET', 'Spring Boot', 'Next.js', 'Vue.js', 'PostgreSQL', 'MongoDB', 'OCPP 1.6', 'MQTT', 'Kafka', 'Docker'],
     highlights: [
       'Lunavis Access Control: Developed a centralized building security system utilizing a custom-built HID Aero and Vento SDK engineered in .NET and MQTT.',
       'Attendance Platforms (Lunavis- Absensi & Masukaja): Managed Full- Stack development for Lunavis and Backend REST API architecture for Masukaja (supporting Mobile & Vue.js web). Integrated custom HID Amico SDK and Timy, featuring date-range holiday logic and automated daily logging.',

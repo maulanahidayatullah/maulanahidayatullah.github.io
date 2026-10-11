@@ -35,7 +35,7 @@ const ParticlesHeroComponent: React.FC = () => {
           value: 'transparent',
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 30,
       interactivity: {
         events: {
           onHover: {
@@ -43,8 +43,7 @@ const ParticlesHeroComponent: React.FC = () => {
             mode: 'grab',
           },
           onClick: {
-            enable: true,
-            mode: 'push',
+            enable: false,
           },
           resize: {
             enable: true,
@@ -54,12 +53,9 @@ const ParticlesHeroComponent: React.FC = () => {
           grab: {
             distance: 140,
             links: {
-              opacity: isDark ? 0.8 : 0.6,
+              opacity: isDark ? 0.7 : 0.5,
               color: isDark ? '#60a5fa' : '#3b82f6',
             },
-          },
-          push: {
-            quantity: 3,
           },
         },
       },
@@ -73,8 +69,8 @@ const ParticlesHeroComponent: React.FC = () => {
           color: isDark ? '#60a5fa' : '#3b82f6',
           distance: 140,
           enable: true,
-          opacity: isDark ? 0.45 : 0.35,
-          width: 1.5,
+          opacity: isDark ? 0.4 : 0.3,
+          width: 1.2,
         },
         move: {
           direction: 'none',
@@ -89,8 +85,8 @@ const ParticlesHeroComponent: React.FC = () => {
         number: {
           density: {
             enable: true,
-            width: 550,
-            height: 550,
+            width: 1000,
+            height: 1000,
           },
           value: 50,
         },
