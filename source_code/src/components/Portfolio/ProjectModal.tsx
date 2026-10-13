@@ -22,6 +22,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   if (!project) return null;
 
+  const projectTitle = t(`portfolio.items.${project.id}.title`, { defaultValue: project.title });
+  const projectCategoryLabel = t(`portfolio.items.${project.id}.categoryLabel`, { defaultValue: project.categoryLabel });
+  const projectDescription = t(`portfolio.items.${project.id}.description`, { defaultValue: project.description });
+
   return (
     <AnimatePresence>
       <div
@@ -127,7 +131,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           >
             <img
               src={project.image}
-              alt={project.title}
+              alt={projectTitle}
               style={{
                 width: '100%',
                 maxHeight: '380px',
@@ -140,7 +144,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div style={{ padding: '2rem' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', marginBottom: '0.75rem' }}>
               <span className="nb-tag" style={{ backgroundColor: 'var(--color-pastel-blue-light)' }}>
-                {project.categoryLabel}
+                {projectCategoryLabel}
               </span>
               {project.year && (
                 <span
@@ -169,11 +173,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 marginBottom: '1rem',
               }}
             >
-              {project.title}
+              {projectTitle}
             </h2>
 
             <p style={{ color: 'var(--text-main)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '1.75rem' }}>
-              {project.description}
+              {projectDescription}
             </p>
 
             {/* Badges */}

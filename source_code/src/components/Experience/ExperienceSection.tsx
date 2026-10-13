@@ -79,108 +79,115 @@ export const ExperienceSection: React.FC = () => {
               transition={{ duration: 0.25 }}
               style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
             >
-              {items.map((item) => (
-                <div
-                  key={item.id}
-                  className="nb-card"
-                  style={{
-                    backgroundColor: 'var(--bg-card)',
-                    padding: '2rem',
-                    position: 'relative',
-                  }}
-                >
-                  {/* Period Sticker Tag in Pastel Blue */}
-                  <div
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      backgroundColor: 'var(--color-pastel-blue-light)',
-                      color: 'var(--text-main)',
-                      border: '2px solid var(--color-border)',
-                      boxShadow: '2px 2px 0 var(--color-shadow)',
-                      padding: '4px 12px',
-                      fontFamily: 'var(--font-mono)',
-                      fontWeight: 700,
-                      fontSize: '0.8rem',
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    <Calendar size={14} />
-                    <span>{item.period}</span>
-                  </div>
+              {items.map((item) => {
+                const role = t(`experience.items.${item.id}.role`, { defaultValue: item.role });
+                const company = t(`experience.items.${item.id}.company`, { defaultValue: item.company });
+                const period = t(`experience.items.${item.id}.period`, { defaultValue: item.period });
+                const highlights = (t(`experience.items.${item.id}.highlights`, { returnObjects: true, defaultValue: item.highlights }) as string[]) || item.highlights;
 
-                  {/* Title & Company */}
-                  <h3
-                    style={{
-                      fontSize: '1.6rem',
-                      fontWeight: 800,
-                      color: 'var(--text-main)',
-                      marginBottom: '0.25rem',
-                    }}
-                  >
-                    {item.role}
-                  </h3>
+                return (
                   <div
+                    key={item.id}
+                    className="nb-card"
                     style={{
-                      fontSize: '1.1rem',
-                      fontWeight: 700,
-                      color: 'var(--text-muted)',
-                      marginBottom: '1.25rem',
+                      backgroundColor: 'var(--bg-card)',
+                      padding: '2rem',
+                      position: 'relative',
                     }}
                   >
-                    {item.company}
-                  </div>
-
-                  {/* Badges */}
-                  {item.badges && (
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
-                      {item.badges.map((b, idx) => (
-                        <span key={idx} className="nb-tag">
-                          {b}
-                        </span>
-                      ))}
+                    {/* Period Sticker Tag in Pastel Blue */}
+                    <div
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        backgroundColor: 'var(--color-pastel-blue-light)',
+                        color: 'var(--text-main)',
+                        border: '2px solid var(--color-border)',
+                        boxShadow: '2px 2px 0 var(--color-shadow)',
+                        padding: '4px 12px',
+                        fontFamily: 'var(--font-mono)',
+                        fontWeight: 700,
+                        fontSize: '0.8rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
+                      <Calendar size={14} />
+                      <span>{period}</span>
                     </div>
-                  )}
 
-                  {/* Highlights List */}
-                  <ul
-                    style={{
-                      listStyle: 'none',
-                      padding: 0,
-                      margin: 0,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.75rem',
-                    }}
-                  >
-                    {item.highlights.map((point, hIdx) => (
-                      <li
-                        key={hIdx}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: '10px',
-                          fontSize: '0.95rem',
-                          lineHeight: 1.6,
-                          color: 'var(--text-main)',
-                        }}
-                      >
-                        <span
+                    {/* Title & Company */}
+                    <h3
+                      style={{
+                        fontSize: '1.6rem',
+                        fontWeight: 800,
+                        color: 'var(--text-main)',
+                        marginBottom: '0.25rem',
+                      }}
+                    >
+                      {role}
+                    </h3>
+                    <div
+                      style={{
+                        fontSize: '1.1rem',
+                        fontWeight: 700,
+                        color: 'var(--text-muted)',
+                        marginBottom: '1.25rem',
+                      }}
+                    >
+                      {company}
+                    </div>
+
+                    {/* Badges */}
+                    {item.badges && (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
+                        {item.badges.map((b, idx) => (
+                          <span key={idx} className="nb-tag">
+                            {b}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Highlights List */}
+                    <ul
+                      style={{
+                        listStyle: 'none',
+                        padding: 0,
+                        margin: 0,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.75rem',
+                      }}
+                    >
+                      {highlights.map((point, hIdx) => (
+                        <li
+                          key={hIdx}
                           style={{
-                            width: '8px',
-                            height: '8px',
-                            backgroundColor: 'var(--color-pastel-blue)',
-                            marginTop: '0.55rem',
-                            flexShrink: 0,
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '10px',
+                            fontSize: '0.95rem',
+                            lineHeight: 1.6,
+                            color: 'var(--text-main)',
                           }}
-                        />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                        >
+                          <span
+                            style={{
+                              width: '8px',
+                              height: '8px',
+                              backgroundColor: 'var(--color-pastel-blue)',
+                              marginTop: '0.55rem',
+                              flexShrink: 0,
+                            }}
+                          />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
             </motion.div>
           </AnimatePresence>
         </div>

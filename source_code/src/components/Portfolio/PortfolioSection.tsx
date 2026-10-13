@@ -12,9 +12,9 @@ export const PortfolioSection: React.FC = () => {
 
   const filterTabs = [
     { id: 'all', label: `${t('portfolio.filter_all')} (${portfolioProjects.length})` },
-    { id: 'fullstack', label: `${t('portfolio.filter_fullstack')} (5)` },
-    { id: 'backend', label: `${t('portfolio.filter_backend')} (5)` },
-    { id: 'mobile', label: `${t('portfolio.filter_mobile')} (2)` },
+    { id: 'fullstack', label: `${t('portfolio.filter_fullstack')} (${portfolioProjects.filter((p) => p.category === 'fullstack').length})` },
+    { id: 'backend', label: `${t('portfolio.filter_backend')} (${portfolioProjects.filter((p) => p.category === 'backend').length})` },
+    { id: 'mobile', label: `${t('portfolio.filter_mobile')} (${portfolioProjects.filter((p) => p.category === 'mobile').length})` },
   ] as const;
 
   const filteredProjects =
@@ -104,104 +104,109 @@ export const PortfolioSection: React.FC = () => {
           }}
         >
           <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.2 }}
-                onClick={() => setSelectedProject(project)}
-                className="nb-card"
-                style={{
-                  backgroundColor: 'var(--bg-card)',
-                  padding: '0',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                {/* Image Header with Thick Border */}
-                <div
+            {filteredProjects.map((project) => {
+              const projectTitle = t(`portfolio.items.${project.id}.title`, { defaultValue: project.title });
+              const projectCategoryLabel = t(`portfolio.items.${project.id}.categoryLabel`, { defaultValue: project.categoryLabel });
+              const projectDescription = t(`portfolio.items.${project.id}.description`, { defaultValue: project.description });
+
+              return (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setSelectedProject(project)}
+                  className="nb-card"
                   style={{
-                    position: 'relative',
-                    height: '210px',
-                    backgroundColor: 'var(--bg-elevated)',
-                    borderBottom: '3px solid var(--color-border)',
+                    backgroundColor: 'var(--bg-card)',
+                    padding: '0',
                     overflow: 'hidden',
-                  }}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform 0.4s ease',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-                  />
-
-                  {/* Category Sticker in Pastel Blue */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '12px',
-                      left: '12px',
-                      backgroundColor: 'var(--color-pastel-blue)',
-                      color: '#121212',
-                      border: '2px solid var(--color-border)',
-                      boxShadow: '2px 2px 0 var(--color-shadow)',
-                      padding: '3px 10px',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    {project.categoryLabel}
-                  </div>
-                </div>
-
-                {/* Card Details */}
-                <div
-                  style={{
-                    padding: '1.5rem',
-                    flex: 1,
+                    cursor: 'pointer',
                     display: 'flex',
                     flexDirection: 'column',
                   }}
                 >
-                  <h3
+                  {/* Image Header with Thick Border */}
+                  <div
                     style={{
-                      fontSize: '1.4rem',
-                      fontWeight: 800,
-                      color: 'var(--text-main)',
-                      marginBottom: '0.5rem',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    {project.title}
-                  </h3>
-
-                  <p
-                    style={{
-                      fontSize: '0.92rem',
-                      color: 'var(--text-muted)',
-                      lineHeight: 1.5,
-                      marginBottom: '1.25rem',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
+                      position: 'relative',
+                      height: '210px',
+                      backgroundColor: 'var(--bg-elevated)',
+                      borderBottom: '3px solid var(--color-border)',
                       overflow: 'hidden',
                     }}
                   >
-                    {project.description}
-                  </p>
+                    <img
+                      src={project.image}
+                      alt={projectTitle}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.4s ease',
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                    />
+
+                    {/* Category Sticker in Pastel Blue */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '12px',
+                        left: '12px',
+                        backgroundColor: 'var(--color-pastel-blue)',
+                        color: '#121212',
+                        border: '2px solid var(--color-border)',
+                        boxShadow: '2px 2px 0 var(--color-shadow)',
+                        padding: '3px 10px',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {projectCategoryLabel}
+                    </div>
+                  </div>
+
+                  {/* Card Details */}
+                  <div
+                    style={{
+                      padding: '1.5rem',
+                      flex: 1,
+                      display: 'flex',
+                      flexDirection: 'column',
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontSize: '1.4rem',
+                        fontWeight: 800,
+                        color: 'var(--text-main)',
+                        marginBottom: '0.5rem',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {projectTitle}
+                    </h3>
+
+                    <p
+                      style={{
+                        fontSize: '0.92rem',
+                        color: 'var(--text-muted)',
+                        lineHeight: 1.5,
+                        marginBottom: '1.25rem',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {projectDescription}
+                    </p>
 
                   {/* Badges */}
                   <div
@@ -244,7 +249,8 @@ export const PortfolioSection: React.FC = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            );
+          })}
           </AnimatePresence>
         </motion.div>
       </div>

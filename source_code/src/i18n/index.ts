@@ -18,8 +18,8 @@ export const resources = {
         roles: [
           'FULLSTACK DEVELOPER',
           'BACKEND SPECIALIST',
-          'EV & IOT TELEMATICS ENGINEER',
-          'API & DATABASE ARCHITECT',
+          'REKAYASA IOT & HARDWARE',
+          'ARSITEK SISTEM & API',
         ],
         explore_projects: 'LIHAT PROYEK',
         download_cv: 'UNDUH CV',
@@ -28,19 +28,19 @@ export const resources = {
       about: {
         badge: 'TENTANG SAYA',
         title: 'FULLSTACK DEVELOPER',
-        subtitle: 'Menghubungkan perangkat keras, backend throughput tinggi, dan antarmuka frontend yang responsif.',
+        subtitle: 'Menghubungkan perangkat keras fisik, backend throughput tinggi, dan antarmuka frontend yang responsif.',
         photo_label: 'FULLSTACK DEVELOPER',
         location: 'INDONESIA',
-        bio_heading: 'Sistem Backend Skalabel, Integrasi Bersih, & Arsitektur Pragmatis.',
-        bio_p1: 'Halo! Saya Maulana, seorang Full-Stack Developer dengan pengalaman lebih dari 3 tahun dalam mengembangkan sistem kelas enterprise di bidang backend (Node.js, Spring Boot, .NET, Laravel) dan frontend (Vue.js, React.js, Next.js). Saat ini sedang mengembangkan SDK kontrol akses khusus HID Aero dan HID Vento di .NET dengan MQTT. Berpengalaman dalam integrasi lanjutan termasuk OCR dan OCPP 1.6 untuk jaringan pengisian daya kendaraan listrik (EV). Telah mengimplementasikan platform VMS, absensi, dan rute katering secara end-to-end, mulai dari logika backend hingga penerapan di cloud. Seorang pemecah masalah yang kolaboratif dan berfokus pada keandalan.',
+        bio_heading: 'Sistem Enterprise Skalabel, Integrasi Hardware, & Infrastruktur Hybrid.',
+        bio_p1: 'Halo! Saya Maulana, seorang Full-Stack Developer dengan pengalaman 3+ tahun menjembatani perangkat lunak enterprise dan perangkat keras fisik melalui teknologi modern (Vue.js, Next.js, Node.js, Spring Boot). Mengembangkan custom .NET SDK untuk kontrol akses dan pengontrol biometrik (Aero, Vento via MQTT, Amico) serta server OCPP 1.6 untuk pengisian daya kendaraan listrik (EV). Berhasil merilis platform terukur untuk manajemen pengunjung & karyawan, absensi, logistik, dan POS, memanfaatkan Apache Kafka serta WebSockets untuk sinkronisasi real-time. Berpengalaman mengelola infrastruktur hybrid (Cloud/ESXi) menggunakan Docker dan custom Go-based agent untuk orkestrasi VM jarak jauh.',
         bio_p2: 'Di sisi frontend, saya menerjemahkan desain menjadi antarmuka responsif menggunakan Vue.js, Next.js, dan React. Rekam jejak saya mencakup sistem presensi berbasis GPS & biometrik, kontrol akses pengunjung korporat, hingga telemetri EV charger nasional. Berpengalaman dengan PostgreSQL dan administrasi server Linux Ubuntu.',
         download_btn: 'UNDUH CV (PDF)',
         contact_btn: 'HUBUNGI SAYA',
         highlights: [
-          'Sarjana Terapan Teknik Perangkat Lunak, Politeknik Negeri Indramayu (POLINDRA).',
-          'Kemampuan full-stack yang serba bisa — backend menggunakan Node.js (Express), Golang (Fiber), Java (Spring Boot), .NET, dan PHP (Laravel); frontend menggunakan Vue.js, Next.js, dan React.js, Bootstrap, Tailwind.',
-          'Sistem IoT dan Telematika dengan integrasi MQTT, protokol pengisi daya EV OCPP 1.6, pelacakan GPS, dan pengembangan SDK perangkat keras (HID Aero/Vento).',
-          'DevOps & penerapan — Docker, Nginx, PM2, GitLab CI/CD, dan pengaturan SSL/HTTPS untuk lingkungan produksi.'
+          'Sarjana Terapan Teknik Perangkat Lunak, Politeknik Negeri Indramayu (POLINDRA) — IPK 3.45 / 4.00.',
+          'Kemampuan full-stack serba bisa — backend dengan Node.js, Golang, Spring Boot, .NET; frontend dengan Vue.js, Next.js, dan React.js.',
+          'Rekayasa Hardware & IoT — Custom .NET SDK (HID Aero, Vento via MQTT, Amico), server EV Charger OCPP 1.6, dan sinkronisasi edge Apache Kafka.',
+          'DevOps & Infrastruktur Hybrid — Ubuntu/Debian, Docker, Nginx, PM2, serta custom Go-based agent untuk orkestrasi remote ESXi VM.'
         ],
         stats: {
           experience_label: 'PENGALAMAN',
@@ -59,6 +59,43 @@ export const resources = {
         subtitle: 'Rincian kronologis peran rekayasa produksi, pencapaian klien, dan tonggak akademis.',
         tab_work: 'PENGALAMAN KERJA',
         tab_edu: 'PENDIDIKAN & PRESTASI',
+        items: {
+          starlink: {
+            role: 'Software Development & Engineering',
+            company: 'PT. Starlink Teknologi Integrasi - Jakarta Utara, Indonesia',
+            period: 'Nov 2023 - Sekarang',
+            highlights: [
+              'Access Control & Visitor Management (Lunavis): Mengembangkan sistem visitor management full-stack (Next.js) yang mengintegrasikan perangkat keras HID kustom dengan controller Avigilon dan Suprema. Menerapkan OCR berbasis WebSocket untuk pemindaian KTP guna mengotomatisasi provisi akses, menggantikan entri data manual saat check-in.',
+              'Custom Hardware SDKs: Membangun SDK .NET untuk perangkat HID (Aero, Vento, Amico) dengan mendekode protokol mentah termasuk format kartu 26/37/48-bit, serta mengintegrasikan Vento melalui MQTT. Menggunakan Apache Kafka untuk sinkronisasi data face recognition ke beberapa edge device dengan jaminan pengiriman, bahkan saat perangkat offline.',
+              'Hardware-to-Software Integration: Memetakan REST API dari sistem ACM/NVR dan melakukan reverse-engineering perilaku hardware yang minim dokumentasi, memungkinkan dukungan multi-vendor yang mulus pada aplikasi access control.',
+              'EV Charging Backend: Mengembangkan core backend dan server OCPP 1.6 (Node.js, Spring Boot, MongoDB) untuk pemantauan dan kontrol charger kendaraan listrik secara real-time.',
+              'Business Applications: Membangun backend untuk MasukAja (API absensi dengan pencatatan harian otomatis dan kalender libur), LimaRempah (logistik katering dengan kalkulasi rute), dan NagoPOS (POS ritel dengan pembayaran Xendit).',
+              'Infrastruktur & Deployment: Menerapkan layanan di Ubuntu/Debian menggunakan Docker, Nginx, dan PM2. Membangun agent berbasis Go dan UI "Appliance Settings" untuk mengelola VM ESXi on-premise dari jarak jauh (konfigurasi jaringan, reboot/shutdown, pembaruan image Docker otomatis), menghilangkan kebutuhan kunjungan langsung ke lokasi.'
+            ],
+          },
+          elisoft: {
+            role: 'Web Developer Intern',
+            company: 'CV. Elisoft Technology - Jakarta Timur, Indonesia',
+            period: 'Jul 2022 - Des 2022',
+            highlights: [
+              'Pengembangan Full-Stack & QA: Mengembangkan fitur frontend dan backend, integrasi API, dan pengujian/debugging fungsional untuk memastikan stabilitas aplikasi.',
+              'Perancangan Database: Merancang dan mengoptimalkan database relasional (ERD & normalisasi) untuk menjaga integritas dan performa data.',
+              'Deployment Server: Mengonfigurasi lingkungan server (web server, database) dan menerapkan aplikasi ke produksi pada Ubuntu VPS.'
+            ],
+          },
+          polindra: {
+            role: 'Sarjana Terapan Rekayasa Perangkat Lunak',
+            company: 'Politeknik Negeri Indramayu (POLINDRA) - Indramayu, Jawa Barat',
+            period: 'Agu 2019 - Okt 2023',
+            highlights: [
+              'Penghargaan: Finalis Nasional di KMIPN (Kompetisi Mahasiswa Informatika Politeknik Nasional) Kategori E-Government.',
+              'Beasiswa: Penerima Beasiswa Bidikmisi untuk Keunggulan Akademik (Mempertahankan IPK ≥ 3.0 selama perkuliahan).',
+              'Sertifikasi: MikroTik MTCNA, BNSP Administrasi Jaringan, dan Cisco IT Essentials.',
+              'Organisasi: Ketua Divisi Bahasa Jepang di Foreign Language Forum (FOLAFO) — menyusun materi N5, menyelenggarakan seminar, dan membimbing anggota.',
+              'Proyek Akademik: Membangun Sistem Manajemen Inventaris POLINDRA, Sistem Skrining Psikiatri Puskesmas Kertasemaya, dan Sistem Kasir POS Garis Lengkung Cafe.'
+            ],
+          },
+        },
       },
       skills: {
         badge: 'ARSENAL TEKNIS',
@@ -81,6 +118,73 @@ export const resources = {
         tech_stack_label: 'INTEGRASI & TECH STACK:',
         close_btn: 'TUTUP',
         inquire_btn: 'TANYA TENTANG INI',
+        items: {
+          'hid-sdks': {
+            title: 'Custom HID Hardware SDKs',
+            categoryLabel: 'SDK Hardware & Backend',
+            description: 'Membangun custom .NET SDK untuk pengontrol HID (Aero, Vento, Amico) dengan mendekode protokol komunikasi mentah dan format kartu 26/37/48-bit. Mengintegrasikan Vento melalui MQTT dan memanfaatkan Apache Kafka untuk sinkronisasi pengenalan wajah real-time dengan jaminan pengiriman ke edge devices.',
+          },
+          'lunavis-vms': {
+            title: 'Lunavis Visitor Management System',
+            categoryLabel: 'Fullstack & Keamanan',
+            description: 'Platform manajemen pengunjung enterprise tingkat tinggi (Next.js) yang mengintegrasikan hardware HID dengan Avigilon ACM dan pengontrol Suprema. Menerapkan OCR berbasis WebSocket untuk pemindaian kartu identitas otomatis guna mempercepat registrasi pengunjung.',
+          },
+          'lunavis-employee': {
+            title: 'Lunavis Employee Access & Management',
+            categoryLabel: 'Fullstack & Akses Kontrol',
+            description: 'Sistem keamanan gedung terpusat untuk siklus hidup kartu karyawan, otorisasi akses berjenjang, dan sinkronisasi hardware multi-barrier (HID Amico & Aero).',
+          },
+          'masukaja': {
+            title: 'MasukAja Smart Attendance',
+            categoryLabel: 'Backend & API',
+            description: 'Platform absensi pintar dengan pencatatan harian otomatis, logika rentang hari libur, dan API biometrik pengenalan wajah untuk aplikasi web dan mobile.',
+          },
+          'easyin': {
+            title: 'EasyIn EV Charger Management',
+            categoryLabel: 'Telematika EV & Backend',
+            description: 'Infrastruktur backend inti dan server OCPP 1.6 untuk pemantauan, pelaporan diagnostik, dan kontrol pengisian daya kendaraan listrik komersial secara real-time.',
+          },
+          'easyin-pama': {
+            title: 'EasyIn PAMA (Pamapersada)',
+            categoryLabel: 'Fullstack & IoT Industri',
+            description: 'Dashboard operasional dan telemetri pengisian EV industri yang disesuaikan secara khusus untuk lokasi industri berat PT Pamapersada Nusantara.',
+          },
+          'limarempah': {
+            title: 'LimaRempah Catering Logistics',
+            categoryLabel: 'Logistik & Backend',
+            description: 'Platform pemesanan katering yang terintegrasi dengan API perhitungan jarak rute otomatis untuk optimasi pengiriman logistik.',
+          },
+          'nagopos': {
+            title: 'NAGOPOS Point of Sale',
+            categoryLabel: 'Fintech & Backend',
+            description: 'Sistem POS ritel modern dengan manajemen inventaris, konsistensi transaksi, dan integrasi mulus dengan Xendit Payment Gateway.',
+          },
+          'web-inventori': {
+            title: 'Sistem Inventaris POLINDRA',
+            categoryLabel: 'Pengembangan Fullstack',
+            description: 'Aplikasi pelacakan aset dan manajemen inventaris peralatan institusi berbasis web yang dibangun untuk Politeknik Negeri Indramayu.',
+          },
+          'mobile-inventori': {
+            title: 'Sistem Inventaris Barcode Mobile',
+            categoryLabel: 'Pengembangan Mobile',
+            description: 'Aplikasi pendamping mobile untuk pemindaian barcode gudang secara cepat, rekonsiliasi aset fisik, dan pembaruan inventaris real-time.',
+          },
+          'web-empus': {
+            title: 'Sistem Penilaian Psikiatri',
+            categoryLabel: 'Kesehatan & Fullstack',
+            description: 'Sistem informasi kesehatan untuk skrining klinis dan alur evaluasi pasien psikiatri di Puskesmas Kertasemaya Indramayu.',
+          },
+          'web-soka-indah': {
+            title: 'Sistem Capaian Perkembangan Anak',
+            categoryLabel: 'Pendidikan & Mobile',
+            description: 'Platform pelaporan perkembangan dan capaian akademis anak usia dini untuk TK Garuda & PAUD Soka Indah.',
+          },
+          'web-apotek': {
+            title: 'Sistem Informasi Apotek',
+            categoryLabel: 'Fullstack & Kasir',
+            description: 'Perangkat lunak manajemen stok obat, tanggal kedaluwarsa, dan kasir point-of-sale untuk Apotek Falah.',
+          },
+        },
       },
       contact: {
         collab_badge: 'MULAI KERJASAMA',
@@ -122,8 +226,8 @@ export const resources = {
         roles: [
           'FULLSTACK DEVELOPER',
           'BACKEND SPECIALIST',
-          'EV & IOT TELEMATICS ENGINEER',
-          'API & DATABASE ARCHITECT',
+          'IOT & HARDWARE ENGINEER',
+          'SYSTEM & API ARCHITECT',
         ],
         explore_projects: 'EXPLORE PROJECTS',
         download_cv: 'DOWNLOAD CV',
@@ -132,19 +236,19 @@ export const resources = {
       about: {
         badge: 'ABOUT ME',
         title: 'FULLSTACK DEVELOPER',
-        // subtitle: 'Bridging hardware devices, high-throughput backends, and responsive frontend experiences.',
+        subtitle: 'Bridging physical hardware, high-throughput backends, and responsive frontend experiences.',
         photo_label: 'FULLSTACK DEVELOPER',
         location: 'INDONESIA',
-        bio_heading: 'Scalable Backend Systems, Clean Integrations & Pragmatic Architecture.',
-        bio_p1: 'Hello! I am Maulana, Full-Stack Developer with 3+ years building enterprise-grade systems across backend (Node.js, Spring Boot, .NET, Laravel) and frontend (Vue.js, React.js, Next.js) stacks. Currently developing custom HID Aero and HID Vento access-control SDKs in .NET with MQTT. Experienced in further integrations including OCR and OCPP 1.6 for EV charging networks. Delivered production VMS, attendance, and catering-routing platforms end-to-end, from backend logic through cloud deployment. Collaborative, reliability-focused problem-solver.',
+        bio_heading: 'Scalable Enterprise Systems, Hardware Integration & Hybrid Infrastructure.',
+        bio_p1: 'Hello! I am Maulana, a Full-Stack Developer with 3+ years bridging enterprise software and physical hardware across modern stacks (Vue.js, Next.js, Node.js, Spring Boot). Engineered custom .NET SDKs for access and biometric controllers (Aero, Vento over MQTT, Amico) and OCPP 1.6 servers for EV charging. Delivered scalable platforms for visitor and employee management, attendance, logistics, and POS, utilizing Apache Kafka and WebSockets for real-time synchronization. Managed hybrid infrastructure (Cloud/ESXi) using Docker and custom Go-based agents for remote VM orchestration.',
         bio_p2: 'On the frontend, I transform designs into pixel-perfect, responsive interfaces using Vue.js, Next.js, and React. My hands-on track record spans GPS-based attendance systems, enterprise visitor access control, and nationwide EV charger telemetry. Proficient in PostgreSQL and Linux Ubuntu administration.',
         download_btn: 'DOWNLOAD CV (PDF)',
         contact_btn: 'CONTACT ME',
         highlights: [
-          'Applied Bachelor in Software Engineering, Politeknik Negeri Indramayu (POLINDRA).',
-          'Full-stack versatility — backend across Node.js (Express), Golang (Fiber), Java (Spring Boot), .NET, and PHP (Laravel); frontend with Vue.js, Next.js, and React.js, Bootstrap, Tailwind.',
-          'IoT and Telematics systems with MQTT integration, OCPP 1.6 EV charger protocols, GPS tracking, and hardware SDK development (HID Aero/Vento).',
-          'DevOps & deployment — Docker, Nginx, PM2, GitLab CI/CD, and SSL/HTTPS setup for production environments.'
+          'Applied Bachelor in Software Engineering, Politeknik Negeri Indramayu (POLINDRA) — GPA 3.45 / 4.00.',
+          'Full-stack versatility — backend across Node.js, Golang, Spring Boot, .NET; frontend with Vue.js, Next.js, and React.js.',
+          'Hardware & IoT engineering — Custom .NET SDKs (HID Aero, Vento over MQTT, Amico), EV Charger OCPP 1.6 servers, and Apache Kafka edge sync.',
+          'Hybrid DevOps & Infrastructure — Ubuntu/Debian, Docker, Nginx, PM2, and custom Go-based agents for remote ESXi VM orchestration.'
         ],
         stats: {
           experience_label: 'EXPERIENCE',
@@ -163,6 +267,43 @@ export const resources = {
         subtitle: 'A chronological breakdown of production engineering roles, client achievements, and academic milestones.',
         tab_work: 'WORK EXPERIENCE',
         tab_edu: 'EDUCATION & HONORS',
+        items: {
+          starlink: {
+            role: 'Software Development & Engineering',
+            company: 'PT. Starlink Teknologi Integrasi - North Jakarta, Indonesia',
+            period: 'Nov 2023 - Present',
+            highlights: [
+              'Access Control & Visitor Management (Lunavis): Engineered a full-stack (Next.js) visitor management system integrating custom HID hardware with Avigilon and Suprema controllers. Implemented WebSocket-based OCR for ID capture to automate access provisioning, replacing manual data entry at check-in.',
+              'Custom Hardware SDKs: Wrote .NET SDKs for HID devices (Aero, Vento, Amico) by decoding their raw protocols, including 26/37/48-bit card formats, and integrated Vento over MQTT. Used Apache Kafka to sync facial recognition data across multiple edge devices with guaranteed delivery, even when devices go offline.',
+              'Hardware-to-Software Integration: Mapped REST APIs from ACM/NVR systems and reverse-engineered hardware behaviors where documentation was missing, enabling seamless multi-vendor support in access-control applications.',
+              'EV Charging Backend: Developed the core backend and OCPP 1.6 server (Node.js, Spring Boot, MongoDB) for real-time monitoring and control of EV chargers.',
+              'Business Applications: Built backends for MasukAja (attendance API with automated daily logging and holiday calendar), LimaRempah (catering logistics with route calculation), and NagoPOS (retail POS with Xendit payments).',
+              'Infrastructure & Deployment: Deployed services on Ubuntu/Debian with Docker, Nginx, and PM2. Built a Go agent and "Appliance Settings" UI to remotely manage on-premise ESXi VMs (network config, reboot/shutdown, automated Docker image updates), removing the need for on-site visits.'
+            ],
+          },
+          elisoft: {
+            role: 'Web Developer Intern',
+            company: 'CV. Elisoft Technology - East Jakarta, Indonesia',
+            period: 'Jul 2022 - Dec 2022',
+            highlights: [
+              'Full-Stack Development & QA: Developed frontend and backend features, integrated APIs, and conducted functional testing/debugging to ensure application stability.',
+              'Database Design: Designed and optimized relational databases (ERD & normalization) to maintain data integrity and performance.',
+              'Server Deployment: Configured server environments (web server, database) and deployed applications to production on Ubuntu VPS.'
+            ],
+          },
+          polindra: {
+            role: 'Applied Bachelor in Software Engineering',
+            company: 'Politeknik Negeri Indramayu (POLINDRA) - Indramayu, West Java',
+            period: 'Aug 2019 - Oct 2023',
+            highlights: [
+              'Awards: National Finalist at KMIPN (National Polytechnic Student Competency Competition) in E-Government category.',
+              'Scholarship: Bidikmisi Merit Awardee for Academic Excellence (Maintained GPA ≥ 3.0 throughout 4 years).',
+              'Certifications: MikroTik MTCNA, BNSP Network Administration, and Cisco IT Essentials.',
+              'Organization: Head of Japanese Language Division at Foreign Language Forum (FOLAFO) — developed N5 learning materials, hosted workshops, and mentored members.',
+              'Academic Projects: Developed institutional Inventory Management System for POLINDRA campus, psychiatric evaluation system for Puskesmas Kertasemaya, and POS cashier system for Garis Lengkung Cafe.'
+            ],
+          },
+        },
       },
       skills: {
         badge: 'TECHNICAL ARSENAL',
@@ -185,6 +326,73 @@ export const resources = {
         tech_stack_label: 'INTEGRATIONS & TECH STACK:',
         close_btn: 'CLOSE',
         inquire_btn: 'INQUIRE ABOUT THIS',
+        items: {
+          'hid-sdks': {
+            title: 'Custom HID Hardware SDKs',
+            categoryLabel: 'Hardware & Backend SDK',
+            description: 'Developed custom .NET SDKs for HID controllers (Aero, Vento, Amico) by decoding raw communication protocols and bit-level 26/37/48-bit card formats. Integrated Vento over MQTT and utilized Apache Kafka for guaranteed-delivery real-time facial recognition synchronization across edge devices.',
+          },
+          'lunavis-vms': {
+            title: 'Lunavis Visitor Management System',
+            categoryLabel: 'Fullstack & Security',
+            description: 'High-security full-stack enterprise visitor management platform integrating custom HID hardware with Avigilon ACM and Suprema controllers. Implemented real-time WebSocket-based OCR for ID scanning to automate badge provisioning and replace manual check-in.',
+          },
+          'lunavis-employee': {
+            title: 'Lunavis Employee Access & Management',
+            categoryLabel: 'Fullstack & Access Control',
+            description: 'Centralized building security system handling end-to-end employee card lifecycle, credential provisioning, access-level restrictions, and multi-barrier hardware synchronization.',
+          },
+          'masukaja': {
+            title: 'MasukAja Smart Attendance',
+            categoryLabel: 'Backend & API',
+            description: 'Smart attendance platform featuring automated daily logging, holiday calendar date-range calculation, and facial recognition biometric hardware APIs supporting web and mobile apps.',
+          },
+          'easyin': {
+            title: 'EasyIn EV Charger Management',
+            categoryLabel: 'EV Telematics & Backend',
+            description: 'Core infrastructure backend and OCPP 1.6 server for real-time remote monitoring, diagnostic reporting, and transaction management of commercial electric vehicle chargers.',
+          },
+          'easyin-pama': {
+            title: 'EasyIn PAMA (Pamapersada)',
+            categoryLabel: 'Fullstack & Industrial IoT',
+            description: 'Delivered customized EV charging operational dashboard and backend telemetry platform specifically engineered for PT Pamapersada Nusantara heavy-industry sites.',
+          },
+          'limarempah': {
+            title: 'LimaRempah Catering Logistics',
+            categoryLabel: 'Logistics & Backend',
+            description: 'Catering ordering platform integrated with an automated route distance calculation API for optimized delivery logistics and dynamic pricing.',
+          },
+          'nagopos': {
+            title: 'NAGOPOS Point of Sale',
+            categoryLabel: 'Fintech & Backend',
+            description: 'Comprehensive retail POS backend system featuring inventory management, transactional consistency, and seamless instant payment processing via Xendit Payment Gateway.',
+          },
+          'web-inventori': {
+            title: 'Inventory System POLINDRA',
+            categoryLabel: 'Fullstack Development',
+            description: 'Institutional asset tracking and equipment inventory management software engineered for Politeknik Negeri Indramayu.',
+          },
+          'mobile-inventori': {
+            title: 'Mobile Barcode Inventory System',
+            categoryLabel: 'Mobile Development',
+            description: 'Companion mobile app for swift warehouse barcode scanning, physical asset reconciliation, and real-time inventory updates.',
+          },
+          'web-empus': {
+            title: 'Psychiatric Assessment System',
+            categoryLabel: 'Healthcare & Fullstack',
+            description: 'Healthcare information system designed for clinical psychiatric patient screening and assessment workflows at Puskesmas Kertasemaya Indramayu.',
+          },
+          'web-soka-indah': {
+            title: "Children's Learning Outcomes System",
+            categoryLabel: 'Education & Mobile',
+            description: 'Academic progress and developmental milestones reporting platform built for early childhood education (TK Garuda & PAUD Soka Indah).',
+          },
+          'web-apotek': {
+            title: 'Pharmacy Information System',
+            categoryLabel: 'Fullstack & POS',
+            description: 'Medication inventory control, batch expiration management, and point-of-sale software engineered for Apotek Falah dispensary.',
+          },
+        },
       },
       contact: {
         collab_badge: 'START A CONVERSATION',
@@ -226,8 +434,8 @@ export const resources = {
         roles: [
           'フルスタックエンジニア',
           'バックエンドスペシャリスト',
-          'EV・IoTテレマティクス技術者',
-          'API・DBアーキテクト',
+          'IoT・ハードウェア連携',
+          'システム＆APIアーキテクト',
         ],
         explore_projects: '制作実績を見る',
         download_cv: '履歴書をダウンロード',
@@ -235,20 +443,20 @@ export const resources = {
       },
       about: {
         badge: '自己紹介',
-        title: '目的を持ったエンジニアリング',
+        title: 'FULLSTACK DEVELOPER',
         subtitle: 'ハードウェア機器、高負荷バックエンド、そしてモダンなフロントエンド体験をシームレスに統合します。',
         photo_label: 'フルスタック開発者',
         location: 'インドネシア',
-        bio_heading: '拡張性の高いバックエンド、堅牢な統合、実用的なアーキテクチャ。',
-        bio_p1: 'こんにちは！私はマウラナと申します。フルスタック開発者として、バックエンド（Node.js、Spring Boot、.NET、Laravel）およびフロントエンド（Vue.js、React.js、Next.js）のスタックを横断し、3年以上にわたりエンタープライズグレードのシステム構築に携わってきました。現在は、.NETとMQTTを用いて、HID AeroおよびHID Vento向けのカスタムアクセス制御SDKを開発しています。また、EV充電ネットワーク向けのOCRやOCPP 1.6を含む、さらなるシステム統合の経験も豊富です。バックエンドロジックからクラウド展開に至るまで、VMS、勤怠管理、ケータリング配車プラットフォームをエンドツーエンドで本番環境に納入した実績があります。協調性を重んじ、信頼性を重視した問題解決者です。',
+        bio_heading: 'スケーラブルな基幹システム、ハードウェア統合、ハイブリッドインフラ運用。',
+        bio_p1: 'こんにちは！私はマウラナと申します。エンタープライズソフトウェアと物理ハードウェアをモダンな技術スタック（Vue.js、Next.js、Node.js、Spring Boot）でシームレスに統合する3年以上の実務経験を持つフルスタックエンジニアです。入退室・生体認証コントローラー（Aero、MQTT経由のVento、Amico）向けのカスタム.NET SDKや、EV充電用のOCPP 1.6サーバーを設計・開発。Apache KafkaやWebSocketsを活用したリアルタイム同期により、来客・社員管理、勤怠、物流、POS向けの大規模プラットフォームを提供。Dockerおよび自作のGo製エージェントを用いて、ハイブリッドインフラ（Cloud/ESXi）のリモートVMオーケストレーションを管理しています。',
         bio_p2: 'フロントエンドでは、Vue.js、Next.js、Reactを活用して、デザインを精密かつ快適なレスポンシブUIへ落とし込みます。GPS勤怠システムやオフィス入退室管理、全国規模のEV充電器遠隔監視システムなど幅広い本番運用経験があります。',
         download_btn: '履歴書(PDF)をダウンロード',
         contact_btn: 'お問い合わせ',
         highlights: [
-          'インドラマユ国立工科大学（POLINDRA） ソフトウェア工学応用学士課程 。',
-          'フルスタック開発の汎用性 — バックエンドはNode.js（Express）、Golang（Fiber）、Java（Spring Boot）、.NET、PHP（Laravel）を網羅。フロントエンドはVue.js、Next.js、React.js、Bootstrap、Tailwindに対応。',
-          'MQTT統合、OCPP 1.6 EV充電器プロトコル、GPS追跡、およびハードウェアSDK開発（HID Aero/Vento）を備えたIoTおよびテレマティクスシステム。',
-          'DevOpsおよびデプロイ — Docker、Nginx、PM2、GitLab CI/CD、および本番環境向けのSSL/HTTPS設定。'
+          'インドラマユ国立工科大学（POLINDRA）ソフトウェア工学 応用学士課程（GPA 3.45 / 4.00）。',
+          'フルスタック開発力 — バックエンド（Node.js、Golang、Spring Boot、.NET）、フロントエンド（Vue.js、Next.js、React.js）。',
+          'ハードウェア & IoT 連携 — カスタム.NET SDK（HID Aero、MQTT連携Vento、Amico）、EV充電OCPP 1.6サーバー、Apache Kafkaによるエッジ同期。',
+          'ハイブリッドDevOps & インフラ — Ubuntu/Debian、Docker、Nginx、PM2、およびESXi VM遠隔管理用の自作Goエージェント。'
         ],
         stats: {
           experience_label: '実務経験',
@@ -267,6 +475,43 @@ export const resources = {
         subtitle: '本番環境での開発実績、クライアント案件の成果、および学術的マイルストーン。',
         tab_work: '職務経歴',
         tab_edu: '学歴・資格',
+        items: {
+          starlink: {
+            role: 'ソフトウェア開発・エンジニアリング',
+            company: 'PT. Starlink Teknologi Integrasi - 北ジャカルタ、インドネシア',
+            period: '2023年11月 - 現在',
+            highlights: [
+              '来客・入退室管理（Lunavis）: カスタムHIDハードウェア、AvigilonおよびSupremaコントローラーを統合したフルスタック（Next.js）来客管理システムを構築。WebSocketベースのOCRによる身分証読み取りを実装し、入館時の手動入力を廃止してアクセス権限付与を自動化。',
+              'カスタムハードウェアSDK開発: HID機器（Aero、Vento、Amico）向けの.NET SDKを、26/37/48ビットカード形式を含む生プロトコルのデコードにより開発し、MQTT経由でVentoを連携。オフライン時でも確実に配信されるよう、Apache Kafkaを用いて複数エッジ機器間で顔認証データを同期。',
+              'ハードウェア・ソフトウェア統合: ACM/NVRシステムのREST APIをマッピングし、仕様書のないハードウェア挙動をリバースエンジニアリングして解析。入退室管理アプリケーションにおけるマルチベンダー対応を実現。',
+              'EV充電バックエンド: EV充電器のリアルタイム監視・制御を行うコアバックエンドおよびOCPP 1.6サーバー（Node.js、Spring Boot、MongoDB）を構築。',
+              'ビジネスアプリケーション開発: MasukAja（自動日次打刻・休日カレンダー付き勤怠API）、LimaRempah（ルート計算付きケータリング物流）、NagoPOS（Xendit決済連携POS）のバックエンドを開発。',
+              'インフラストラクチャ & デプロイ: Ubuntu/Debian環境でDocker、Nginx、PM2を用いてサービスを展開。オンプレミスESXi VMを遠隔管理（ネットワーク設定、再起動/シャットダウン、Dockerイメージ自動更新）するためのGoエージェントおよび「Appliance Settings」UIを開発し、現地作業を削減。'
+            ],
+          },
+          elisoft: {
+            role: 'Web開発インターン',
+            company: 'CV. Elisoft Technology - 東ジャカルタ、インドネシア',
+            period: '2022年7月 - 2022年12月',
+            highlights: [
+              'フルスタック開発 & QA: フロントエンドおよびバックエンド機能の開発、API統合、アプリケーションの安定性を確保するための機能テスト・デバッグを担当。',
+              'データベース設計: データの完全性とパフォーマンスを維持するため、リレーショナルデータベース（ERD・正規化）の設計と最適化を実施。',
+              'サーバーデプロイ: サーバー環境（Webサーバー、DB）の構築を行い、Ubuntu VPS上の本番環境へアプリケーションを展開。'
+            ],
+          },
+          polindra: {
+            role: 'ソフトウェア工学 応用学士',
+            company: 'インドラマユ国立工科大学（POLINDRA） - 西ジャワ州インドラマユ',
+            period: '2019年8月 - 2023年10月',
+            highlights: [
+              '受賞歴: 全国高専情報コンペティション（KMIPN）E-Government部門 全国ファイナリスト。',
+              '奨学金: ビディクミシ奨学金受給（4年間GPA 3.0以上を維持）。',
+              '資格: MikroTik MTCNA、BNSPネットワーク管理、Cisco IT Essentials。',
+              '課外活動: 外国語フォーラム（FOLAFO）日本語部門代表 — N5教材の作成、セミナー主催、メンバー指導を実施。',
+              '学術プロジェクト: 大学備品管理システム、保健所向け精神評価スクリーニングシステム、カフェPOSレジシステムを開発。'
+            ],
+          },
+        },
       },
       skills: {
         badge: 'スキルセット',
@@ -289,6 +534,73 @@ export const resources = {
         tech_stack_label: '採用技術 & 連携スタック:',
         close_btn: '閉じる',
         inquire_btn: 'このプロジェクトについて相談する',
+        items: {
+          'hid-sdks': {
+            title: 'カスタムHIDハードウェアSDK',
+            categoryLabel: 'ハードウェア＆バックエンドSDK',
+            description: 'HIDコントローラー（Aero、Vento、Amico）向けのカスタム.NET SDKを、生通信プロトコルと26/37/48ビットカード形式のビットレベルデコードにより開発。MQTT経由でVentoを連携し、Apache Kafkaを活用してエッジ機器間での顔認証リアルタイム同期を確実に配信。',
+          },
+          'lunavis-vms': {
+            title: 'Lunavis 来客管理システム',
+            categoryLabel: 'フルスタック＆セキュリティ',
+            description: 'カスタムHID機器、Avigilon ACM、Supremaコントローラーを統合した高セキュリティ来客管理システム（Next.js）。WebSocketベースのOCRによるリアルタイム身分証スキャンを実装し、入館証発行の自動化と受付業務の効率化を実現。',
+          },
+          'lunavis-employee': {
+            title: 'Lunavis 社員入退室・カード管理',
+            categoryLabel: 'フルスタック＆入退室管理',
+            description: '社員証のライフサイクル管理、権限に応じた入退室制限、複数ゲート機器（HID Amico・Aero）間の同期を担う統合ビルセキュリティ基盤。',
+          },
+          'masukaja': {
+            title: 'MasukAja スマート勤怠管理',
+            categoryLabel: 'バックエンド＆API',
+            description: '日次自動打刻、休日カレンダー期間計算、顔認証バイオメトリクス機器APIを備え、Webとモバイル双方を支えるスマート勤怠管理基盤。',
+          },
+          'easyin': {
+            title: 'EasyIn EV充電器遠隔管理',
+            categoryLabel: 'EVテレマティクス＆バックエンド',
+            description: '商用EV充電器のリアルタイム遠隔監視、稼働診断レポート、充電トランザクション管理を行うOCPP 1.6対応コアバックエンドサーバー。',
+          },
+          'easyin-pama': {
+            title: 'EasyIn PAMA（Pamapersada向けEV管理）',
+            categoryLabel: 'フルスタック＆産業IoT',
+            description: 'PT Pamapersada Nusantaraの重工業現場向けに特化して設計された、EV充電ダッシュボードおよびバックエンド遠隔テレメトリシステム。',
+          },
+          'limarempah': {
+            title: 'LimaRempah ケータリング物流',
+            categoryLabel: '物流＆バックエンド',
+            description: '配送物流の最適化と動的料金計算のため、自動ルート距離計算APIを統合したケータリング注文プラットフォーム。',
+          },
+          'nagopos': {
+            title: 'NAGOPOS 小売POSシステム',
+            categoryLabel: 'フィンテック＆バックエンド',
+            description: '在庫管理、トランザクション整合性、およびXendit決済ゲートウェイとの即時決済連携を備えた小売向けPOSバックエンド。',
+          },
+          'web-inventori': {
+            title: 'POLINDRA 大学備品管理システム',
+            categoryLabel: 'フルスタック開発',
+            description: 'インドラマユ国立工科大学向けに開発された、Webベースの学内設備資産追跡および備品管理ソフトウェア。',
+          },
+          'mobile-inventori': {
+            title: 'モバイル バーコード在庫管理',
+            categoryLabel: 'モバイルアプリ開発',
+            description: '倉庫内での迅速なバーコードスキャン、現物資産の照合、およびリアルタイム在庫更新を行うモバイルアプリ。',
+          },
+          'web-empus': {
+            title: '精神医療評価スクリーニングシステム',
+            categoryLabel: '医療情報＆フルスタック',
+            description: 'インドラマユのクルタセマヤ保健所における精神科患者の臨床スクリーニングおよび評価ワークフロー向け医療情報システム。',
+          },
+          'web-soka-indah': {
+            title: '幼児発達記録・学習成果システム',
+            categoryLabel: '教育＆モバイル',
+            description: '幼児教育（TK Garuda & PAUD Soka Indah）向けに構築された、子どもの成長記録および学習進捗レポーティング基盤。',
+          },
+          'web-apotek': {
+            title: '調剤薬局管理システム',
+            categoryLabel: 'フルスタック＆POS',
+            description: 'ファラー薬局向けに構築された、医薬品の在庫管理、有効期限バッチ追跡、およびPOS販売管理ソフトウェア。',
+          },
+        },
       },
       contact: {
         collab_badge: '協業のご案内',
